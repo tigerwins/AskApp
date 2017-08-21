@@ -12,20 +12,20 @@
 
 **Header**
  - Search
-  * SearchResults
+      + SearchResults
  - ProfileOptions
  - AskModal
 
 **HomeContainer**
  - AskBox
-  * AskModal
+      + AskModal
  - QuestionIndexContainer
  - FeedSidebar
 
 **QuestionIndexContainer**
  - QuestionIndex
-  + Question
-    + AnswerContainer
+      + Question
+          + AnswerContainer
 
 **QuestionDetailContainer**
  - Question
