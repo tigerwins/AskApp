@@ -14,11 +14,10 @@
  - Search
       + SearchResults
  - ProfileOptions
- - AskModal
 
 **HomeContainer**
- - AskBox
-      + AskModal
+ - QuestionPrompt
+      + AskBox
  - QuestionIndexContainer
  - FeedSidebar
 
@@ -28,7 +27,7 @@
           + AnswerContainer
 
 **QuestionDetailContainer**
- - Question
+ - QuestionDetail
  - AnswerIndexContainer
  - RelatedQuestions
 
@@ -38,7 +37,6 @@
 
 **Search**
 **AskBox**
-**AskModal**
 
 
 ## Routes
