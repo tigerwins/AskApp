@@ -1,8 +1,11 @@
 # Ask()
 
-[Heroku link (currently links to heroku home)][http://www.herokuapp.com]
+[Heroku link (currently links to heroku home)][heroku]
 
-[Trello link][https://trello.com/b/RG2ciD6k/ask]
+[Trello link][trello]
+
+[heroku]: http://www.herokuapp.com
+[trello]: https://trello.com/b/RG2ciD6k/ask
 
 Ask() is a full-stack web application based off of Quora that allows users to ask and answer questions. Its stack consists of Ruby on Rails (backend), PostgreSQL (database), and React.js and Redux (frontend). By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data, and sufficient CSS styling:
 
@@ -17,10 +20,16 @@ Ask() is a full-stack web application based off of Quora that allows users to as
 
 ## Design Docs
 * [View Wireframes][wireframes]
-* [React Components][components-hierarchy.md]
-* [API endpoints][api-endpoints.md]
-* [DB schema][schema.md]
-* [Sample State][sample-state.md]
+* [React Components][components]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
+* [Sample State][sample-state]
+
+[wireframes]: docs/wireframes
+[components]: docs/component-hierarchy.md
+[sample-state]: docs/sample-state.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
 
 ## Implementation Timeline
 
