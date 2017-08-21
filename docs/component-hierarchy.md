@@ -24,8 +24,8 @@
 
 **QuestionIndexContainer**
  - QuestionIndex
-  * Question
-   * AnswerContainer
+  + Question
+    + AnswerContainer
 
 **QuestionDetailContainer**
  - Question
