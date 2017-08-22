@@ -26,10 +26,10 @@ Ask() is a full-stack web application based off of Quora that allows users to as
 * [Sample State][sample-state]
 
 [wireframes]: /docs/wireframes
-[components]: /component-hierarchy.md
-[sample-state]: /sample-state.md
-[api-endpoints]: /api-endpoints.md
-[schema]: /schema.md
+[components]: component-hierarchy.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
 
 ## Implementation Timeline
 
