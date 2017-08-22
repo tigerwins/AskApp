@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
 
     if user
       login(user)
-      render json: "static_pages/root" # or "api/users/show"?
+      render json: "/api/users/show"
     else
       render json: ["Invalid credentials"], status: 401
     end
