@@ -1,19 +1,15 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import LoginFormContainer from './login_form_container';
-import SignupFormContainer from './signup_form_container';
+import EntryPage from './entry_page';
+import HomeContainer from '../questions/home_container';
 
 const FrontPage = ({ currentUser }) => {
-  if (currentUser) {
-    return (
-      <Redirect to="/" />
-      );
-    }
-
   return (
-    <div className="signup-login">
-      <Route exact path="/" component={LoginFormContainer} />
-      <Route exact path="/" component={SignupFormContainer} />
+    <div>
+      { currentUser ? (
+        <HomeContainer />
+      ) : (
+        <EntryPage />
+      )}
     </div>
   );
 };

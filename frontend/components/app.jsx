@@ -1,20 +1,19 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Header from './header';
-import FrontPage from './session/front_page';
-import QuestionFeed from './questions/question_feed';
+import HeaderContainer from './header_container';
+import FrontPageContainer from './session/front_page_container';
 
 const App = () => {
   return (
-    <div>
-      // will want a switcher for the routes, including with nav
-      // or conditionally render only the front page
-      <Header /> // need a header container
-
+    <div className="ask-app">
+      <ProtectedRoute path="/" component={HeaderContainer} />
       <Switch>
-        <AuthRoute path="/" component={QuestionFeed} />
-        <AuthRoute path="/" component={FrontPage} />
+        <ProtectedRoute path="/questions" />
+        <ProtectedRoute path="/questions/:id" />
+        <ProtectedRoute path="/answer" />
+        <ProtectedRoute path="/topics/:id" />
+        <Route exact path="/" component={FrontPageContainer} />
       </Switch>
 
     </div>

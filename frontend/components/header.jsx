@@ -1,5 +1,4 @@
 import React from 'react';
-import { logout } from '../actions/session_actions';
 
 class Header extends React.Component {
   constructor(props) {
@@ -8,15 +7,18 @@ class Header extends React.Component {
   }
 
   handleLogout(e) {
-
+    this.props.logout();
   }
 
+
+  // render will include logo, read/answer/notification tabs,
+  // search bar, profile icon, and ask question button
   render() {
 
     return (
       <nav>
         <h1>Ask()</h1>
-        <button onClick="">Logout</button>
+        <button onClick={this.handleLogout}>Logout</button>
       </nav>
     );
   }
