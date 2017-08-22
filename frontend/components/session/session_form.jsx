@@ -63,6 +63,12 @@ class SessionForm extends React.Component {
     if (formType === "signup" && !this.state.showSignup) {
       return (
         <div className="signup-container">
+          <span className="google-button-text">
+            Continue with Google
+          </span>
+          <span className="facebook-button-text">
+            Continue with Facebook
+          </span>
           <Link to="/" onClick={this.toggleShowSignup}>
             Continue With Email
           </Link>
