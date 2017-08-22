@@ -5,11 +5,17 @@ import SignupFormContainer from './signup_form_container';
 
 const EntryPage = () => {
   return (
-    <div className="signup-login">
-      <h1>Ask()</h1>
-      <h3>Knowledge: Ask and ye shall receive</h3>
-      <Route exact path="/" component={LoginFormContainer} />
-      <Route exact path="/" component={SignupFormContainer} />
+    <div className="entry-forms-box">
+      <span className="logo entry-page">Ask()</span>
+      <span className="tagline">Knowledge: Ask and ye shall receive</span>
+      <div className="entry-forms-inner-box">
+        <div className="signup entry-form">
+          <SignupFormContainer />
+        </div>
+        <div className="login entry-form">
+          <LoginFormContainer />
+        </div>
+      </div>
     </div>
   );
 };

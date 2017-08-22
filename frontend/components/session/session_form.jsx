@@ -66,9 +66,11 @@ class SessionForm extends React.Component {
           <span className="google-button-text">
             Continue with Google
           </span>
+          <br/>
           <span className="facebook-button-text">
             Continue with Facebook
           </span>
+          <br/>
           <Link to="/" onClick={this.toggleShowSignup}>
             Continue With Email
           </Link>
@@ -89,7 +91,7 @@ class SessionForm extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit} className={formType + "-form-box"}>
-        <h4>{formText}</h4>
+        <h4 className="form-title">{formText}</h4>
 
         {this.renderSignupUnique()}
 

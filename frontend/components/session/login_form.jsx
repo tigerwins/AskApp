@@ -5,17 +5,11 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn) {
-  //     this.props.history.push('/');
-  //   }
-  // }
 
   handleChange(field) {
     return (e) => this.setState({
@@ -30,36 +24,51 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    const { errors, formType } = this.props;
+    let entryErrors;
+
+    if (formType === "login" && errors.errorType === "login") {
+      entryErrors = errors.errorList;
+    } else {
+      entryErrors = [];
+    }
+
+    const errorList = entryErrors.map((error, i) => (
+      <li key={`error-${i}`}>
+        {error}
+      </li>
+    ));
+
     return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
+      <ul className="error-list">
+        {errorList}
       </ul>
     );
   }
 
   render() {
+    const { formType } = this.props;
+
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h4>Login</h4>
+        <form onSubmit={this.handleSubmit} className={formType + "-form-box"}>
+          <h4 className="form-title login-title">Login</h4>
 
-          <label>Email
+          <label>
             <input type="text"
               value={this.state.email}
+              placeholder="Email"
               onChange={this.handleChange("email")}
-              className="email-input"
+              className="login-email"
               />
           </label>
 
-          <label>Password
+          <label>
             <input type="password"
               value={this.state.password}
+              placeholder="Password"
               onChange={this.handleChange("password")}
-              className="password-input"
+              className="login-password"
               />
           </label>
 
