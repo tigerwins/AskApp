@@ -56,8 +56,11 @@
     }    
   },
   ui: {
-    errors: [],
     loading: { indexLoading: false, detailLoading: false }
+  },
+  errors: {
+    errorType: "login",
+    errorList: ["Invalid credentials"]
   }
 }
 ```
