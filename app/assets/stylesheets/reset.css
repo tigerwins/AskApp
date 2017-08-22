@@ -1,0 +1,11 @@
+body, main, h1, h2, h3, h4, span, div, form, label, ul, li {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  font-family: sans-serif;
+  background: transparent;
+}
