@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -12,13 +13,8 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleShowSignup = this.toggleShowSignup.bind(this);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn) {
-  //     this.props.history.push('/');
-  //   }
-  // }
 
   handleChange(field) {
     return (e) => this.setState({
@@ -32,13 +28,17 @@ class SessionForm extends React.Component {
     this.props.processForm({user});
   }
 
+  toggleShowSignup(e) {
+    this.setState({ showSignup: !this.state.showSignup });
+  }
+
   renderErrors() {
     const { errors, formType } = this.props;
     let entryErrors;
 
-    if (formType === 'signup' && errors.errorType === 'signup') {
+    if (formType === "signup" && errors.errorType === "signup") {
       entryErrors = errors.errorList;
-    } else if (formType === 'login' && errors.errorType === 'login') {
+    } else if (formType === "login" && errors.errorType === "login") {
       entryErrors = errors.errorList;
     } else {
       entryErrors = [];
@@ -57,55 +57,95 @@ class SessionForm extends React.Component {
     );
   }
 
-  render() {
+  renderFormContainer() {
+    const { formType } = this.props;
+
+    if (formType === "signup" && !this.state.showSignup) {
+      return (
+        <div className="signup-container">
+          <Link to="/" onClick={this.toggleShowSignup}>Continue With Email</Link>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          {this.renderLoginForm()}
+        </div>
+      );
+    }
+  }
+
+  renderLoginForm() {
     const { formType } = this.props;
     const formText = formType === "login" ? "Login" : "Sign Up";
 
     return (
-      <div className={formType + "-form-container"}>
-        <form onSubmit={this.handleSubmit} className={formType + "-form-box"}>
-          <h4>{formText}</h4>
+      <form onSubmit={this.handleSubmit} className={formType + "-form-box"}>
+        <h4>{formText}</h4>
 
-          {formType === "signup" &&
-            <div className="signup-names-input">
-              <label>First Name
-                <input type="text"
-                  value={this.state.fname}
-                  onChange={this.handleChange("fname")}
-                  className="fname-input"
-                  />
-              </label>
+        {this.renderSignupUnique()}
 
-              <label>Last Name
-                <input type="text"
-                  value={this.state.lname}
-                  onChange={this.handleChange("lname")}
-                  className="lname-input"
-                  />
-              </label>
-            </div>
-          }
+        <label>Email
+          <input type="text"
+            value={this.state.email}
+            onChange={this.handleChange("email")}
+            className="email-input"
+            />
+        </label>
 
-          <label>Email
+        <label>Password
+          <input type="password"
+            value={this.state.password}
+            onChange={this.handleChange("password")}
+            className="password-input"
+            />
+        </label>
+
+        { formType === "signup" &&
+          <Link to="/" onClick={this.toggleShowSignup}>Cancel</Link>
+        }
+
+        <input type="submit" value={formText} />
+
+        {this.renderErrors()}
+      </form>
+    );
+
+  }
+
+  renderSignupUnique() {
+    const { formType } = this.props;
+
+    if (formType === "signup") {
+      return (
+        <div className="signup-names-input">
+          <label>First Name
             <input type="text"
-              value={this.state.email}
-              onChange={this.handleChange("email")}
-              className="email-input"
+              value={this.state.fname}
+              onChange={this.handleChange("fname")}
+              className="fname-input"
               />
           </label>
 
-          <label>Password
-            <input type="password"
-              value={this.state.password}
-              onChange={this.handleChange("password")}
-              className="password-input"
+          <label>Last Name
+            <input type="text"
+              value={this.state.lname}
+              onChange={this.handleChange("lname")}
+              className="lname-input"
               />
           </label>
+        </div>
+      );
+    }
+  }
 
-          <input type="submit" value={formText} />
+  render() {
+    const { formType } = this.props;
+    // const formText = formType === "login" ? "Login" : "Sign Up";
 
-          {this.renderErrors()}
-        </form>
+    return (
+      <div className={formType + "-form-container"}>
+        {this.renderFormContainer()}
       </div>
     );
   }
