@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className={formType + "-form-box"}>
           <h4>{formText}</h4>
 
-        {formType === "signup" &&
+          {formType === "signup" &&
             <div className="signup-names-input">
               <label>First Name
                 <input type="text"
@@ -89,6 +89,8 @@ class SessionForm extends React.Component {
           </label>
 
           <input type="submit" value={formText} />
+
+          {this.renderErrors()}
         </form>
       </div>
     );
