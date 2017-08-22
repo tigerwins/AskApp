@@ -7,7 +7,8 @@ class SessionForm extends React.Component {
       fname: "",
       lname: "",
       email: "",
-      password: ""
+      password: "",
+      showSignup: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,16 +33,25 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    const errorList = this.props.errors.map((error, i) => (
+    const { errors, formType } = this.props;
+    let entryErrors;
+
+    if (formType === 'signup' && errors.errorType === 'signup') {
+      entryErrors = errors.errorList;
+    } else if (formType === 'login' && errors.errorType === 'login') {
+      entryErrors = errors.errorList;
+    } else {
+      entryErrors = [];
+    }
+
+    const errorList = entryErrors.map((error, i) => (
       <li key={`error-${i}`}>
         {error}
       </li>
     ));
 
-    
-
     return (
-      <ul>
+      <ul className="error-list">
         {errorList}
       </ul>
     );

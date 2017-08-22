@@ -10,24 +10,33 @@ export const receiveCurrentUser = (currentUser) => {
   };
 };
 
-export const receiveErrors = (errors) => {
+export const receiveErrors = ({ errorType, errorList }) => {
   return {
     type: RECEIVE_ERRORS,
-    errors,
+    errors: {
+      errorType,
+      errorList,
+    },
   };
 };
 
 export const signup = user => dispatch => {
   return SessionApiUtil.signup(user).then(
     newUser => dispatch(receiveCurrentUser(newUser)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    errors => dispatch(receiveErrors({
+      errorType: "signup",
+      errorList: errors.responseJSON
+    }))
   );
 };
 
 export const login = user => dispatch => {
   return SessionApiUtil.login(user).then(
     currentUser => dispatch(receiveCurrentUser(currentUser)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    errors => dispatch(receiveErrors({
+      errorType: "login",
+      errorList: errors.responseJSON
+    }))
   );
 };
 

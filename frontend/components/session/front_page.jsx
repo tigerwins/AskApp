@@ -1,11 +1,17 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import LoginFormContainer from './login_form_container';
 import SignupFormContainer from './signup_form_container';
 
-const FrontPage = () => {
+const FrontPage = ({ currentUser }) => {
+  if (currentUser) {
+    return (
+      <Redirect to="/" />
+      );
+    }
+
   return (
-    <div className="front-page">
+    <div className="signup-login">
       <Route exact path="/" component={LoginFormContainer} />
       <Route exact path="/" component={SignupFormContainer} />
     </div>
