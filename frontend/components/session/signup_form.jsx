@@ -49,7 +49,7 @@ class SignupForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <h4>Sign Up</h4>
 
-        <label>First Name
+          <label>First Name
             <input type="text"
               value={this.state.fname}
               onChange={this.handleChange("fname")}
@@ -82,6 +82,8 @@ class SignupForm extends React.Component {
           </label>
 
           <input type="submit" value="Sign Up" />
+
+          {this.renderErrors()}
         </form>
       </div>
     );

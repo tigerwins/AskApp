@@ -6,14 +6,14 @@ import { signup } from '../../actions/session_actions';
 const mapStateToProps = ({ session }) => {
   return {
     loggedIn: Boolean(session.currentUser),
-    errors: session.errors
+    errors: session.errors,
+    formType: "signup",
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     processForm: (user) => dispatch(signup(user)),
-    formType: "signup",
   };
 };
 
