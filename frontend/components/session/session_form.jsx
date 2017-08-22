@@ -1,9 +1,11 @@
 import React from 'react';
 
-class LoginForm extends React.Component {
+class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      fname: "",
+      lname: "",
       email: "",
       password: ""
     };
@@ -42,10 +44,33 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    const { formType } = this.props;
+    const formText = formType === "login" ? "Login" : "Sign Up";
+
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h4>Login</h4>
+      <div className={formType + "-form-container"}>
+        <form onSubmit={this.handleSubmit} className={formType + "-form-box"}>
+          <h4>{formText}</h4>
+
+        {formType === "signup" &&
+            <div className="signup-names-input">
+              <label>First Name
+                <input type="text"
+                  value={this.state.fname}
+                  onChange={this.handleChange("fname")}
+                  className="fname-input"
+                  />
+              </label>
+
+              <label>Last Name
+                <input type="text"
+                  value={this.state.lname}
+                  onChange={this.handleChange("lname")}
+                  className="lname-input"
+                  />
+              </label>
+            </div>
+          }
 
           <label>Email
             <input type="text"
@@ -63,11 +88,11 @@ class LoginForm extends React.Component {
               />
           </label>
 
-          <input type="submit" value="Login" />
+          <input type="submit" value={formText} />
         </form>
       </div>
     );
   }
 }
 
-export default LoginForm;
+export default SessionForm;
