@@ -63,7 +63,9 @@ class SessionForm extends React.Component {
     if (formType === "signup" && !this.state.showSignup) {
       return (
         <div className="signup-container">
-          <Link to="/" onClick={this.toggleShowSignup}>Continue With Email</Link>
+          <Link to="/" onClick={this.toggleShowSignup}>
+            Continue With Email
+          </Link>
         </div>
       );
     } else {
@@ -102,7 +104,9 @@ class SessionForm extends React.Component {
         </label>
 
         { formType === "signup" &&
-          <Link to="/" onClick={this.toggleShowSignup}>Cancel</Link>
+          <Link to="/" onClick={this.toggleShowSignup}>
+            Cancel
+          </Link>
         }
 
         <input type="submit" value={formText} />
@@ -110,13 +114,10 @@ class SessionForm extends React.Component {
         {this.renderErrors()}
       </form>
     );
-
   }
 
   renderSignupUnique() {
-    const { formType } = this.props;
-
-    if (formType === "signup") {
+    if (this.props.formType === "signup") {
       return (
         <div className="signup-names-input">
           <label>First Name
@@ -140,11 +141,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const { formType } = this.props;
-    // const formText = formType === "login" ? "Login" : "Sign Up";
-
     return (
-      <div className={formType + "-form-container"}>
+      <div className={this.props.formType + "-form-container"}>
         {this.renderFormContainer()}
       </div>
     );
