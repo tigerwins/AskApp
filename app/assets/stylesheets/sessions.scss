@@ -77,7 +77,7 @@ label {
   margin: 0;
 }
 
-.signup {
+.signup.entry-form {
   width: 261px;
   padding-right: 32px;
 }
@@ -98,6 +98,11 @@ label {
 }
 
 .signup-form-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-box {
   display: flex;
   flex-direction: column;
 }
@@ -142,9 +147,8 @@ label {
   border: 1px solid #999;
 }
 
-.login {
+.login.entry-form {
   width: 261px;
-  height: 152px;
   padding-left: 32px;
 }
 
