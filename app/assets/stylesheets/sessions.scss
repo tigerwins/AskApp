@@ -40,7 +40,6 @@ label {
   font-family: 'Libre Baskerville', serif;
   color: #b92b27;
   font-weight: bold;
-  display: block;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -50,6 +49,7 @@ label {
 }
 
 h1.logo {
+  display: block;
   font-size: 60px;
   height: 82px;
   margin: 0 auto;
@@ -376,7 +376,7 @@ nav.entry-footer {
   justify-content: center;
   text-align: center;
   width: 618px;
-  height: 36px;
+  // height: 36px;
 }
 
 .personal-info > li {
@@ -391,6 +391,12 @@ nav.entry-footer {
   opacity: .5;
   transition: .2s;
   cursor: pointer;
+}
+
+li.show.email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .personal-info > li.email > *:hover {
