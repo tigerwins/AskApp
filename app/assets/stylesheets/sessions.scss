@@ -40,9 +40,6 @@ label {
   font-family: 'Libre Baskerville', serif;
   color: #b92b27;
   font-weight: bold;
-  font-size: 60px;
-  height: 82px;
-  margin: 0 auto;
   display: block;
 
   -webkit-touch-callout: none;
@@ -52,8 +49,14 @@ label {
   user-select: none;
 }
 
+h1.logo {
+  font-size: 60px;
+  height: 82px;
+  margin: 0 auto;
+}
+
 .logo-space {
-  font-size: 20px;
+  font-size: 10px;
 }
 
 .tagline {

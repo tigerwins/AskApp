@@ -39,7 +39,7 @@ class EntryPage extends React.Component {
   render() {
     return (
       <div className="entry-forms-box">
-        <span className="logo entry-page">Ask(<span className="logo-space"> </span>)</span>
+        <h1 className="logo entry-page">Ask(<span className="logo-space"> </span>)</h1>
         <span className="tagline">We might just have the answers you're looking for</span>
         <div className="entry-forms-outer-box">
           <div className="entry-forms-inner-box">

@@ -1,0 +1,21 @@
+.outer-header {
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 52px;
+
+}
+
+nav > h2.logo {
+  width: 80px;
+  min-height: 50px;
+  font-size: 30px;
+  text-align: center;
+  // align-self: center;
+  vertical-align: middle;
+}
