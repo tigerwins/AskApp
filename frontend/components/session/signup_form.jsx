@@ -9,11 +9,14 @@ class SignupForm extends React.Component {
       lname: "",
       email: "",
       password: "",
-      showSignup: false
     };
 
+    this.handleToggle = this.handleToggle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.toggleShowSignup = this.toggleShowSignup.bind(this);
+  }
+
+  componentWillReceiveProps({ email, password }) {
+    this.setState({ email, password });
   }
 
   handleChange(field) {
@@ -28,8 +31,10 @@ class SignupForm extends React.Component {
     this.props.processForm({user});
   }
 
-  toggleShowSignup(e) {
-    this.setState({ showSignup: !this.state.showSignup });
+  handleToggle(e) {
+    this.props.handleChange("email", this.state.email);
+    this.props.handleChange("password", this.state.password);
+    this.props.toggleSignup();
   }
 
   renderErrors() {
@@ -60,21 +65,27 @@ class SignupForm extends React.Component {
   renderFormContainer() {
     const { formType } = this.props;
 
-    if (formType === "signup" && !this.state.showSignup) {
+    if (formType === "signup" && !this.props.showSignup) {
       return (
         <div className="signup-container">
           <div className="other-login-btn google-btn">
-            <span className="other-icon google-icon"></span>
-            <span className="other-login-text google-text">Continue with Google</span>
+            <span className="google-icon other-icon">
+              <svg width="25" height="25">
+                <image width="25" height="25" xlinkHref={window.images.google_svg} />
+              </svg>
+            </span>
+            <span className="google-text other-login-text">Continue with Google</span>
           </div>
 
           <div className="other-login-btn facebook-btn">
-            <span className="other-icon facebook-icon"></span>
+            <span className="other-icon facebook-icon">
+              <img width="24" height="24" src={window.images.fb_logo} />
+            </span>
             <span className="other-login-text facebook-text">Continue with Facebook</span>
           </div>
 
           <span>
-            <span className="signup-link show-form" onClick={this.toggleShowSignup}>
+            <span className="signup-link show-form" onClick={this.props.toggleSignup}>
               Continue With Email
             </span>.
             Signing up typically indicates that you have read and agree to the <span className="tos-pp">Terms of Service</span> and <span className="tos-pp">Privacy Policy</span>, but let's not kid ourselves.
@@ -144,7 +155,7 @@ class SignupForm extends React.Component {
         </span>
 
         <div className="signup-form-btns">
-          <span className="signup-link cancel" onClick={this.toggleShowSignup}>
+          <span className="signup-link cancel" onClick={this.handleToggle}>
             Cancel
           </span>
 

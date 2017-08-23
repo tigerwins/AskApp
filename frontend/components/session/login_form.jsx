@@ -9,12 +9,14 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
+    this.openSignup = this.openSignup.bind(this);
   }
 
   handleChange(field) {
-    return (e) => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return (e) => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
   }
 
   handleSubmit(e) {
@@ -23,13 +25,20 @@ class LoginForm extends React.Component {
     this.props.processForm({user});
   }
 
+  openSignup(e) {
+    this.props.handleChange("email", this.state.email);
+    this.props.handleChange("password", this.state.password);
+    this.props.toggleSignup();
+  }
+
   demoLogin(e) {
     e.preventDefault();
-    const demoUser = {
-      email: "testuser@me.com",
-      password: "hiddenPassword"
-    };
-    // this.props.processForm()
+    const email = "demo_user@me.com";
+    const password = "hiddenPassword";
+    const demoUser = { email, password };
+
+    this.setState({ email, password });
+    this.props.processForm({ user: demoUser });
   }
 
   renderErrors() {
@@ -42,11 +51,25 @@ class LoginForm extends React.Component {
       entryErrors = [];
     }
 
-    const errorList = entryErrors.map((error, i) => (
-      <li className="entry-error" key={`error-${i}`}>
-        {error}
-      </li>
-    ));
+    const errorList = entryErrors.map((error, i) => {
+      let accountNotFound = false;
+
+      if (error === "No account found for this email. Retry, or") {
+        accountNotFound = true;
+        return (
+          <li className="entry-error" key={`error-${i}`}>
+            {error} <span className="signup-tag" onClick={this.openSignup}>Sign up for Ask.</span>
+          </li>
+        );
+      } else {
+        return (
+          <li className="entry-error" key={`error-${i}`}>
+            {error}
+          </li>
+        );
+      }
+
+    });
 
 
     if (errorList.length > 0) {

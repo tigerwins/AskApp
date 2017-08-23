@@ -10,7 +10,7 @@ const mapStateToProps = ({ session, errors }) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     processForm: (user) => dispatch(login(user)),
   };
