@@ -48,11 +48,13 @@ class SignupForm extends React.Component {
       </li>
     ));
 
-    return (
-      <ul className="error-list">
-        {errorList}
-      </ul>
-    );
+    if (errorList.length > 0) {
+      return (
+        <ul className="entry-errors">
+          {errorList}
+        </ul>
+      );
+    }
   }
 
   renderFormContainer() {
@@ -61,20 +63,21 @@ class SignupForm extends React.Component {
     if (formType === "signup" && !this.state.showSignup) {
       return (
         <div className="signup-container">
-          <span className="login-btn google-btn">
-            Continue with Google
-          </span>
+          <div className="other-login-btn google-btn">
+            <span className="other-icon google-icon"></span>
+            <span className="other-login-text google-text">Continue with Google</span>
+          </div>
 
-          <br/>
-          <span className="login-btn facebook-btn">
-            Continue with Facebook
-          </span>
-          <br/>
+          <div className="other-login-btn facebook-btn">
+            <span className="other-icon facebook-icon"></span>
+            <span className="other-login-text facebook-text">Continue with Facebook</span>
+          </div>
+
           <span>
-            <Link to="/" onClick={this.toggleShowSignup}>
+            <span className="signup-link show-form" onClick={this.toggleShowSignup}>
               Continue With Email
-            </Link>.
-            Signing up usually indicates that you have read and agree to the Terms of Service and Privacy Policy, but let's not kid ourselves.
+            </span>.
+            Signing up typically indicates that you have read and agree to the <span className="tos-pp">Terms of Service</span> and <span className="tos-pp">Privacy Policy</span>, but let's not kid ourselves.
           </span>
         </div>
       );
@@ -89,50 +92,68 @@ class SignupForm extends React.Component {
 
   renderSignupForm() {
     const { formType } = this.props;
+    const { fname, lname, email, password } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit} className="signup-form-box">
         <h4 className="form-title signup-title">Sign Up</h4>
 
         <div className="signup-names-input">
-          <label>First Name
+          <div className="form-row half left-half">
+            <label htmlFor="signup-fname">First Name</label>
             <input type="text"
+              id="signup-fname"
               value={this.state.fname}
               onChange={this.handleChange("fname")}
-              className="fname-input"
+              className="signup-input fname"
               />
-          </label>
+          </div>
 
-          <label>Last Name
+          <div className="form-row half right-half">
+            <label htmlFor="signup-lname">Last Name</label>
             <input type="text"
+              id="signup-lname"
               value={this.state.lname}
               onChange={this.handleChange("lname")}
-              className="lname-input"
+              className="signup-input lname"
               />
-          </label>
+          </div>
         </div>
 
-        <label>Email
+        <div className="form-row">
+          <label htmlFor="signup-email">Email</label>
           <input type="text"
+            id="signup-email"
             value={this.state.email}
             onChange={this.handleChange("email")}
-            className="email-input"
+            className="signup-input email"
             />
-        </label>
+        </div>
 
-        <label>Password
+        <div className="form-row">
+          <label htmlFor="signup-password">Password</label>
           <input type="password"
+            id="signup-password"
             value={this.state.password}
             onChange={this.handleChange("password")}
-            className="password-input"
+            className="signup-input password"
             />
-        </label>
+        </div>
+        <span>
+          By clicking "Sign Up" you indicate that you have read and agree to the <span className="tos-pp">Terms of Service</span> and <span className="tos-pp">Privacy Policy</span>.
+        </span>
 
-        <Link to="/" onClick={this.toggleShowSignup}>
-          Cancel
-        </Link>
+        <div className="signup-form-btns">
+          <span className="signup-link cancel" onClick={this.toggleShowSignup}>
+            Cancel
+          </span>
 
-        <input type="submit" value="Sign Up" />
+          <input
+            className="submit-btn signup-btn"
+            type="submit"
+            disabled={!(fname && lname && email && password)}
+            value="Sign Up" />
+        </div>
 
         {this.renderErrors()}
       </form>
