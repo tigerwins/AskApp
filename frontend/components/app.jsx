@@ -15,7 +15,6 @@ const App = () => {
         <ProtectedRoute path="/topics/:id" />
         <Route exact path="/" component={FrontPageContainer} />
       </Switch>
-
     </div>
   );
 };

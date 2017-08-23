@@ -68,9 +68,7 @@ class LoginForm extends React.Component {
           </li>
         );
       }
-
     });
-
 
     if (errorList.length > 0) {
       return (
