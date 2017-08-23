@@ -1,4 +1,4 @@
-body, main, h1, h2, h3, h4, span, div, form, label, ul, li {
+body, main, h1, h2, h3, h4, span, div, form, label, ul, li, a {
   margin: 0;
   border: 0;
   padding: 0;
@@ -8,4 +8,8 @@ body, main, h1, h2, h3, h4, span, div, form, label, ul, li {
   color: inherit;
   font-family: sans-serif;
   background: transparent;
+}
+
+a:hover {
+  text-decoration: underline;
 }

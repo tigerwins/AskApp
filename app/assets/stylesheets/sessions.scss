@@ -5,6 +5,7 @@
 body {
   font-size: 13px;
   line-height: 1.4;
+  background: rgba(0,0,0,0) image-url("topography.png") repeat scroll 0% 0%;
 }
 
 label {
@@ -43,6 +44,12 @@ label {
   height: 82px;
   margin: 0 auto;
   display: block;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .logo-space {
@@ -60,7 +67,6 @@ label {
 }
 
 .entry-forms-outer-box {
-  // display: block;
   padding: 32px;
   width: 586px;
   position: relative;
@@ -70,7 +76,6 @@ label {
   width: 586px;
   display: flex;
   position: relative;
-  // justify-content: center;
 }
 
 .entry-form {
@@ -288,42 +293,35 @@ div.other-login-btn {
 
 .google-btn {
   background-color: #df4930;
-  display: inline-block;
-  // white-space: nowrap;
 }
 
 span.other-icon {
   width: 24px;
   height: 24px;
-  background-color: white;
-  align-self: flex-start;
 }
 
-span.google-text::before {
+.google-text::before {
   width: 24px;
   height: 24px;
   background-color: white;
-  align-self: flex-start;
+  // background: rgba(0,0,0,0) image-url("google-btn.png");
   border-radius: 1px;
-  z-index: 1
+}
+
+.other-icon {
+  width: 24px;
+  height: 24px;
+  align-self: flex-start;
 }
 
 .google-icon {
-  background: image-url('google-icon.png') transparent 5px 50% no-repeat;
-  width: 24px;
-  height: 24px;
+  background-color: white;
+  border-radius: 2px;
 }
 
 span.facebook-icon {
   border-radius: 3px;
-
 }
-// span.other-login-text {
-//   display: inline-block;
-//   vertical-align: middle;
-//   padding-left: 42px;
-//   padding-right: 42px;
-// }
 
 .facebook-btn {
   background-color: #507cc0;
@@ -336,6 +334,16 @@ span.facebook-icon {
   border-radius: 4px;
   margin: 8px 0;
   list-style: none;
+}
+
+.signup-tag {
+  text-decoration: underline;
+}
+
+.signup-tag:hover {
+  opacity: .5;
+  transition: .2s;
+  cursor: pointer;
 }
 
 .footer-border {
@@ -362,11 +370,35 @@ nav.entry-footer {
   text-align: center;
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  text-align: center;
   width: 618px;
   height: 36px;
 }
 
 .personal-info > li {
+  width: 275px;
+}
 
+.personal-info > li.center-li {
+  width: 68px;
+}
+
+.personal-info > li > *:hover {
+  opacity: .5;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.personal-info > li.email > *:hover {
+  color: #111;
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
 }

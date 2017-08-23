@@ -1,4 +1,14 @@
 <script type="text/javascript">
+  window.images = {
+    fb_logo: '<%= image_url("fb-logo-hd.png") %>',
+    google_svg: '<%= asset_url("google-btn.svg") %>',
+    github_svg: '<%= asset_url("github.svg") %>',
+    linkedin_svg: '<%= asset_url("linkedin.svg") %>',
+    gmail_svg: '<%= asset_url("gmail.svg") %>'
+}
+</script>
+
+<script type="text/javascript">
   <% if logged_in? %>
     window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>
