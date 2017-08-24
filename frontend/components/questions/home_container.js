@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Home from './home';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ session }) => {
   return {
-    
+
   };
 };
 

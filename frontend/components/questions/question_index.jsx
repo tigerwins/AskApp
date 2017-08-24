@@ -1,11 +1,21 @@
 import React from 'react';
+import QuestionPrompt from './question_prompt';
 
-const QuestionFeed = () => {
-  return (
-    <div>
-      
-    </div>
-  );
-};
+class QuestionIndex extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default QuestionFeed;
+  
+
+  render() {
+    return (
+        <div className="question-index-container">
+        <QuestionPrompt currentUser={this.props.currentUser} />
+
+      </div>
+    );
+  }
+}
+
+export default QuestionIndex;
