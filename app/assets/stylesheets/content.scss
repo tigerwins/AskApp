@@ -50,10 +50,6 @@ div.header-nav {
   box-sizing: border-box;
 }
 
-.header-nav > * > * {
-
-}
-
 .nav-item:hover {
   text-decoration: none;
   background-color: #f5f5f5;
@@ -68,19 +64,16 @@ div.header-nav {
   background-size: contain;
 }
 
-nav > a > h2.logo {
-  // display: inline-block;
+h2.logo {
   width: 85px;
   height: 50px;
   font-size: 27px;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
-  position: relative;
-  z-index: 1;
 }
 
-nav.header > a:hover {
-  text-decoration: none !important;
+div.header-contents > a:hover {
+  text-decoration: none;
 }
 
 a.nav-item.active-nav {
@@ -138,10 +131,11 @@ div.ask-question {
   font-size: 14px;
   background-color: white;
   height: 52px;
+  margin-right: auto;
 }
 
-a.question-btn {
-
+a.question-btn:hover {
+  text-decoration: none;
 }
 
 div.inner {
@@ -209,6 +203,12 @@ div.feed-list div.feed {
   padding: 4px 5px;
   margin-left: -5px;
   margin-bottom: 4px;
+}
+
+div.feed-list > a:hover {
+  text-decoration: none;
+  color: #2b6dad;
+  cursor: pointer;
 }
 
 div.feed-list > .selected-feed {

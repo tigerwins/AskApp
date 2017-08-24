@@ -10,10 +10,6 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  provider        :string
-#  uid             :string
-#  image           :text
-#
 
 class User < ApplicationRecord
   validates :fname, :lname, :email, :password_digest, :session_token, presence: true
@@ -27,7 +23,7 @@ class User < ApplicationRecord
     foreign_key: :asker_id,
     dependent: :destroy
 
-  
+
 
   attr_reader :password
 

@@ -13,4 +13,5 @@ body, main, h1, h2, h3, h4, span, div, form, label, ul, li, a {
 
 a:hover {
   text-decoration: underline;
+  cursor: auto;
 }
