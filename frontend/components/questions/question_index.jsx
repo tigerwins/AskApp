@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionPrompt from './question_prompt';
-import Question from './question';
+import QuestionContainer from './question_container';
 
 class QuestionIndex extends React.Component {
   constructor(props) {
@@ -17,17 +17,15 @@ class QuestionIndex extends React.Component {
 
   }
 
-
-
-
   render() {
     const { questions, currentUser, createQuestion } = this.props;
 
     const questionList = questions.map(question => (
-      <Question
-        key={ question.id }
-        question={ question }
-      />
+      <li className="index-box" key={ question.id }>
+        <QuestionContainer
+          question={ question }
+          />
+      </li>
     ));
 
     return (

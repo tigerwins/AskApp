@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Answer from '../answers/answer';
+import Answer from '../answers/answer';
 
 class Question extends React.Component {
   constructor(props) {
@@ -11,6 +11,17 @@ class Question extends React.Component {
     };
   }
 
+  componentDidMount() {
+    // fetch answer with the most upvotes?
+    // until upvotes are implemented, fetch the first answer w/ selector
+
+
+  }
+
+  expandAnswer(e) {
+
+  }
+
 
 
   render() {
@@ -18,16 +29,27 @@ class Question extends React.Component {
 
     return (
       <div className="question">
-        {/* question header for topic tag(s) */}
-        <div className="">
-          <Link to={`/questions/${question.id}`}>
-            <span className="question-body">
-              {question.body}
-            </span>
-          </Link>
-
+        <div className="question-topic-tags">
+          <span className="topics">
+            { /* question header for topic tag(s) */ }
+            Topic tags go here
+          </span>
         </div>
+        <div className="question-text">
+          <div className="question-body-text">
+            <Link to={`/questions/${question.id}`}>
+              <span className="question-body">
+                {question.body}
+              </span>
+            </Link>
+          </div>
 
+          <div className="answer">
+            Answer goes here
+            <Answer />
+          { /* PROP: answer={this.props.question.answers.first} */ }
+          </div>
+        </div>
       </div>
     );
   }

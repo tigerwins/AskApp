@@ -19,10 +19,10 @@ class Header extends React.Component {
 
     return (
       <nav className="header">
-        <Link className="logo-link" to="/">
-          <h2 className="logo">Ask(<span className="logo-space"> </span>)</h2>
-        </Link>
         <div className="header-contents">
+          <Link className="logo-link" to="/">
+            <h2 className="logo">Ask(<span className="logo-space"> </span>)</h2>
+          </Link>
           <div className="header-nav">
             <NavLink className="nav-item" exact={true} to="/"
               activeClassName="active-nav"
