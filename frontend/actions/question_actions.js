@@ -1,5 +1,5 @@
 import * as QuestionAPIUtil from '../util/question_api_util';
-import { receiveErrors } from './error_actions';
+import { receiveErrors } from './session_actions';
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";

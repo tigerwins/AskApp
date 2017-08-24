@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import QuestionFeed from './question_feed';
+import QuestionIndex from './question_index';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionFeed);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionIndex);
