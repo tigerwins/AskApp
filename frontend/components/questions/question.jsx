@@ -14,15 +14,11 @@ class Question extends React.Component {
   componentDidMount() {
     // fetch answer with the most upvotes?
     // until upvotes are implemented, fetch the first answer w/ selector
-
-
   }
 
   expandAnswer(e) {
 
   }
-
-
 
   render() {
     const { question } = this.props;
