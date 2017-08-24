@@ -1,30 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { Route, Redirect } from 'react-router-dom';
+import { AuthRoute } from '../util/route_util';
 import HeaderContainer from './content/header_container';
-import FrontPageContainer from './session/front_page_container';
-import HomeContainer from './questions/home_container';
-import NewQuestionsContainer from './questions/new_questions_container';
-
-// need routes for /questions
+import Content from './content/content';
+import EntryPage from './session/entry_page';
+import { withRouter } from 'react-router-dom';
 
 const App = ({ currentUser }) => {
   return (
     <div className="ask-app">
-      <div className="outer-header">
-        { currentUser && (
-          <Route path="/" component={HeaderContainer} />
+      { currentUser ? (
+        <div className="logged-in">
+          <div className="outer-header">
+            <Route path="/" component={HeaderContainer} />
+          </div>
 
-        )}
-      </div>
-
-      <Switch>
-        <ProtectedRoute path="/questions/:id" />
-        <ProtectedRoute path="/answer" component={NewQuestionsContainer} />
-        <ProtectedRoute path="/topics/:id" />
-        <Route exact path="/" component={FrontPageContainer} />
-      </Switch>
+          <Content />
+        </div>
+      ) : (
+        <div>
+          <Redirect to="/" />
+          <AuthRoute path="/" component={EntryPage} />
+        </div>
+      )}
     </div>
   );
 };
@@ -35,4 +34,4 @@ const mapStateToProps = ({ session }) => {
   };
 };
 
-export default connect(mapStateToProps, null)(App);
+export default withRouter(connect(mapStateToProps, null)(App));
