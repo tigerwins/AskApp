@@ -8,7 +8,7 @@ class QuestionDetail extends React.Component {
   render() {
     return (
       <div className="question-detail-container">
-
+        
       </div>
     );
   }

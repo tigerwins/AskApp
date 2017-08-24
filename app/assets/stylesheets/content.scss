@@ -31,6 +31,7 @@ div.header-contents {
   // width: 100%;
   // padding-left: 88px;
   box-sizing: border-box;
+
 }
 
 div.header-nav {
@@ -156,9 +157,12 @@ div.inner {
   height: 19.5px;
 }
 
-a.question.btn:focus {
+a.question-btn:focus {
   transition: opacity ease-in-out 100ms,color ease-in-out 100ms,background-color ease-in-out 100ms,border-color ease-in-out 100ms;
+}
 
+html, .content {
+  // background-color: #f9f9f9;
 }
 
 // Might need to add to topics.scss when I get there
@@ -167,7 +171,6 @@ div.feeds-sidebar {
   width: 142px;
   margin-bottom: 32px;
   font-size: 13px;
-  // margin-left: auto;
 }
 
 div.feeds-header {

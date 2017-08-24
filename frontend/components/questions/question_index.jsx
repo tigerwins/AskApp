@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionPrompt from './question_prompt';
-import QuestionContainer from './question_container';
+import QuestionIndexItemContainer from './question_index_item_container';
 
 class QuestionIndex extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class QuestionIndex extends React.Component {
 
     const questionList = questions.map(question => (
       <li className="index-box" key={ question.id }>
-        <QuestionContainer
+        <QuestionIndexItemContainer
           question={ question }
           />
       </li>

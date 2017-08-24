@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Question from './question';
+import QuestionIndexItem from './question_index_item';
 import { allAnswers } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Question);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionIndexItem);
