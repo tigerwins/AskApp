@@ -1,16 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
+    this.askQuestion = this.askQuestion.bind(this);
   }
 
   handleLogout(e) {
     this.props.logout();
   }
 
+  askQuestion(e) {
+
+  }
 
   // render will include logo, read/answer/notification tabs,
   // search bar, profile icon, and ask question button
@@ -21,7 +25,10 @@ class Header extends React.Component {
         <h2 className="logo">Ask(<span className="logo-space"> </span>)</h2>
         <div className="header-contents">
           <div className="header-nav">
-            <NavLink exact={true} to="/" activeClassName="active-nav">
+            <NavLink className="nav-item" exact={true} to="/"
+              activeClassName="active-nav"
+              activeStyle={{ color: "#b92b27", iconColor: "#b92b27", borderColor: "#b92b27", opacity: "1" }}
+            >
               <span className="nav-item-icon">
                 <svg width="24px" height="24px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
                   <title>READ 4</title>
@@ -35,7 +42,10 @@ class Header extends React.Component {
               <span className="nav-item-text">Read</span>
             </NavLink>
 
-            <NavLink to="/answer" activeClassName="active-nav">
+            <NavLink className="nav-item" to="/answer"
+              activeClassName="active-nav"
+              activeStyle={{ color: "#b92b27", icon_color: "#b92b27", borderColor: "#b92b27", opacity: "1" }}
+            >
               <span className="nav-item-icon">
                 <svg width="24px" height="24px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
                   <title>answer</title>
@@ -51,7 +61,7 @@ class Header extends React.Component {
               <span className="nav-item-text">Answer</span>
             </NavLink>
 
-            <div>
+            <div className="nav-item">
               <span className="nav-item-icon">
                 <svg width="24px" height="24px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
                   <g id="notif" stroke="var(--icon_color, #555)" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -61,18 +71,31 @@ class Header extends React.Component {
                   </g>
                 </svg>
               </span>
-              <span className="nav-item-text">Notifications</span>
+              <span className="nav-item-text">
+                Notifications
+              </span>
             </div>
           </div>
 
           <div className="search-container">
-
-
+              <textarea className="search box" type="text" rows="1" autoFocus="True" placeholder="Search Ask()"></textarea>
           </div>
 
 
+          { /* This will become the profile photo eventually */}
+          <div className="user-img">
+            <button className="logout-btn" onClick={this.handleLogout}>
+              Logout
+            </button>
+          </div>
 
-          <button className="logout-btn" onClick={this.handleLogout}>Logout</button>
+          <div className="ask-question">
+            <a href="#" className="question-btn questionModal" onClick={this.askQuestion}>
+              <div className="inner">
+                Ask Question
+              </div>
+            </a>
+          </div>
 
         </div>
       </nav>

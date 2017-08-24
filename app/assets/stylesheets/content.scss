@@ -1,3 +1,8 @@
+.box {
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+}
+
 .outer-header {
   border-bottom: 1px solid #ddd;
   // z-index: 10;
@@ -10,7 +15,13 @@
   line-height: 52px;
   max-height: 53px;
   box-sizing: border-box;
+  opacity: 100%;
+  background-color: #fff;
   // margin: 0 auto;
+}
+
+.header > * {
+  color: #666;
 }
 
 div.header-contents {
@@ -43,6 +54,11 @@ div.header-nav {
 
 }
 
+.nav-item:hover {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+
 .nav-item-icon svg {
   width: 24px;
   height: 23px;
@@ -50,8 +66,6 @@ div.header-nav {
   margin-right: 4px;
   margin-bottom: -6px;
   background-size: contain;
-
-
 }
 
 nav > h2.logo {
@@ -65,10 +79,142 @@ nav > h2.logo {
   z-index: 1;
 }
 
-.active-nav {
+a.nav-item.active-nav {
   color: #b92b27;
-  --icon_color: #b92b27;
+  // --icon_color: #b92b27;
   border-color: #b92b27;
   opacity: 1;
+}
+
+a.nav-item.active-nav > .nav-item-icon > svg path {
+  fill: #b92b27;
+}
+
+a.active-nav:hover {
+  background-color: #fff;
+  text-decoration: none;
+}
+
+div.search-container {
+  padding: 12px 8px 11px 0;
+  line-height: 1.4;
+  box-sizing: border-box;
+  height: 52px;
+}
+
+textarea.search {
+  overflow-x: hidden;
+  resize: none;
+  overflow: hidden;
+  word-wrap: break-word;
+  height: 29px;
+  width: 415px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 400;
+  box-sizing: border-box;
+  padding: 3px 8px 3px 26px;
+  background: image-url("search-icon.png") no-repeat 8px center;
+  background-size: 13px;
+  vertical-align: center;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+div.ask-question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: #fff;
+  vertical-align: middle;
+  font-size: 14px;
+  background-color: white;
+  height: 52px;
+}
+
+a.question-btn {
 
 }
+
+div.inner {
+  margin-left: 8px;
+  white-space: nowrap;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(200,200,200,0.2);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.4;
+  // box-sizing: border-box;
+  padding: 3px 7px 4px 7px;
+  border: 1px solid #6c1b17;
+  background: #b92b27;
+  width: 83.25px;
+  height: 19.5px;
+}
+
+a.question.btn:focus {
+  transition: opacity ease-in-out 100ms,color ease-in-out 100ms,background-color ease-in-out 100ms,border-color ease-in-out 100ms;
+
+}
+
+// Might need to add to topics.scss when I get there
+
+div.feeds-sidebar {
+  width: 142px;
+  margin-bottom: 32px;
+  font-size: 13px;
+  // margin-left: auto;
+}
+
+div.feeds-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 8px;
+}
+
+div.feeds-header > h4 {
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 21px;
+  text-size-adjust: 100%;
+}
+
+div.feeds-header > span.edit {
+  font-weight: 400;
+  color: #999;
+}
+
+div.feed-list {
+  list-style: none;
+  color: #666;
+}
+
+div.feed-list div.feed {
+  width: 142px;
+  height: 18px;
+  padding: 4px 5px;
+  margin-left: -5px;
+  margin-bottom: 4px;
+}
+
+div.feed-list > .selected-feed {
+  background-color: #ececec;
+  border-radius: 3;
+  cursor: default;
+}
+
+
+
+
+
+// end
