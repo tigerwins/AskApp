@@ -5,16 +5,13 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
-    this.askQuestion = this.askQuestion.bind(this);
   }
 
   handleLogout(e) {
     this.props.logout();
   }
 
-  askQuestion(e) {
 
-  }
 
   // render will include logo, read/answer/notification tabs,
   // search bar, profile icon, and ask question button
@@ -22,7 +19,9 @@ class Header extends React.Component {
 
     return (
       <nav className="header">
-        <h2 className="logo">Ask(<span className="logo-space"> </span>)</h2>
+        <Link className="logo-link" to="/">
+          <h2 className="logo">Ask(<span className="logo-space"> </span>)</h2>
+        </Link>
         <div className="header-contents">
           <div className="header-nav">
             <NavLink className="nav-item" exact={true} to="/"

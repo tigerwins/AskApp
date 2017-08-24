@@ -15,8 +15,10 @@ const App = ({ currentUser }) => {
       <div className="outer-header">
         { currentUser && (
           <Route path="/" component={HeaderContainer} />
+
         )}
       </div>
+
       <Switch>
         <ProtectedRoute path="/questions/:id" />
         <ProtectedRoute path="/answer" component={NewQuestionsContainer} />

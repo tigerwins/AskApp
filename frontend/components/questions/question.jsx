@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+// import Answer from '../answers/answer';
 
-class QuestionIndexItem extends React.Component {
+class Question extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,8 +14,23 @@ class QuestionIndexItem extends React.Component {
 
 
   render() {
-    
+    const { question } = this.props;
+
+    return (
+      <div className="question">
+        {/* question header for topic tag(s) */}
+        <div className="">
+          <Link to={`/questions/${question.id}`}>
+            <span className="question-body">
+              {question.body}
+            </span>
+          </Link>
+
+        </div>
+
+      </div>
+    );
   }
 }
 
-export default QuestionIndexItem;
+export default Question;

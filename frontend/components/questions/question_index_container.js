@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import QuestionIndex from './question_index';
 import { allQuestions } from '../../reducers/selectors';
-import { fetchQuestions, createQuestion } from '../../actions/question_actions';
+import {
+  fetchQuestions,
+  createQuestion,
+  updateQuestion
+} from '../../actions/question_actions';
 
 const mapStateToProps = (state) => {
   return {

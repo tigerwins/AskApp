@@ -12,8 +12,8 @@ const questionReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_QUESTIONS:
       nextState = {};
-      action.questions.forEach(q => {
-        nextState[q.id] = q;
+      Object.keys(action.questions).forEach(id => {
+        nextState[id] = action.questions[id];
       });
       return nextState;
     case RECEIVE_QUESTION:
