@@ -1,5 +1,5 @@
 import React from 'react';
-import QuestionFeedContainer from './question_feed_container';
+import QuestionIndexContainer from './question_index_container';
 import QuestionPrompt from './question_prompt';
 // import Feeds from '../topics/feeds';
 
@@ -8,7 +8,7 @@ const Home = (props) => {
     <div className="home-container">
       This is the home container.
       <QuestionPrompt />
-      <QuestionFeedContainer />
+      <QuestionIndexContainer />
     </div>
   );
 };
