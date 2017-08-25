@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     requestQuestion: (id) => dispatch(fetchQuestion(id)),
     createQuestion: question => dispatch(createQuestion(question)),
     updateQuestion: question => dispatch(updateQuestion(question)),
-    deleteQuestion: question => dispatch(deleteQuestion(question)),
+    // deleteQuestion: question => dispatch(deleteQuestion(question)),
   };
 };
 

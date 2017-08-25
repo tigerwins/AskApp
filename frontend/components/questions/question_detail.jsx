@@ -1,5 +1,5 @@
 import React from 'react';
-import Question from './question';
+import QuestionContainer from './question_container';
 import AnswerIndexContainer from '../answers/answer_index_container';
 import RelatedQuestions from '../content/related_questions';
 
@@ -18,7 +18,7 @@ class QuestionDetail extends React.Component {
       <div className="detail-page">
         <div className="content-wrapper">
           <div className="question-detail">
-            <Question question={question} />
+            <QuestionContainer question={question} />
             <AnswerIndexContainer question={question} />
           </div>
           <RelatedQuestions question={question} />

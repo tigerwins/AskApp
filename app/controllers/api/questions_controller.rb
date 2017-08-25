@@ -39,6 +39,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body, :details)
+    params.require(:question).permit(:body)
   end
 end

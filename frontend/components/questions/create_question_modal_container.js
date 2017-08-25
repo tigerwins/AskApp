@@ -23,6 +23,7 @@ const mapDispatchToProps = (dispatch) => {
     handleSubmit: (question) => {
       dispatch(clearErrors());
       dispatch(createQuestion(question));
+      dispatch(toggleModal());
     },
     toggleModal: (modal) => {
       dispatch(clearErrors());

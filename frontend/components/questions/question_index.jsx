@@ -37,7 +37,7 @@ class QuestionIndex extends React.Component {
         />
 
         <ul className="question-feed">
-          { questionList }
+          { questionList.reverse() }
         </ul>
       </div>
     );
