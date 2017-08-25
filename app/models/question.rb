@@ -4,7 +4,6 @@
 #
 #  id         :integer          not null, primary key
 #  body       :string           not null
-#  details    :text
 #  asker_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
