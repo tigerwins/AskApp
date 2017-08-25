@@ -24,9 +24,10 @@ const Question = (props) => {
       <div className="action-bar">
         <div className="answer-btn">
           <span className="pen-icon">
-            <svg width="12" height="12">
+            <img width="12" height="12" src={window.images.pen} />
+            {/*<svg width="12" height="12">
               <image width="12" height="12" xlinkHref={window.images.pen_svg} />
-            </svg>
+            </svg>*/}
           </span>
           <span>
             Answer

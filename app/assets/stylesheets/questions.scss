@@ -136,8 +136,9 @@ div.answer-btn:hover {
   color: #2865a1;
 }
 
-span.pen-icon > svg path {
-  fill: #2b6dad;
+span.pen-icon {
+  align-self: center;
+  vertical-align: center;
 }
 
 span.edit-question-link:hover {
