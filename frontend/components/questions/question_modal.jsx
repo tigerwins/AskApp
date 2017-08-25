@@ -1,14 +1,22 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import ModalErrors from './modal_errors';
+import { Redirect } from 'react-router-dom';
 
 class QuestionModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.question;
+    const { question } = props;
+
+    this.state = {
+      id: question.id,
+      body: question.body,
+      askerId: question.asker_id,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
 
     this.preventDefault = this.preventDefault.bind(this);
@@ -18,34 +26,36 @@ class QuestionModal extends React.Component {
     this.enableScroll = this.enableScroll.bind(this);
   }
 
+  componentWillReceiveProps() {
+  }
+
   handleChange(field) {
-    // const { body } = this.state;
-    // if (field === "body" && body[body.length - 1] !== "?") {
-    //   return e =>  this.setState({ body: `${e.currentTarget.value}?`});
-    // } else {
-      return e => this.setState({ [field]: e.currentTarget.value});
-    // }
+    return e => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const question = merge({}, this.state);
-    this.props.toggleModal();
-    this.props.handleSubmit({ question });
+    this.enableScroll();
+    this.props.handleSubmit(question);
     this.setState({
+      id: null,
       body: "",
-      asker_id: null
+      askerId: null,
     });
+  }
+
+  toggleModal() {
+    this.enableScroll();
+    this.props.toggleModal();
   }
 
   closeModal(e) {
     e.stopPropagation();
     if (e.currentTarget === e.target) {
-      this.props.toggleModal();
-      document.body.style.overflow = "auto";
-      document.body.style.position = "inherit";
-
-      this.enableScroll();
+      this.toggleModal();
     }
   }
 
@@ -53,6 +63,8 @@ class QuestionModal extends React.Component {
     const { formType } = this.props;
     const modalId = formType === "edit" ? "edit-modal" : "create-modal";
     const modalHeader = formType === "edit" ? "modal-header" : "modal-header only-close-btn";
+    const modalContent = formType === "edit" ? "edit-modal-content" : "create-modal-content";
+    const textArea = formType === "edit" ? 588 : 556;
 
     this.disableScroll();
 
@@ -63,7 +75,10 @@ class QuestionModal extends React.Component {
             <div id={modalId} className="modal" onClick={this.disableScroll}>
               <div className={modalHeader}>
                 { formType === "edit" &&
-                  <span className="modal-title">Edit Question</span>
+                  <div className="modal-title">
+                    <span>Edit Question</span>
+
+                  </div>
                 }
 
                 <div className="modal-close">
@@ -80,10 +95,25 @@ class QuestionModal extends React.Component {
               }
 
               <form onSubmit={this.handleSubmit}>
-                <div className="modal-content">
+                <div className={modalContent}>
 
+                  { formType === "create" ? (
+                    <div className="user-header">
+                      <span className="user-icon">
+                        {/* USER PROFILE PHOTO GOES HERE*/}
+                      </span>
+                      <span className="user-asks">
+                        {this.props.currentUser.name} asks
+                      </span>
+                    </div>
+                  ) : (
+                    <div>
+
+                    </div>
+                  )}
                   <div className="modal-text-box">
                     <textarea
+                      width={textArea}
                       autoFocus="True"
                       className="modal-textarea text-box"
                       onChange={this.handleChange("body")}
@@ -100,7 +130,7 @@ class QuestionModal extends React.Component {
                   <span className="cancel" onClick={this.closeModal}>
                     Cancel
                   </span>
-                  <input type="submit" value={this.props.buttonText} />
+                  <input type="submit" className="submit-btn question-submit" disabled={!this.state.body} value={this.props.buttonText} />
                 </div>
               </form>
             </div>
@@ -122,7 +152,7 @@ class QuestionModal extends React.Component {
     const keys = {33: 1, 34: 1, 35: 1, 36: 1};
     // 37: 1, 38: 1, 39: 1, 40: 1
     if (e.keyCode === 27) {
-      this.props.toggleModal();
+      this.toggleModal();
     } else if (keys[e.keyCode]) {
       this.preventDefault(e);
       return false;

@@ -6,6 +6,7 @@ body {
   font-size: 13px;
   line-height: 1.4;
   background-color: #fafafa;
+  overflow: scroll;
 }
 
 label {
@@ -387,7 +388,6 @@ nav.entry-footer {
   justify-content: center;
   text-align: center;
   width: 618px;
-  // height: 36px;
 }
 
 .personal-info > li {

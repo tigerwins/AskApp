@@ -6,6 +6,7 @@ import QuestionModal from './question_modal';
 
 const mapStateToProps = (state) => {
   return {
+    currentUser: state.session.currentUser,
     displayModal: state.ui.modal.display,
     modal: state.ui.modal.component,
     errors: state.session.errors,

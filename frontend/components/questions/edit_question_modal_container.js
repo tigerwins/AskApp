@@ -12,7 +12,6 @@ const mapStateToProps = (state, ownProps) => {
     displayModal: state.ui.modal.display,
     modal: state.ui.modal.component,
     errors: state.session.errors,
-    // question: state.entities.questions[id],
     formType: "edit",
     buttonText: "Update",
   };
@@ -23,6 +22,7 @@ const mapDispatchToProps = (dispatch) => {
     handleSubmit: (question) => {
       dispatch(clearErrors());
       dispatch(updateQuestion(question));
+      dispatch(toggleModal());
     },
     toggleModal: (modal) => {
       dispatch(clearErrors());

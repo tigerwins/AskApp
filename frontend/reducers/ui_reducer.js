@@ -5,7 +5,8 @@ const initialState = {
   modal: {
     display: false,
     component: null
-  }
+  },
+  notifications: "",
 };
 
 const uiReducer = (state = initialState, action) => {

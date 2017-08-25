@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
     questionId: id,
-    // question: state.entities.questions[id],
     errors: state.errors,
   };
 };
@@ -18,7 +17,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   // const id = ownProps.match.params.id;
 
   return {
-    // requestQuestion: (id) => dispatch(fetchQuestion(id)),
     updateQuestion: question => dispatch(updateQuestion(question)),
     toggleModal: modal => dispatch(toggleModal(modal)),
   };

@@ -44,10 +44,10 @@ export const createQuestion = question => dispatch => {
 };
 
 export const updateQuestion = question => dispatch => {
-  return QuestionAPIUtil.fetchQuestion(question).then(
+  return QuestionAPIUtil.updateQuestion(question).then(
     updatedQuestion => dispatch(receiveQuestion(updatedQuestion)),
     errors => dispatch(receiveErrors({
-      errorType: "receiveQuestion",
+      errorType: "updateQuestion",
       errorList: errors.responseJSON,
     }))
   );

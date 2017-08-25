@@ -91,11 +91,11 @@ class Header extends React.Component {
           </div>
 
           <div className="ask-question">
-            <a href="#" className="question-btn questionModal" onClick={this.askQuestion}>
+            <span className="question-btn questionModal" onClick={this.askQuestion}>
               <div className="inner">
                 Ask Question
               </div>
-            </a>
+            </span>
           </div>
 
         </div>

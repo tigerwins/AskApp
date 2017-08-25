@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import HeaderContainer from './content/header_container';
-import Content from './content/content';
+// import Content from './content/content';
 import EntryPage from './session/entry_page';
-import { withRouter } from 'react-router-dom';
+
+import Home from './questions/home';
+import QuestionDetailContainer from './questions/question_detail_container';
+import NewQuestionsContainer from './questions/new_questions_container';
+import TopicShowContainer from './topics/topic_show_container';
 
 const App = ({ currentUser, modal }) => {
   return (
@@ -16,9 +20,16 @@ const App = ({ currentUser, modal }) => {
             <Route path="/" component={HeaderContainer} />
           </div>
 
+          <div className="content">
+            <Switch>
+              <Route path="/topics/:id" component={TopicShowContainer} />
+              <Route path="/questions/:id" component={QuestionDetailContainer} />
+              <Route path="/answer" component={NewQuestionsContainer} />
+              <Route exact path="/" component={Home} />
+            </Switch>
+          </div>
+          
           {modal}
-
-          <Content />
         </div>
       ) : (
         <div>
