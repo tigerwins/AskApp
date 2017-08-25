@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825001832) do
+ActiveRecord::Schema.define(version: 20170825021658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "body",        null: false
+    t.integer  "author_id",   null: false
+    t.integer  "question_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["author_id", "question_id"], name: "index_answers_on_author_id_and_question_id", unique: true, using: :btree
+    t.index ["author_id"], name: "index_answers_on_author_id", using: :btree
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body",              null: false
+    t.integer  "parent_comment_id"
+    t.integer  "answer_id",         null: false
+    t.integer  "user_id",           null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["answer_id"], name: "index_comments_on_answer_id", using: :btree
+    t.index ["parent_comment_id"], name: "index_comments_on_parent_comment_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "question_topics", force: :cascade do |t|
+    t.integer  "question_id", null: false
+    t.integer  "topic_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["question_id", "topic_id"], name: "index_question_topics_on_question_id_and_topic_id", unique: true, using: :btree
+    t.index ["question_id"], name: "index_question_topics_on_question_id", using: :btree
+    t.index ["topic_id"], name: "index_question_topics_on_topic_id", using: :btree
+  end
 
   create_table "questions", force: :cascade do |t|
     t.string   "body",       null: false
@@ -21,6 +54,12 @@ ActiveRecord::Schema.define(version: 20170825001832) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["asker_id"], name: "index_questions_on_asker_id", using: :btree
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

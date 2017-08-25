@@ -17,6 +17,7 @@ class Question < ApplicationRecord
     primary_key: :id,
     foreign_key: :asker_id
 
-
-    
+  has_many :answers
+  has_many :question_topics
+  has_many :topics, through: :question_topics
 end
