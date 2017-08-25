@@ -10,7 +10,7 @@ class AnswerIndex extends React.Component {
 
 
     return (
-      <div className="answer-index ">
+      <div className="answer-index">
         This the answer index
       </div>
     );

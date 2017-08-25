@@ -11,16 +11,34 @@ const Question = (props) => {
       <div className="question-topic-tags">
         <span className="topics">
           { /* question header for topic tag(s) */ }
-          Topic tags go here
+          <span className="topic">
+            Topic tags go here
+          </span>
         </span>
       </div>
       <div className="question-text">
         <span className="question-detail-body">
           {question.body}
         </span>
-        <span className="question-details">
-          {question.details}
-        </span>
+      </div>
+      <div className="action-bar">
+        <div className="answer-btn">
+          <span className="pen-icon">
+            <svg width="12" height="12">
+              <image width="12" height="12" xlinkHref={window.images.pen_svg} />
+            </svg>
+          </span>
+          <span>
+            Answer
+          </span>
+        </div>
+
+        <div className="edit-question">
+          <span className="edit-question-link">
+            Edit Question
+          </span>
+        </div>
+
       </div>
     </div>
   );

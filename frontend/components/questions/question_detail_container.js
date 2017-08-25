@@ -9,7 +9,6 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
-  // debugger
   return {
     currentUser: state.session.currentUser,
     questionId: id,
