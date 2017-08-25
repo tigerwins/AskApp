@@ -5,12 +5,11 @@ import { clearErrors } from '../../actions/session_actions';
 import QuestionModal from './question_modal';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     currentUser: state.session.currentUser,
     displayModal: state.ui.modal.display,
     modal: state.ui.modal.component,
-    errors: state.session.errors.errorList,
+    errors: state.errors.errorList,
     question: {
       body: "",
       asker_id: state.session.currentUser.id,

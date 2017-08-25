@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
     questionId: id,
-    errors: state.errors,
+    errors: state.errors.errorList,
   };
 };
 
