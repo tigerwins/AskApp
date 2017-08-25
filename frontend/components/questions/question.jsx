@@ -16,6 +16,7 @@ class Question extends React.Component {
 
   render() {
     const { question } = this.props;
+
     if (!question) {
       return null;
     }
@@ -34,7 +35,11 @@ class Question extends React.Component {
           <span className="question-detail-body">
             {question.body}
           </span>
+          <span className="asker">
+            {/* Asked by {question.asker.name} */}
+          </span>
         </div>
+
         <div className="action-bar">
           <div className="answer-btn">
             <span className="pen-icon">

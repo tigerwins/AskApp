@@ -92,6 +92,11 @@ div.related-questions-box {
   width: 314px;
 }
 
+div.question-text {
+  display: flex;
+  flex-direction: column;
+}
+
 span.question-detail-body {
   color: #262626;
   font-size: 23px;
@@ -148,6 +153,10 @@ span.edit-question-link:hover {
 
 div.question {
   margin-bottom: 16px;
+}
+
+span.asker {
+
 }
 
 
