@@ -68,7 +68,7 @@ class SignupForm extends React.Component {
     if (formType === "signup" && !this.props.showSignup) {
       return (
         <div className="signup-container">
-          <div className="other-login-btn google-btn">
+          {/*<div className="other-login-btn google-btn">
             <span className="google-icon other-icon">
               <svg width="25" height="25">
                 <image width="25" height="25" xlinkHref={window.images.google_svg} />
@@ -82,7 +82,7 @@ class SignupForm extends React.Component {
               <img width="24" height="24" src={window.images.fb_logo} />
             </span>
             <span className="other-login-text facebook-text">Continue with Facebook</span>
-          </div>
+          </div>*/}
 
           <span>
             <span className="signup-link show-form" onClick={this.props.toggleSignup}>
