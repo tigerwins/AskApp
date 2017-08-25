@@ -24,7 +24,6 @@
       1: {
         id: 1,
         body: "What is the meaning of life?",
-        details: "Please don't answer 42."
         askerId: 1,
         answerIds: [1]
         topicIds: [1, 5]
@@ -56,7 +55,14 @@
     }    
   },
   ui: {
-    loading: { indexLoading: false, detailLoading: false }
+    loading: {
+      indexLoading: false,
+      detailLoading: false
+    },
+    modal: {
+      display: false,
+      component: null // is an actual React component if display is true
+    }
   },
   errors: {
     errorType: "login",

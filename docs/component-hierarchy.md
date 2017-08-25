@@ -1,39 +1,49 @@
 ## Component Hierarchy
 
-**AuthFormContainer**
- - AuthForm
-
 **App**
- - Header
- - HomeContainer
- - AnswerQuestionIndexContainer
+ - HeaderContainer
+ - Content
+ - EntryPage
+
+**EntryPage**
+ - SignupFormContainer
+ - LoginFormContainer
+
+**Content** (switch routing)
+ - TopicShowContainer
  - QuestionDetailContainer
- - TopicQuestionIndexContainer
+ - NewQuestionsContainer
+ - Home
 
 **Header**
  - Search
       + SearchResults
  - ProfileOptions
+ - AskButton
+      + QuestionModal
 
-**HomeContainer**
- - QuestionPrompt
-      + AskBox
+**Home**
+ - Feeds
  - QuestionIndexContainer
- - FeedSidebar
+
+**QuestionIndex**
+ - QuestionPrompt
+      + QuestionModal
+ - QuestionIndexContainer
 
 **QuestionIndexContainer**
  - QuestionIndex
-      + Question
-          + AnswerContainer
+      + QuestionIndexItem
+          + Answer
 
 **QuestionDetailContainer**
- - QuestionDetail
- - AnswerIndexContainer
+ - Question
+ - AnswerIndex
  - RelatedQuestions
 
 **AnswerContainer**
  - Answer
- - CommentContainer
+ - CommentsContainer
 
 **Search**
 **AskBox**
@@ -43,7 +53,7 @@
 
 |Path   | Component   |
 |-------|-------------|
-| "/" | "AuthFormContainer", "HomeContainer" |
-| "/answer" | "AnswerQuestionIndexContainer" |
+| "/" | "EntryPage", "Home" |
+| "/answer" | "NewQuestionsContainer" |
 | "/questions/:questionId" | "QuestionDetailContainer" |
-| "/topics/:topicId" | "TopicQuestionIndexContainer" |
+| "/topics/:topicId" | "TopicShowContainer" |

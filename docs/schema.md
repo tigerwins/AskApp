@@ -15,7 +15,6 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 body        | string    | not null
-details     | text      |
 asker_id    | integer   | not null, foreign key (references users), indexed
 
 ## answers
