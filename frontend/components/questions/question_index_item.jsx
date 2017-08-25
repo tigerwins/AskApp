@@ -26,10 +26,10 @@ class Question extends React.Component {
     return (
       <div className="question-index-item">
         <div className="question-topic-tags">
-          <span className="topics">
+          <ul className="topics">
             { /* question header for topic tag(s) */ }
             Topic tags go here
-          </span>
+          </ul>
         </div>
         <div className="question-text">
           <div className="question-body-text">

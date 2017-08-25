@@ -49,7 +49,7 @@ class QuestionModal extends React.Component {
 
               <div id="modal-close">
                 <span>
-                  <img onClick={this.closeModal} src={window.images.close_x} />
+                  <img onClick={this.closeModal} src={window.images.x} />
                 </span>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { toggleModal } from '../../actions/ui_actions';
 import { updateQuestion } from '../../actions/question_actions';
 import { clearErrors } from '../../actions/session_actions';
@@ -9,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     displayModal: state.ui.modal.display,
+    modal: state.ui.modal.component,
     errors: state.session.errors,
     question: state.entities.questions[id],
     formType: "edit",
@@ -29,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionModal);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(QuestionModal));
