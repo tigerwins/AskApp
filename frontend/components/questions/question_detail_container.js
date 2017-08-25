@@ -8,16 +8,21 @@ import {
 } from '../../actions/question_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.id;
+  // debugger
   return {
     currentUser: state.session.currentUser,
-    question: state.entities.questions[ownProps.questionId],
+    questionId: id,
+    question: state.entities.questions[id],
     errors: state.errors,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  // const id = ownProps.match.params.id;
+
   return {
-    requestQuestion: () => dispatch(fetchQuestion(ownProps.questionId)),
+    requestQuestion: (id) => dispatch(fetchQuestion(id)),
     createQuestion: question => dispatch(createQuestion(question)),
     updateQuestion: question => dispatch(updateQuestion(question)),
     deleteQuestion: question => dispatch(deleteQuestion(question)),

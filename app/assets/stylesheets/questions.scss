@@ -76,7 +76,6 @@ div.question-topic-tags {
   margin-bottom: 4px;
   color: #999;
   font-size: 13px;
-
 }
 
 span.question-body {
@@ -85,5 +84,15 @@ span.question-body {
   font-family: 'q_serif', Georgia, Times, "Times New Roman", serif;
   line-height: 1.3;
   color: rgb(38,38,38);
+}
 
+div.question-detail {
+  width: 602px;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+
+div.related-questions-box {
+  width: 314px;
 }

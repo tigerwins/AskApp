@@ -24,7 +24,7 @@ class Question extends React.Component {
     const { question } = this.props;
 
     return (
-      <div className="question">
+      <div className="question-index-item">
         <div className="question-topic-tags">
           <span className="topics">
             { /* question header for topic tag(s) */ }
