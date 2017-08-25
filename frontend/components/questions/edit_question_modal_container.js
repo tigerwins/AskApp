@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     displayModal: state.ui.modal.display,
     modal: state.ui.modal.component,
-    errors: state.session.errors,
+    errors: state.session.errors.errorList,
     formType: "edit",
     buttonText: "Update",
   };
