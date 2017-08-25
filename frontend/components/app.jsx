@@ -7,7 +7,7 @@ import Content from './content/content';
 import EntryPage from './session/entry_page';
 import { withRouter } from 'react-router-dom';
 
-const App = ({ currentUser }) => {
+const App = ({ currentUser, modal }) => {
   return (
     <div className="ask-app">
       { currentUser ? (
@@ -15,6 +15,8 @@ const App = ({ currentUser }) => {
           <div className="outer-header">
             <Route path="/" component={HeaderContainer} />
           </div>
+
+          {modal}
 
           <Content />
         </div>
@@ -28,9 +30,10 @@ const App = ({ currentUser }) => {
   );
 };
 
-const mapStateToProps = ({ session }) => {
+const mapStateToProps = ({ session, ui }) => {
   return {
     currentUser: session.currentUser,
+    modal: ui.modal.component,
   };
 };
 

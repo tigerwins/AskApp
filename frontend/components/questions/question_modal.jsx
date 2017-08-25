@@ -29,7 +29,7 @@ class QuestionModal extends React.Component {
   closeModal(e) {
     if (e.currentTarget === e.target) {
       e.stopPropagation();
-      this.props.toggleQuestionModal();
+      this.props.toggleModal();
     }
   }
 
@@ -61,7 +61,7 @@ class QuestionModal extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="modal-content">
                 <textarea
-                  className="modal-textarea"
+                  className="modal-textarea text-box"
                   onChange={this.handleChange("body")}
                   type="text" rows="1"
                   placeholder="What is your question?">

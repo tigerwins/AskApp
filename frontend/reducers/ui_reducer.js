@@ -19,7 +19,10 @@ const uiReducer = (state = initialState, action) => {
           component: null
         }});
       } else {
-        newState = merge({}, state, { modal: action.modal });
+        newState = merge({}, state, { modal: {
+          display: true,
+          component: action.modal
+        } });
       }
 
       return newState;

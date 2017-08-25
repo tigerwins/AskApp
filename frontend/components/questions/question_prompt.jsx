@@ -9,7 +9,9 @@ const QuestionPrompt = (props) => {
           {props.currentUser.name}
         </span>
       </div>
-      <div className="prompt-text">What is your question?</div>
+      <div className="prompt-text" onClick={props.askQuestion}>
+        What is your question?
+      </div>
     </div>
   );
 };

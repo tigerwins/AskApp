@@ -1,6 +1,7 @@
 import React from 'react';
 import QuestionPrompt from './question_prompt';
 import QuestionIndexItemContainer from './question_index_item_container';
+import CreateQuestionModal from './create_question_modal_container';
 
 class QuestionIndex extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class QuestionIndex extends React.Component {
   }
 
   askQuestion(e) {
-
+    this.props.toggleModal(<CreateQuestionModal />);
   }
 
   render() {
@@ -32,7 +33,7 @@ class QuestionIndex extends React.Component {
       <div className="question-index-container index-container">
         <QuestionPrompt
           currentUser={ this.props.currentUser }
-          createQuestion={ createQuestion }
+          askQuestion={ this.askQuestion }
         />
 
         <ul className="question-feed">

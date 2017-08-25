@@ -15,12 +15,14 @@ class QuestionDetail extends React.Component {
   render() {
     const { question } = this.props;
     return (
-      <div className="content-wrapper">
-        <div className="question-detail">
-          <Question question={question} />
-          <AnswerIndexContainer question={question} />
+      <div className="detail-page">
+        <div className="content-wrapper">
+          <div className="question-detail">
+            <Question question={question} />
+            <AnswerIndexContainer question={question} />
+          </div>
+          <RelatedQuestions question={question} />
         </div>
-        <RelatedQuestions question={question} />
       </div>
     );
   }

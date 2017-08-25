@@ -1,20 +1,22 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import CreateQuestionModal from '../questions/create_question_modal_container';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
+    this.askQuestion = this.askQuestion.bind(this);
   }
 
   handleLogout(e) {
     this.props.logout();
   }
 
+  askQuestion(e) {
+    this.props.toggleModal(<CreateQuestionModal />);
+  }
 
-
-  // render will include logo, read/answer/notification tabs,
-  // search bar, profile icon, and ask question button
   render() {
 
     return (
@@ -77,7 +79,7 @@ class Header extends React.Component {
           </div>
 
           <div className="search-container">
-              <textarea className="search box" type="text" rows="1" autoFocus="True" placeholder="Search Ask()"></textarea>
+              <textarea className="search box text-box" type="text" rows="1" autoFocus="True" placeholder="Search Ask()"></textarea>
           </div>
 
 

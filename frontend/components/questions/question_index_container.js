@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import QuestionIndex from './question_index';
 import { allQuestions } from '../../reducers/selectors';
+import { toggleModal } from '../../actions/ui_actions';
 import {
   fetchQuestions,
   createQuestion,
@@ -19,6 +20,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     requestQuestions: () => dispatch(fetchQuestions()),
     createQuestion: question => dispatch(createQuestion(question)),
+    toggleModal: (modal) => dispatch(toggleModal(modal)),
   };
 };
 
