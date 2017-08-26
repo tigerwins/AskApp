@@ -4,9 +4,9 @@ class Answer extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   expanded: false
-    // };
+    this.state = {
+      expanded: false
+    };
   }
 
   render() {

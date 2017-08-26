@@ -3,6 +3,7 @@ import AnswerIndex from './answer_index';
 
 const mapStateToProps = (state) => {
   return {
+    answers: state.entities.answers,
 
   };
 };
