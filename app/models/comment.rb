@@ -17,16 +17,17 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :answer
 
-  has_many :child_comments,
-    class_name: "Comment",
-    primary_key: :id,
-    foreign_key: :parent_comment_id
+  # has_many :child_comments,
+  #   class_name: "Comment",
+  #   primary_key: :id,
+  #   foreign_key: :parent_comment_id
 
-  belongs_to :parent_comment,
-    class_name: "Comment",
-    primary_key: :id,
-    foreign_key: :parent_comment_id,
-    optional: true
+  # belongs_to :parent_comment,
+  #   class_name: "Comment",
+  #   primary_key: :id,
+  #   foreign_key: :parent_comment_id,
+  #   optional: true
 
+  # ^^^^^should probably delete this for now
 
 end

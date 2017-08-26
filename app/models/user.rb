@@ -24,10 +24,14 @@ class User < ApplicationRecord
   has_many :questions,
     class_name: 'Question',
     primary_key: :id,
-    foreign_key: :asker_id,
-    dependent: :destroy
+    foreign_key: :asker_id
 
-
+  has_many :answers,
+    class_name: 'Answer',
+    primary_key: :id,
+    foreign_key: :author_id
+    
+  has_many :comments
 
   attr_reader :password
 

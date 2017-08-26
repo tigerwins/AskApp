@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   root to: 'static_pages#root'
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:create]
+    resources :users, only: [:index, :create] #, :show]
     resource :session, only: [:create, :destroy]
-    resources :questions, except: [:new, :edit]
+    resources :questions, only: [:index, :create, :show, :update] do
+      resources :answers, only: [:index, :create]
+    end
+    resources :answers, only: [:show, :update, :destroy] do
+      resources :comments, only: [:index, :create]
+    end
+    resources :comments, only: [:destroy]
+    # resources :topics, only: [:index, :create, :show]
+
+    # what's the best way to deal with many-to-many relationships?
   end
 
 end

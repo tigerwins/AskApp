@@ -20,8 +20,6 @@
 ### Questions
 
 - `GET /api/questions`
-  - Questions index/search
-  - accepts `search` query param to list questions by search string
 - `POST /api/questions`
 - `GET /api/questions/:id`
 - `PATCH /api/questions/:id`
@@ -29,19 +27,18 @@
 
 ### Answers
 
-- Answers will only be viewable in a question's show page
-- `GET /api/questions/:id/answers`
-- `POST /api/questions/:id/answers`
+- `GET /api/questions/:question_id/answers`
+- `POST /api/questions/:question_id/answers`
+- `GET /api/answer/:id`
 - `PATCH /api/answers/:id`
 - `DELETE /api/answers/:id`
 
 ### Comments
 
-- `POST /api/answers/:id/comments`
+- `POST /api/answers/:answer_id/comments`
 - `DELETE /api/comments/:id`
 
 ### Topics
 
-- A question's topics will be included in the question show page
 - `POST /api/topics`
 - `GET /api/topics/:id`
