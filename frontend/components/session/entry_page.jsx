@@ -94,7 +94,7 @@ class EntryPage extends React.Component {
               </li>
             </ul>
           </nav>
-      ``</div>
+        </div>
       </div>
     );
   }
