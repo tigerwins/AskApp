@@ -43,7 +43,7 @@ class Question extends React.Component {
           <div className="answer">
             Answer goes here
             <Answer />
-          { /* PROP: answer={this.props.question.answers.first} */ }
+          { /* PROP: answer={this.props.question.answers.last} */ }
           </div>
         </div>
       </div>

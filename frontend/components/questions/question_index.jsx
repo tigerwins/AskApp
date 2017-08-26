@@ -22,7 +22,7 @@ class QuestionIndex extends React.Component {
     const { questions, currentUser, createQuestion } = this.props;
 
     const questionList = questions.map(question => (
-      <li className="index-box" key={ question.id }>
+      <li className="index-box" key={question.id}>
         <QuestionIndexItemContainer
           question={ question }
           />

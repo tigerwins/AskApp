@@ -5,19 +5,19 @@ export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
 export const REMOVE_QUESTION = "REMOVE_QUESTION";
 
-export const receiveQuestions = questions => ({
+export const receiveQuestions = payload => ({
   type: RECEIVE_QUESTIONS,
-  questions,
+  payload,
 });
 
-export const receiveQuestion = question => ({
+export const receiveQuestion = payload => ({
   type: RECEIVE_QUESTION,
-  question,
+  payload,
 });
 
-export const removeQuestion = question => ({
+export const removeQuestion = payload => ({
   type: REMOVE_QUESTION,
-  question,
+  payload,
 });
 
 

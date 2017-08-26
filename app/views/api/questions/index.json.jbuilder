@@ -16,7 +16,7 @@ json.answers do
   newest_answers.each do |answer|
     json.set! answer.id do
       json.partial! "/api/answers/answer", answer: answer
-      json.commentIds {  json.array! answer.comments.map(&:id) }
+      json.commentIds { json.array! answer.comments.map(&:id) }
     end
   end
 end

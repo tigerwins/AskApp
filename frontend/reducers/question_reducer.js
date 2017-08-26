@@ -12,16 +12,18 @@ const questionReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_QUESTIONS:
       nextState = {};
-      Object.keys(action.questions).forEach(id => {
-        nextState[id] = action.questions[id];
+      Object.keys(action.payload.questions).forEach(id => {
+        nextState[id] = action.payload.questions[id];
       });
       return nextState;
     case RECEIVE_QUESTION:
-      const newQuestion = { [action.question.id]: action.question };
+      const newQuestion = {
+        [action.payload.question.id]: action.payload.question
+      };
       return merge({}, state, newQuestion);
     case REMOVE_QUESTION:
       nextState = merge({}, state);
-      delete nextState[action.question.id];
+      delete nextState[action.payload.question.id];
       return nextState;
     default:
       return state;
