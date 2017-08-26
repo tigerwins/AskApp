@@ -8,7 +8,7 @@ class AnswerIndex extends React.Component {
 
 
   render() {
-    const answers = 
+    // const answers = 
 
     return (
       <div className="answer-index-container">

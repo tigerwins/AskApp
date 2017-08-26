@@ -32,15 +32,12 @@ class Header extends React.Component {
             >
               <span className="nav-item-icon">
                 <svg width="24px" height="24px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                  <title>READ 4</title>
-                  <desc>Created with Sketch.</desc>
-                  <defs></defs>
                   <g id="Icons" stroke="none" strokeWidth="1" fill="var(--icon_color, #555)" fillRule="evenodd">
                     <path d="M4,7.99448227 C4,5.23610588 6.24325385,3 9.00365614,3 L46,3 L46,42.1055177 C46,44.8638941 43.7567461,47.1 40.9963439,47.1 L4,47.1 L4,7.99448227 M11,12 L25,12 L25,14 L11,14 M11,20 L25,20 L25,22 L11,22 M11,28 L39,28 L39,30 L11,30 M11,36 L39,36 L39,38 L11,38 M29,12 L39,12 L39,22 L29,22 Z"></path>
                   </g>
                 </svg>
               </span>
-              <span className="nav-item-text">Read</span>
+              <span className="nav-item-text">Home</span>
             </NavLink>
 
             <NavLink className="nav-item" to="/answer"
