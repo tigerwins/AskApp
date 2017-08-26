@@ -2,18 +2,16 @@
 
 **App**
  - HeaderContainer
- - Content
+ - Content (Switch)
+     + TopicShowContainer
+     + QuestionDetailContainer
+     + NewQuestionsContainer
+     + Home
  - EntryPage
 
 **EntryPage**
  - SignupFormContainer
  - LoginFormContainer
-
-**Content** (switch routing)
- - TopicShowContainer
- - QuestionDetailContainer
- - NewQuestionsContainer
- - Home
 
 **Header**
  - Search
