@@ -1,12 +1,13 @@
 class Api::AnswersController < ApplicationController
   def index
     @answers = Answer.where(question_id: params[:question_id])
-    # unsure what needs to render
   end
 
   def create
     @answer = Answer.new(answer_params)
-    @answer.author_id = current_user.id
+    @answer.question = Question.find(answer_params[:question_id])
+    @answer.author = current_user
+    debugger
 
     if @answer.save
       render :show
@@ -17,7 +18,7 @@ class Api::AnswersController < ApplicationController
 
   def show
     @answer = Answer.find(params[:id])
-    render :show # unsure about rendering
+    render :show
   end
 
   def update

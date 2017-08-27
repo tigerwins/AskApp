@@ -30,3 +30,19 @@ json.comments do
     end
   end
 end
+
+askers = @questions.map(&:asker)
+authors = newest_answers.map(&:author)
+commenters = first_answer_comments.map(&:user)
+all_users = (askers + authors + commenters).flatten
+
+json.users do
+  all_users.each do |user|
+    json.set! user.id do
+      json.partial! "/api/users/user", user: user
+      json.questionIds { json.array! user.questions.map(&:id) }
+      json.answerIds { json.array! user.answers.map(&:id) }
+      json.commentIds { json.array! user.comments.map(&:id) }
+    end
+  end
+end

@@ -14,8 +14,8 @@ export const removeAnswer = payload => ({
   payload,
 });
 
-export const createAnswer = (answer, questionId) => dispatch => {
-  return AnswerAPIUtil.createAnswer(answer, questionId).then(
+export const createAnswer = (answer) => dispatch => {
+  return AnswerAPIUtil.createAnswer(answer).then(
     newAnswer => dispatch(receiveAnswer(newAnswer)),
     errors => dispatch(receiveErrors({
       errorType: "createAnswer",

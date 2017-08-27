@@ -29,18 +29,7 @@ class Api::QuestionsController < ApplicationController
       render json: @question.errors.full_messages, status: 422
     end
   end
-
-  # def destroy
-  #   @question = Question.find(params[:id])
-  #
-  #   if @question.asker_id == current_user.id
-  #     @question.destroy
-  #     render :show
-  #   else
-  #     render json: ["Cannot delete other users' answers"], status: 403
-  #   end
-  # end
-
+  
   private
 
   def question_params
