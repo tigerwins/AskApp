@@ -23,7 +23,7 @@ const userReducer = (state = {}, action) => {
       return nextState;
     case RECEIVE_ANSWER:
       const newAnswer = {
-        [action.payload.user.id]: action.payload.user
+        [action.payload.author.id]: action.payload.author
       };
       return merge({}, state, newAnswer);
     default:

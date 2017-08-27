@@ -37,6 +37,7 @@ class Editor extends React.Component {
   handleSubmit(e) {
     const answer = { body: this.state.editorHtml, question_id: this.props.question.id };
     this.props.createAnswer(answer);
+    this.props.toggleEditor();
   }
 
   render() {

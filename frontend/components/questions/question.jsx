@@ -13,7 +13,12 @@ class Question extends React.Component {
 
     this.editQuestion = this.editQuestion.bind(this);
     this.answerQuestion = this.answerQuestion.bind(this);
+    this.toggleEditor = this.toggleEditor.bind(this);
     this.handleAnswerChange = this.handleAnswerChange.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   editQuestion() {
@@ -26,8 +31,30 @@ class Question extends React.Component {
     this.setState({ displayEditor: true });
   }
 
+  toggleEditor(e) {
+    this.setState({
+      displayEditor: !this.state.displayEditor
+    });
+  }
+
   handleAnswerChange(value) {
     this.setState({ answerText: value });
+  }
+
+  renderErrors() {
+    const errorList = this.props.errors.map((error, i) => (
+      <li key={`error-${i}`}>
+        {error}
+      </li>
+    ));
+
+    if (errorList.length > 0) {
+      return (
+        <ul className="errors">
+          {errorList}
+        </ul>
+      );
+    }
   }
 
   render() {
@@ -39,6 +66,10 @@ class Question extends React.Component {
 
     return (
       <div className="question">
+        <div className="answer-errors">
+          {this.renderErrors()}
+        </div>
+
         <div className="question-topic-tags">
           <span className="topics">
             { /* question header for topic tag(s) */ }
@@ -75,7 +106,9 @@ class Question extends React.Component {
         </div>
 
         { this.state.displayEditor &&
-          <Editor currentUser={this.props.currentUser} question={this.props.question} />
+          <Editor
+            currentUser={this.props.currentUser} question={this.props.question}
+            toggleEditor={this.toggleEditor} />
         }
       </div>
     );

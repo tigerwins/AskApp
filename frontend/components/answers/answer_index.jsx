@@ -25,7 +25,7 @@ class AnswerIndex extends React.Component {
           {Object.keys(answers).length} Answers
         </div>
         <ul className="answer-index">
-          { answerList }
+          { answerList.reverse() }
         </ul>
       </div>
     );

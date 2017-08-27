@@ -10,6 +10,8 @@ class Api::AnswersController < ApplicationController
 
     if @answer.save
       render :show
+    elsif @answer.errors.full_messages.include?("Author has already been taken")
+      render json: ["You have already answered this question"], status: 422
     else
       render json: @answer.errors.full_messages, status: 422
     end
