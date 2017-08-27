@@ -2,13 +2,13 @@ import React from 'react';
 import ReactQuill from 'react-quill';
 import merge from 'lodash/merge';
 import { connect } from 'react-redux';
-import { createAnswer } from '../../actions/answer_actions';
+import { createAnswer, updateAnswer } from '../../actions/answer_actions';
 
 class Editor extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      editorHtml: ""
+      editorHtml: props.textHtml
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,14 +30,25 @@ class Editor extends React.Component {
     ];
   }
 
-  handleChange(html) {
-    this.setState({ editorHtml: html });
+  handleChange(htmlText) {
+    if (htmlText === "<p><br></p>") {
+      this.setState({ editorHtml: "" });
+    } else {
+      this.setState({ editorHtml: htmlText });
+    }
   }
 
   handleSubmit(e) {
-    const answer = { body: this.state.editorHtml, question_id: this.props.question.id };
-    this.props.createAnswer(answer);
-    this.props.toggleEditor();
+    let answer = { body: this.state.editorHtml, question_id: this.props.question.id };
+
+    if (this.props.actionType === "edit") {
+      answer = merge(this.props.answer, answer);
+      this.props.updateAnswer(answer);
+    } else {
+      this.props.createAnswer(answer);
+    }
+
+    this.props.closeEditor();
   }
 
   render() {
@@ -52,6 +63,7 @@ class Editor extends React.Component {
           modules={this.modules}
           formats={this.formats}
           placeholder="Write your answer"
+          value={this.state.editorHtml}
           onChange={this.handleChange}>
         </ReactQuill>
         <div className="editor-footer">
@@ -71,11 +83,18 @@ Editor.propTypes = {
   placeholder: React.PropTypes.string,
 };
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+
+  };
+};
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     createAnswer: (answer) => dispatch(createAnswer(answer)),
+    updateAnswer: (answer) => dispatch(updateAnswer(answer)),
   };
 };
 
 
-export default connect(null, mapDispatchToProps)(Editor);
+export default connect(mapStateToProps, mapDispatchToProps)(Editor);

@@ -16,8 +16,20 @@
   border-bottom: 1px solid #e2e2e2;
 }
 
-.annswer-info {
+.answer-info {
   display: flex;
   flex-direction: column;
+}
 
+.answer-action-bar {
+  display: flex;
+}
+
+.answer-action-bar * {
+  margin-right: 12px;
+}
+
+.author-actions {
+  display: flex;
+  justify-content: space-between;
 }

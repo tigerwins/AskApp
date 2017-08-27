@@ -13,8 +13,7 @@ class Question extends React.Component {
 
     this.editQuestion = this.editQuestion.bind(this);
     this.answerQuestion = this.answerQuestion.bind(this);
-    this.toggleEditor = this.toggleEditor.bind(this);
-    this.handleAnswerChange = this.handleAnswerChange.bind(this);
+    this.closeEditor = this.closeEditor.bind(this);
   }
 
   componentWillUnmount() {
@@ -31,14 +30,10 @@ class Question extends React.Component {
     this.setState({ displayEditor: true });
   }
 
-  toggleEditor(e) {
+  closeEditor(e) {
     this.setState({
       displayEditor: !this.state.displayEditor
     });
-  }
-
-  handleAnswerChange(value) {
-    this.setState({ answerText: value });
   }
 
   renderErrors() {
@@ -107,8 +102,10 @@ class Question extends React.Component {
 
         { this.state.displayEditor &&
           <Editor
-            currentUser={this.props.currentUser} question={this.props.question}
-            toggleEditor={this.toggleEditor} />
+            currentUser={ this.props.currentUser }
+            question={ this.props.question }
+            closeEditor={ this.closeEditor }
+            actionType="create" />
         }
       </div>
     );

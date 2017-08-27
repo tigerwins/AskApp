@@ -7,13 +7,14 @@ class AnswerIndex extends React.Component {
   }
 
   render() {
-    const { answers, users } = this.props;
+    const { answers, users, question } = this.props;
     const answerList = Object.keys(answers).map(id => {
       return (
         <li key={`answer-${id}`}>
           <AnswerIndexItem
-            answer={answers[id]}
-            author={users[answers[id].author_id]}
+            answer={ answers[id] }
+            author={ users[answers[id].author_id] }
+            question={ question }
           />
         </li>
       );

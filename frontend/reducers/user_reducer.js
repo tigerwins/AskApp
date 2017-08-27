@@ -3,7 +3,10 @@ import {
   RECEIVE_QUESTIONS,
   RECEIVE_QUESTION,
 } from '../actions/question_actions';
-import { RECEIVE_ANSWER } from '../actions/answer_actions';
+import {
+  RECEIVE_ANSWER,
+  REMOVE_ANSWER,
+} from '../actions/answer_actions';
 // import { RECEIVE_COMMENT } from '../actions/comment_actions';
 
 const userReducer = (state = {}, action) => {
@@ -26,6 +29,8 @@ const userReducer = (state = {}, action) => {
         [action.payload.author.id]: action.payload.author
       };
       return merge({}, state, newAnswer);
+    // case REMOVE_ANSWER:
+    //
     default:
       return state;
   }

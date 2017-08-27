@@ -36,6 +36,6 @@ export const updateAnswer = answer => dispatch => {
 
 export const deleteAnswer = answer => dispatch => {
   return AnswerAPIUtil.destroyAnswer(answer).then(
-    oldAnswer => dispatch(receiveAnswer(oldAnswer))
+    oldAnswer => dispatch(removeAnswer(oldAnswer))
   );
 };
