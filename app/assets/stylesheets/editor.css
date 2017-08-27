@@ -1,0 +1,36 @@
+.editor {
+  margin-top: 8px;
+}
+
+img.avatar {
+  margin-right: 8px;
+}
+
+span.name {
+  display: flex;
+  align-items: center;
+}
+
+.ql-toolbar.ql-snow {
+  border: 1px solid #e2e2e2;
+}
+
+
+.ql-toolbar.ql-snow * {
+  stroke: #999;
+}
+
+.ql-editor, .ql-container {
+  min-height: 100px;
+}
+
+.editor-header {
+  min-height: 39px;
+  padding: 10px 8px;
+  background: #f6f6f6;
+  border-radius: 3px 3px 0 0;
+  border-top: 1px solid #e2e2e2;
+  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+  display: flex;
+}
