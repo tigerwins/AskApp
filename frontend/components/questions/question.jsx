@@ -1,17 +1,33 @@
 import React from 'react';
 import EditQuestionModal from '../questions/edit_question_modal_container';
+import ReactQuill from 'react-quill';
+import Editor from '../answers/editor';
 
 class Question extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      displayEditor: false,
+    };
+
     this.editQuestion = this.editQuestion.bind(this);
+    this.answerQuestion = this.answerQuestion.bind(this);
+    this.handleAnswerChange = this.handleAnswerChange.bind(this);
   }
 
   editQuestion() {
     this.props.toggleModal(
       <EditQuestionModal question={this.props.question}/>
     );
+  }
+
+  answerQuestion(e) {
+    this.setState({ displayEditor: true });
+  }
+
+  handleAnswerChange(value) {
+    this.setState({ answerText: value });
   }
 
   render() {
@@ -41,7 +57,7 @@ class Question extends React.Component {
         </div>
 
         <div className="action-bar">
-          <div className="answer-btn">
+          <div className="answer-btn" onClick={this.answerQuestion}>
             <span className="pen-icon">
               <img width="12" height="12" src={window.images.pen} />
             </span>
@@ -57,6 +73,10 @@ class Question extends React.Component {
           </div>
 
         </div>
+
+        { this.state.displayEditor &&
+          <Editor currentUser={this.props.currentUser} question={this.props.question} />
+        }
       </div>
     );
   }
