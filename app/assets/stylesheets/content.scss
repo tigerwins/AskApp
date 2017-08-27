@@ -32,7 +32,6 @@ div.detail-page {
   box-sizing: border-box;
   opacity: 100%;
   background-color: #fff;
-  // margin: 0 auto;
 }
 
 .header > * {
@@ -44,6 +43,7 @@ div.header-contents {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  margin: 0 auto;
 
 }
 
@@ -180,7 +180,13 @@ html, .content {
 
 // Might need to add to topics.scss when I get there
 
+
+
 div.feeds-sidebar {
+  // position: absolute;
+  // float: left;
+  // clear: left;
+  // top: 83px;
   width: 142px;
   margin-bottom: 32px;
   font-size: 13px;

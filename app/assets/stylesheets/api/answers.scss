@@ -1,3 +1,23 @@
 // Place all the styles related to the Api::Answers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.answer-index {
+  list-style: none;
+}
+
+.answer-index-header {
+  // width: 602px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.annswer-info {
+  display: flex;
+  flex-direction: column;
+
+}
