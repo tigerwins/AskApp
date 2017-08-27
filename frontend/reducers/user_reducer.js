@@ -29,8 +29,6 @@ const userReducer = (state = {}, action) => {
         [action.payload.author.id]: action.payload.author
       };
       return merge({}, state, newAnswer);
-    // case REMOVE_ANSWER:
-    //
     default:
       return state;
   }

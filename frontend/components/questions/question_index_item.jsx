@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Answer from '../answers/answer';
+import { allAnswers } from '../../reducers/selectors';
 
 class Question extends React.Component {
   constructor(props) {
@@ -39,16 +41,25 @@ class Question extends React.Component {
               </span>
             </Link>
           </div>
-
-          <div className="answer">
-            Answer goes here
-            <Answer />
-          { /* PROP: answer={this.props.question.answers.last} */ }
-          </div>
+          { this.props.answer &&
+            <div className="answer">
+              <Answer answer={this.props.answer}/>
+              { /* PROP: answer={this.props.question.answers.last} */ }
+            </div>
+          }
         </div>
       </div>
     );
   }
 }
 
-export default Question;
+const mapStateToProps = (state, { question }) => {
+  const answers = allAnswers(state, question.id);
+  // debugger
+
+  return {
+    answer: answers[answers.length - 1],
+  };
+};
+
+export default connect(mapStateToProps, null)(Question);

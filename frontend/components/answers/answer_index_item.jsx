@@ -51,9 +51,9 @@ class AnswerIndexItem extends React.Component {
             </div>
             <div className="answer-footer">
               <div className="answer-action-bar">
-                <button>
-                  Upvote
-                </button>
+                {/* <button>
+                  Upvote { need number of upvotes }
+                </button> */}
 
                 { author.id === currentUser.id &&
                   <div className="author-actions">
