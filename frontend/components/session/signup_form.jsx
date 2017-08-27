@@ -13,6 +13,7 @@ class SignupForm extends React.Component {
 
     this.handleToggle = this.handleToggle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.fbLogin = this.fbLogin.bind(this);
   }
 
   componentWillReceiveProps({ email, password }) {
@@ -38,15 +39,21 @@ class SignupForm extends React.Component {
   }
 
   fbLogin(e) {
-    FB.getLoginStatus(function(response) { // eslint-disable-line no-use-before-define
-      debugger
+    let self = this;
+    debugger
+
+    FB.getLoginStatus((response) => { // eslint-disable-line no-use-before-define
       if (response.status === 'connected') {
 
-        this.props.fbSignup(response);
-        window.location.replace("http://localhost:3000/api/users/show");
+        self.props.login(response);
+        // window.location.replace("http://localhost:3000/api/users/show");
       }
       else {
-        FB.login(); // eslint-disable-line no-use-before-define
+        FB.login((loginResponse) => { // eslint-disable-line no-use-before-define
+          self.props.fbSignup(loginResponse);
+          window.location.replace("http://localhost:3000/api/users/show");
+
+        }, { scope: 'public_profile, email' });
       }
     });
   }
