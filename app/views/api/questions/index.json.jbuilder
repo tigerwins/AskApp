@@ -22,7 +22,7 @@ json.answers do
 end
 
 first_answer_comments = newest_answers.map(&:comments).flatten
-
+json.comments({})
 json.comments do
   first_answer_comments.each do |comment|
     json.set! comment.id do

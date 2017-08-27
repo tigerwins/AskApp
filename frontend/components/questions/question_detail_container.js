@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import QuestionDetail from './question_detail';
 import {
+  fetchQuestions,
   fetchQuestion,
   createQuestion,
   updateQuestion,
@@ -18,13 +20,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  // const id = ownProps.match.params.id;
-
   return {
+    requestQuestions: () => dispatch(fetchQuestions()),
     requestQuestion: (id) => dispatch(fetchQuestion(id)),
     createQuestion: question => dispatch(createQuestion(question)),
     updateQuestion: question => dispatch(updateQuestion(question)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionDetail);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(QuestionDetail));

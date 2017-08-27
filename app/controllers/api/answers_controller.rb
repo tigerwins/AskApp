@@ -7,7 +7,6 @@ class Api::AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.question = Question.find(answer_params[:question_id])
     @answer.author = current_user
-    debugger
 
     if @answer.save
       render :show

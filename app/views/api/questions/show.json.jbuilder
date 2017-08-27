@@ -17,6 +17,7 @@ json.users do
   end
 end
 
+json.answers({})
 json.answers do
   @question.answers.each do |answer|
     json.set! answer.id do
@@ -25,8 +26,12 @@ json.answers do
   end
 end
 
+json.comments({})
 json.comments do
   all_comments = @question.answers.map(&:comments).flatten
-  all_comments
-
+  all_comments.each do |comment|
+    json.set! comment.id do
+      json.extract! comment, :id, :body, :user, :created_at
+    end
+  end
 end

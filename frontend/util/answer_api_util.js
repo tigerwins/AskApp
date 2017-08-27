@@ -1,5 +1,4 @@
 export const createAnswer = (answer) => {
-  debugger
   return $.ajax({
     method: "POST",
     url: `/api/questions/${answer.questionId}/answers`,
