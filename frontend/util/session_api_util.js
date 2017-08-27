@@ -23,7 +23,7 @@ export const fbSignup = (response) => {
 
 export const login = (user) => {
   let accessToken = FB.getAuthResponse().accessToken;
-  let userObject = {};
+  let userObject = { fb_token: accessToken };
   FB.api('/me/', {fields: 'first_name, last_name, email'}, response => {
     userObject.firstName = response.first_name || undefined;
     userObject.lastName = response.last_name || undefined;
@@ -31,17 +31,24 @@ export const login = (user) => {
   });
 
   if (userObject.email === undefined) {
-    userObject.email = "testEmail_" + Math.random(10000);
+    userObject.email = "testEmail_" + Math.floor(Math.random() * 1000000) + "@test.com";
   }
-
-
-
 
   return $.ajax({
     method: "POST",
     url: "/api/session",
-    data: user
-  });
+    data: { user: userObject },
+  }).fail(
+    err => {
+      $.ajax({
+        method: "POST",
+        url: "/api/users",
+        data: { user: userObject }
+      }).then(
+        login(user)
+      );
+    }
+  );
 };
 
 export const logout = () => {

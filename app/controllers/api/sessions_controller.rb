@@ -7,6 +7,10 @@ class Api::SessionsController < ApplicationController
       params[:user][:password]
     )
 
+    if !@user
+      @user = User.find_by(accessToken: params[:user][:accessToken])
+    end
+
     if !user
       render json: ["No account found for this email. Retry, or"], status: 404
     elsif @user
