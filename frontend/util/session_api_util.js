@@ -1,4 +1,16 @@
+
 export const signup = (user) => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/users",
+    data: user
+  });
+};
+
+export const fbSignup = (response) => {
+  let accessToken = response.accessToken;
+  
+
   return $.ajax({
     method: "POST",
     url: "/api/users",

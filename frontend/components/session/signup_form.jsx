@@ -37,6 +37,20 @@ class SignupForm extends React.Component {
     this.props.toggleSignup();
   }
 
+  fbLogin(e) {
+    FB.getLoginStatus(function(response) { // eslint-disable-line no-use-before-define
+      debugger
+      if (response.status === 'connected') {
+
+        this.props.fbSignup(response);
+        window.location.replace("http://localhost:3000/api/users/show");
+      }
+      else {
+        FB.login(); // eslint-disable-line no-use-before-define
+      }
+    });
+  }
+
   renderErrors() {
     const { errors, formType } = this.props;
     let entryErrors;
@@ -68,7 +82,7 @@ class SignupForm extends React.Component {
     if (formType === "signup" && !this.props.showSignup) {
       return (
         <div className="signup-container">
-          {/*<div className="other-login-btn google-btn">
+          <div className="other-login-btn google-btn">
             <span className="google-icon other-icon">
               <svg width="25" height="25">
                 <image width="25" height="25" xlinkHref={window.images.google_svg} />
@@ -77,12 +91,12 @@ class SignupForm extends React.Component {
             <span className="google-text other-login-text">Continue with Google</span>
           </div>
 
-          <div className="other-login-btn facebook-btn">
+          <div className="other-login-btn facebook-btn" onClick={this.fbLogin}>
             <span className="other-icon facebook-icon">
               <img width="24" height="24" src={window.images.fb_logo} />
             </span>
             <span className="other-login-text facebook-text">Continue with Facebook</span>
-          </div>*/}
+          </div>
 
           <span>
             <span className="signup-link show-form" onClick={this.props.toggleSignup}>

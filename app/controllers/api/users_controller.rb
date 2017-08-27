@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
       render json: @user.errors.full_messages, status: 422
     end
   end
-  
+
   # def show
   #   @user = User.find(params[:id])
   #   render :show
@@ -23,6 +23,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email, :password)
+    params.require(:user).permit(:fname, :lname, :email, :password, :fb_token)
   end
 end

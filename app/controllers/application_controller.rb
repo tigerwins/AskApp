@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by(session_token: session[:session_token])
+    # @current_user ||= user_from_cookie(get_facebook_cookie)
   end
 
   def login(user)

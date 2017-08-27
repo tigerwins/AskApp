@@ -37,6 +37,21 @@ export const signup = user => dispatch => {
   );
 };
 
+// accepts FB JS SDK response object for successful login
+// uses acces token to query access for user name and email
+// creates user model with name, email, and access token
+// if email not available, make placeholder email
+
+export const fbSignup = response => dispatch => {
+  return SessionApiUtil.signup(user).then(
+    newUser => dispatch(receiveCurrentUser(newUser)),
+    errors => dispatch(receiveErrors({
+      errorType: "signup",
+      errorList: errors.responseJSON
+    }))
+  );
+};
+
 export const login = user => dispatch => {
   return SessionApiUtil.login(user).then(
     currentUser => dispatch(receiveCurrentUser(currentUser)),

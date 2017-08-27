@@ -30,7 +30,7 @@ class User < ApplicationRecord
     class_name: 'Answer',
     primary_key: :id,
     foreign_key: :author_id
-    
+
   has_many :comments
 
   attr_reader :password

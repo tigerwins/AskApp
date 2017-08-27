@@ -16,6 +16,10 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(clearErrors());
       dispatch(signup(user));
     },
+    fbSignup: (user) => {
+      dispatch(clearErrors());
+      dispatch(signup(user));
+    },
   };
 };
 
