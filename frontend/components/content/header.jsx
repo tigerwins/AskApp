@@ -88,11 +88,9 @@ class Header extends React.Component {
           </div>
 
           <div className="ask-question">
-            <span className="question-btn questionModal" onClick={this.askQuestion}>
-              <div className="inner">
-                Ask Question
-              </div>
-            </span>
+            <button className="question-btn" onClick={this.askQuestion}>
+              Ask Question
+            </button>
           </div>
 
         </div>
