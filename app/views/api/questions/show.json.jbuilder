@@ -20,7 +20,7 @@ end
 json.answers do
   @question.answers.each do |answer|
     json.set! answer.id do
-      json.extract! answer, :id, :body, :author_id, :question_id
+      json.partial! "/api/answers/answer", answer: answer
     end
   end
 end
