@@ -72,7 +72,7 @@ class LoginForm extends React.Component {
 
     if (errorList.length > 0) {
       return (
-        <ul className="entry-errors">
+        <ul className="errors">
           {errorList}
         </ul>
       );
