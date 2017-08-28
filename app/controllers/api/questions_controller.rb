@@ -29,7 +29,7 @@ class Api::QuestionsController < ApplicationController
       render json: @question.errors.full_messages, status: 422
     end
   end
-  
+
   private
 
   def question_params

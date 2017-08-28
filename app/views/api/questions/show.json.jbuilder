@@ -1,5 +1,6 @@
 json.question do
   json.partial! "/api/questions/question", question: @question
+  json.answerIds { json.array! @question.answers.map(&:id) }
 end
 
 json.users do
