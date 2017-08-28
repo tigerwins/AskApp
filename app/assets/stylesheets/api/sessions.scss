@@ -207,7 +207,7 @@ h1.logo {
 }
 
 .submit-btn {
-  -webkit-appearance: button;
+  // -webkit-appearance: button;
   cursor: pointer;
   user-select: none;
   box-sizing: border-box;
@@ -228,6 +228,18 @@ h1.logo {
 .submit-btn:disabled {
   opacity: .5;
   pointer-events: none;
+}
+
+.submit-btn:active {
+  opacity: .6;
+  box-shadow: none;
+}
+
+.submit-btn:focus {
+  box-shadow: inset 1px 0 0 #fff,
+    inset -1px 0 0 #fff,
+    inset 0 1px 0 #fff,
+    inset 0 -1px 0 #fff;
 }
 
 .login-btns {

@@ -20,8 +20,9 @@ span.name {
   stroke: #999;
 }
 
-.ql-editor, .ql-container {
+.ql-editor.ql-blank, .ql-container.ql-snow {
   min-height: 100px;
+  stroke: #e2e2e2;
 }
 
 .editor-header {
@@ -33,4 +34,14 @@ span.name {
   border-left: 1px solid #e2e2e2;
   border-right: 1px solid #e2e2e2;
   display: flex;
+}
+
+.editor-footer {
+  box-sizing: border-box;
+  padding: 8px;
+  height: 45px;
+  background: #f6f6f6;
+  border-bottom: 1px solid #e2e2e2;
+  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
 }
