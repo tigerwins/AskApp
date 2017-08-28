@@ -17,9 +17,6 @@ const questionReducer = (state = {}, action) => {
       return merge({}, state, nextState);
     case RECEIVE_QUESTION:
       nextState[action.payload.question.id] = action.payload.question;
-      // const question = {
-      //   [action.payload.question.id]: action.payload.question
-      // };
       return nextState;
     case RECEIVE_NEW_QUESTION:
       const newQuestion = {
