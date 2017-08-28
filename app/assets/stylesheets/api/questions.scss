@@ -75,7 +75,11 @@ ul.question-feed {
 div.question-text {
   display: flex;
   flex-direction: column;
+}
 
+div.empty-question-footer {
+  display: flex;
+  flex-direction: column;
 }
 
 span.question-body {
@@ -121,6 +125,13 @@ div.action-bar {
   justify-content: flex-start;
   align-items: center;
   margin-top: 16px;
+}
+
+div.empty-question-action-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8px;
 }
 
 .action-bar {
@@ -177,9 +188,9 @@ div.question-topic-tags {
 
 ul.topics {
   box-sizing: border-box;
-  height: 23px;
-  padding: 4px 8px;
-  margin: 0 4px 8px 0;
+  // height: 23px;
+  // padding: 4px 8px;
+  margin: 0 4px 4px 0;
   color: #999;
   font-size: 13px;
 }
