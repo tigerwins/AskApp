@@ -32,15 +32,57 @@ div.new-comment {
 }
 
 div.comment-index {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.comment-action-bar {
   display: flex;
 }
 
 div.expand-comment-link {
+  align-self: flex-start;
   display: flex;
   align-items: center;
   margin-left: auto;
+  margin-top: 4.5px;
 }
 
 img.avatar {
   align-self: flex-start;
+}
+
+div.comment-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+span.user {
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+li.comment {
+  display: flex;
+  padding: 16px 8px 0 0;
+}
+
+div.comment-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+span.comment-timestamp {
+  padding-bottom: 4px;
+}
+
+span.comment-body {
+  margin-top: 4px;
 }

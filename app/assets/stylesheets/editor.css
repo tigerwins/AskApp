@@ -26,6 +26,8 @@ div.comment-editor div.ql-blank {
 
 img.avatar {
   margin-right: 8px;
+  width: 27px;
+  height: 27px;
 }
 
 span.name {
