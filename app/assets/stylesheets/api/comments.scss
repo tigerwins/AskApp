@@ -1,3 +1,24 @@
 // Place all the styles related to the Api::Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.comment-box {
+  min-height: 27px;
+  background-color: #f7f7f7;
+  font-size: 13px;
+  padding: 16px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 2px;
+}
+
+div.new-comment {
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  line-height: 1.5;
+  vertical-align: middle;
+  word-break: break-word;
+  padding: 3px 5px 4px;
+  background-color: #fff;
+  min-height: 27px;
+}

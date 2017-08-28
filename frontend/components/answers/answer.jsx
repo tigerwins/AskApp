@@ -3,11 +3,12 @@ import React from 'react';
 class Answer extends React.Component {
   constructor(props) {
     super(props);
-    debugger
 
     this.state = {
       expanded: false
     };
+
+    this.expandAnswer = this.expandAnswer.bind(this);
   }
 
   expandAnswer(e) {
@@ -16,7 +17,7 @@ class Answer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="answer">
         <div className="author-info">
 
         </div>
@@ -46,6 +47,7 @@ class Answer extends React.Component {
 
           </div>
           <div className="comment-box">
+
           </div>
         </div>
 

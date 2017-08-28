@@ -26,9 +26,6 @@ class QuestionModal extends React.Component {
     this.enableScroll = this.enableScroll.bind(this);
   }
 
-  componentWillReceiveProps() {
-  }
-
   handleChange(field) {
     return e => {
       this.setState({ [field]: e.currentTarget.value });

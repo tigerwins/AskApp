@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import { connect } from 'react-redux';
 import Editor from './editor';
 import { deleteAnswer } from '../../actions/answer_actions';
@@ -30,7 +31,8 @@ class AnswerIndexItem extends React.Component {
 
   render() {
     const { author, answer, currentUser } = this.props;
-    // debugger
+    // const { body } = author;
+
     return (
       <div className="answer-index-item">
         { !this.state.displayEditor ? (
@@ -38,6 +40,7 @@ class AnswerIndexItem extends React.Component {
             <div className="answer-header">
               <div className="avatar">
                 {/* PROFILE AVATAR GOES HERE */}
+                <img height="40" width="40" />
               </div>
               <div className="answer-info">
                 <span className="author">{author.name}</span>
@@ -47,13 +50,13 @@ class AnswerIndexItem extends React.Component {
             </div>
 
             <div className="answer-content">
-              { answer.body }
+              { ReactHtmlParser(answer.body) }
             </div>
             <div className="answer-footer">
               <div className="answer-action-bar">
-                {/* <button>
-                  Upvote { need number of upvotes }
-                </button> */}
+                <button className="upvote">
+                  Upvote {/* need number of upvotes */}
+                </button>
 
                 { author.id === currentUser.id &&
                   <div className="author-actions">

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Answer from '../answers/answer';
-import { allAnswers } from '../../reducers/selectors';
 
 class Question extends React.Component {
   constructor(props) {
@@ -53,13 +51,4 @@ class Question extends React.Component {
   }
 }
 
-const mapStateToProps = (state, { question }) => {
-  const answers = allAnswers(state, question.id);
-  // debugger
-
-  return {
-    answer: answers[answers.length - 1],
-  };
-};
-
-export default connect(mapStateToProps, null)(Question);
+export default Question;

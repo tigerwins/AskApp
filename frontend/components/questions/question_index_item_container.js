@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import QuestionIndexItem from './question_index_item';
 import { allAnswers } from '../../reducers/selectors';
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    // answers: allAnswers(state, ownProps.question.id),
+const mapStateToProps = (state, { question }) => {
+  const answers = allAnswers(state, question.id);
 
+  return {
+    answer: answers[answers.length - 1],
   };
 };
 
