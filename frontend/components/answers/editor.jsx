@@ -68,6 +68,7 @@ class Editor extends React.Component {
         </ReactQuill>
         <div className="editor-footer">
           <button
+            className="submit-btn"
             onClick={this.handleSubmit} disabled={!this.state.editorHtml}
           >
             Submit

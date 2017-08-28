@@ -53,7 +53,7 @@ class Question extends React.Component {
   }
 
   render() {
-    const { question } = this.props;
+    const { question, asker } = this.props;
 
     if (!question) {
       return null;
@@ -78,7 +78,7 @@ class Question extends React.Component {
             {question.body}
           </span>
           <span className="asker">
-            {/* Asked by {question.asker.name} */}
+            Asked by {asker.name}
           </span>
         </div>
 

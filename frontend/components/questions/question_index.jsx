@@ -8,6 +8,7 @@ class QuestionIndex extends React.Component {
     super(props);
 
     this.askQuestion = this.askQuestion.bind(this);
+    this.requestQuestions = this.requestQuestions.bind(this);
   }
 
   componentDidMount() {
@@ -18,13 +19,17 @@ class QuestionIndex extends React.Component {
     this.props.toggleModal(<CreateQuestionModal />);
   }
 
+  requestQuestions() {
+    this.props.requestQuestions();
+  }
+
   render() {
     const { questions, currentUser, createQuestion } = this.props;
-
     const questionList = questions.map(question => (
       <li className="index-box" key={question.id}>
         <QuestionIndexItemContainer
           question={ question }
+          refreshPage={ this.requestQuestions }
           />
       </li>
     ));

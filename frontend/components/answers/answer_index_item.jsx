@@ -52,24 +52,27 @@ class AnswerIndexItem extends React.Component {
               { ReactHtmlParser(answer.body) }
             </div>
             <div className="answer-footer">
-              <div className="answer-action-bar">
-                <button className="upvote">
-                  Upvote {/* need number of upvotes */}
-                </button>
 
-                { author.id === currentUser.id &&
-                  <div className="author-actions">
+                { author.id === currentUser.id ? (
+                  <div className="answer-action-bar">
+                    <button className="upvote">
+                      Upvote {/* need number of upvotes */}
+                    </button>
                     <span className="edit action-link" onClick={this.editAnswer}>
                       Edit Answer
                     </span>
-
                     <span className="delete action-link" onClick={this.deleteAnswer}>
                       Delete Answer
                     </span>
-
                   </div>
-                }
-              </div>
+                ) : (
+                  <div className="answer-action-bar">
+                    <button className="upvote">
+                      Upvote {/* need number of upvotes */}
+                    </button>
+                  </div>
+                )}
+
               <div className="comment-box">
               </div>
             </div>

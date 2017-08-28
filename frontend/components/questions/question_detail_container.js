@@ -11,10 +11,17 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
+  const { questions, users } = state.entities;
+  let asker;
+  if (questions[id]) {
+    asker = users[questions[id].asker_id];
+  }
+
   return {
     currentUser: state.session.currentUser,
     questionId: id,
-    question: state.entities.questions[id],
+    question: questions[id],
+    asker,
     errors: state.errors,
   };
 };
