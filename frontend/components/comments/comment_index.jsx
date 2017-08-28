@@ -12,7 +12,15 @@ class CommentIndex extends React.Component {
   render() {
     return (
       <div className="comment-index">
+        { this.state.expanded ? (
+          <div>
 
+          </div>
+        ) : (
+          <div>
+            
+          </div>
+        )}
       </div>
     );
   }

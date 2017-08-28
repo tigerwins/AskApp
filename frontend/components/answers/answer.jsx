@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
+import CommentIndexContainer from '../comments/comment_index_container';
 
 class Answer extends React.Component {
   constructor(props) {
@@ -68,7 +69,9 @@ class Answer extends React.Component {
 
           { this.state.displayComments &&
             <div className="comment-box">
-
+              <CommentIndexContainer
+                answerId={ answer }
+                expanded={ true } />
             </div>
           }
         </div>
