@@ -24,16 +24,15 @@ class CommentEditor extends React.Component {
   }
 
   handleSubmit(e) {
-    let comment = {
+    const comment = {
       body: this.state.commentText,
-      answerId: this.props.answerId
+      answer_id: this.props.answerId
     };
 
-    this.props.createComment(answer);
-    this.props.expandComments();
+    this.props.createComment(comment);
     this.setState({ commentText: "" });
+    this.props.expandComments();
   }
-
 
   render() {
     return (
@@ -76,4 +75,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(CommentEditor);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentEditor);

@@ -11,11 +11,15 @@ class AnswerIndexItem extends React.Component {
 
     this.state = {
       displayEditor: false,
+      displayComments: false,
     };
 
     this.editAnswer = this.editAnswer.bind(this);
     this.deleteAnswer = this.deleteAnswer.bind(this);
     this.closeEditor = this.closeEditor.bind(this);
+
+    this.toggleComments = this.toggleComments.bind(this);
+    this.expandComments = this.expandComments.bind(this);
   }
 
   editAnswer(e) {
@@ -28,6 +32,14 @@ class AnswerIndexItem extends React.Component {
 
   closeEditor(e) {
     this.setState({ displayEditor: false });
+  }
+
+  toggleComments(e) {
+    this.setState({ displayComments: !this.state.displayComments });
+  }
+
+  expandComments(e) {
+    this.setState({ displayComments: true });
   }
 
   render() {
@@ -74,10 +86,23 @@ class AnswerIndexItem extends React.Component {
                   </div>
                 )}
 
-              <div className="comment-box">
-                <CommentIndexContainer
-                  answerId={ answer.id }
-                  expanded={ false } />
+            </div>
+            <div className="comment-box">
+              <CommentIndexContainer
+                answerId={ answer.id }
+                expanded={ this.state.displayComments }
+                expandComments={ this.expandComments } />
+
+              <div className="expand-comment-link">
+                { this.state.displayComments ? (
+                  <span className="action-link" onClick={this.toggleComments}>
+                    Hide Comments
+                  </span>
+                ) : (
+                  <span className="action-link" onClick={this.toggleComments}>
+                    All Comments
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -98,9 +123,9 @@ class AnswerIndexItem extends React.Component {
   }
 }
 
-const mapStateToProps = ({ session }) => {
+const mapStateToProps = (state) => {
   return {
-    currentUser: session.currentUser,
+    currentUser: state.session.currentUser,
   };
 };
 

@@ -2,12 +2,7 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_QUESTIONS,
   RECEIVE_QUESTION,
-  // RECEIVE_NEW_QUESTION
 } from '../actions/question_actions';
-import {
-  // RECEIVE_ANSWER,
-  // REMOVE_ANSWER
-} from '../actions/answer_actions';
 import {
   RECEIVE_COMMENT,
   REMOVE_COMMENT

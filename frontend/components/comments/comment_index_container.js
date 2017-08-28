@@ -3,17 +3,19 @@ import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, { answerId }) => {
   let comments = {};
-  state.entities.answers[answerId].commentIds.forEach(id => {
-    comments[id] = state.entities.comments[id];
-  });
+  if (state.entities.answers[answerId]) {
+    state.entities.answers[answerId].commentIds.forEach(id => {
+      comments[id] = state.entities.comments[id];
+    });
+  }
 
   return {
-    comments: state.entities.comments,
+    comments,
 
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, { answerId }) => {
   return {
 
   };

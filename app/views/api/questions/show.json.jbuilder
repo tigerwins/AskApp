@@ -14,6 +14,9 @@ json.users do
   all_users.each do |user|
     json.set! user.id do
       json.extract! user, :id, :name
+      json.questionIds { json.array! user.questions.map(&:id) }
+      json.answerIds { json.array! user.answers.map(&:id) }
+      json.commentIds { json.array! user.comments.map(&:id) }
     end
   end
 end
@@ -23,6 +26,7 @@ json.answers do
   @question.answers.each do |answer|
     json.set! answer.id do
       json.partial! "/api/answers/answer", answer: answer
+      json.commentIds { json.array! answer.comments.map(&:id) }
     end
   end
 end
