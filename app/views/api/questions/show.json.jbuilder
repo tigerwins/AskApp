@@ -3,6 +3,7 @@ json.question do
   json.answerIds { json.array! @question.answers.map(&:id) }
 end
 
+json.users({})
 json.users do
   asker = @question.asker #, :id, :fname, :lname
   answer_authors = @question.answers.map(&:author)

@@ -1,3 +1,4 @@
+json.questions({})
 json.questions do
   @questions.each do |question|
     json.set! question.id do
@@ -12,6 +13,7 @@ newest_answers = []
   newest_answers << question.answers.last if question.answers.last
 end
 
+json.answers({})
 json.answers do
   newest_answers.each do |answer|
     json.set! answer.id do
@@ -36,6 +38,7 @@ authors = newest_answers.map(&:author)
 commenters = first_answer_comments.map(&:user)
 all_users = (askers + authors + commenters).flatten
 
+json.users({})
 json.users do
   all_users.each do |user|
     json.set! user.id do
