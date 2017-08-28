@@ -1,27 +1,45 @@
 import React from 'react';
 import CommentEditor from './comment_editor';
+import Comment from './comment';
 
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      expanded: props.expanded,
+      displayComments: false,
     };
+
+    this.toggleComments = this.toggleComments.bind(this);
+    this.expandComments = this.expandComments.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ expanded: nextProps.expanded });
+  toggleComments(e) {
+    this.setState({ displayComments: !this.state.displayComments });
+  }
+
+  expandComments() {
+    this.setState({ displayComments: true });
+  }
+
+  deleteComment(comment) {
+    return (e) => this.props.deleteComment(comment);
   }
 
   renderComments() {
     const self = this;
-    return Object.keys(this.props.comments).map(id => {
+    const { comments, users } = this.props;
+
+    return Object.keys(comments).map(id => {
+
       return (
-        <li className="comment" key={`comment-${id}`}>
-          <img width="27" height="27" />
-          <span className="comment-text">{ self.props.comments[id].body }</span>
-        </li>
+        <Comment
+          key={`comment-${id}`}
+          comment={comments[id]}
+          user={users[comments[id].user_id]}
+          deleteComment={this.deleteComment(comments[id])}
+        />
       );
     });
   }
@@ -32,13 +50,25 @@ class CommentIndex extends React.Component {
         <div className="comment-action-bar">
           <img className="avatar" width="27" height="27" />
           <CommentEditor
-            expandComments={ this.props.expandComments }
+            expandComments={ this.expandComments }
             answerId={ this.props.answerId }
             />
+
+          <div className="expand-comment-link">
+            { this.state.displayComments ? (
+              <span className="action-link" onClick={this.toggleComments}>
+                Hide Comments
+              </span>
+            ) : (
+              <span className="action-link" onClick={this.toggleComments}>
+                All Comments
+              </span>
+            )}
+          </div>
         </div>
 
         <div className="comments-list">
-          { this.state.expanded ? (
+          { this.state.displayComments ? (
             <div className="expanded-comments">
               <ul className="comment-list">
                 { this.renderComments() }

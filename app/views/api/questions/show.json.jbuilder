@@ -36,7 +36,7 @@ json.comments do
   all_comments = @question.answers.map(&:comments).flatten
   all_comments.each do |comment|
     json.set! comment.id do
-      json.extract! comment, :id, :body, :user, :created_at
+      json.extract! comment, :id, :body, :user_id, :created_at
     end
   end
 end

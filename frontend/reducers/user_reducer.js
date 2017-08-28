@@ -7,7 +7,7 @@ import {
   RECEIVE_ANSWER,
   REMOVE_ANSWER,
 } from '../actions/answer_actions';
-// import { RECEIVE_COMMENT } from '../actions/comment_actions';
+import { RECEIVE_COMMENT } from '../actions/comment_actions';
 
 const userReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -25,10 +25,18 @@ const userReducer = (state = {}, action) => {
       });
       return nextState;
     case RECEIVE_ANSWER:
-      const newAnswer = {
-        [action.payload.author.id]: action.payload.author
-      };
-      return merge({}, state, newAnswer);
+      nextState = merge({}, state);
+      nextState[action.payload.author.id] = action.payload.author;
+      nextState[action.payload.answer.author_id].answerIds.push(action.payload.answer.id);
+      // const newAnswer = {
+      //   [action.payload.author.id]: action.payload.author
+      // };
+      return nextState;
+    case RECEIVE_COMMENT:
+      nextState = merge({}, state);
+      nextState[action.payload.comment.user_id].commentIds.push(action.payload.comment.id);
+      return nextState;
+
     default:
       return state;
   }

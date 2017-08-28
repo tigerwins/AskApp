@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import CommentIndex from './comment_index';
+import { deleteComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, { answerId }) => {
   let comments = {};
@@ -11,13 +12,13 @@ const mapStateToProps = (state, { answerId }) => {
 
   return {
     comments,
-
+    users: state.entities.users,
   };
 };
 
 const mapDispatchToProps = (dispatch, { answerId }) => {
   return {
-
+    deleteComment: (comment) => dispatch(deleteComment(comment)),
   };
 };
 

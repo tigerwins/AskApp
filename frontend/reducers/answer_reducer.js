@@ -8,7 +8,10 @@ import {
   RECEIVE_ANSWER,
   REMOVE_ANSWER,
 } from '../actions/answer_actions';
-import { RECEIVE_COMMENT } from '../actions/comment_actions';
+import {
+  RECEIVE_COMMENT,
+  REMOVE_COMMENT,
+} from '../actions/comment_actions';
 
 const answerReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -42,6 +45,12 @@ const answerReducer = (state = {}, action) => {
     case RECEIVE_COMMENT:
       nextState = merge({}, state);
       nextState[action.payload.comment.answer_id].commentIds.push(action.payload.comment.id);
+      return nextState;
+    case REMOVE_COMMENT:
+      nextState = merge({}, state);
+      const { comment } = action.payload;
+      const commentIdx = nextState[comment.answer_id].commentIds.indexOf(comment.id);
+      nextState[comment.answer_id].commentIds.splice(commentIdx, 1);
       return nextState;
     default:
       return state;
