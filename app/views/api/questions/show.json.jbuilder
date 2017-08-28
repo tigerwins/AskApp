@@ -5,11 +5,10 @@ end
 
 json.users({})
 json.users do
-  asker = @question.asker #, :id, :fname, :lname
+  asker = @question.asker
   answer_authors = @question.answers.map(&:author)
   all_comments = @question.answers.map(&:comments).flatten
   answer_commenters = all_comments.map(&:user).flatten
-  # need to flatten the nested array of commenters
   all_users = [asker] + answer_authors + answer_commenters
 
   all_users.each do |user|
