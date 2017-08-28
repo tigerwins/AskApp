@@ -26,11 +26,11 @@ const userReducer = (state = {}, action) => {
       return nextState;
     case RECEIVE_ANSWER:
       nextState = merge({}, state);
-      nextState[action.payload.author.id] = action.payload.author;
-      nextState[action.payload.answer.author_id].answerIds.push(action.payload.answer.id);
-      // const newAnswer = {
-      //   [action.payload.author.id]: action.payload.author
-      // };
+      const { author, answer } = action.payload;
+      debugger
+      merge(nextState, { [author.id]: author});
+      // nextState[author.id] = author;
+      nextState[author.id].answerIds.push(answer.id);
       return nextState;
     case RECEIVE_COMMENT:
       nextState = merge({}, state);

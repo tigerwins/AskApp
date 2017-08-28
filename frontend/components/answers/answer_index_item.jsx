@@ -2,6 +2,7 @@ import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { connect } from 'react-redux';
 import { deleteAnswer } from '../../actions/answer_actions';
+import { clearErrors } from '../../actions/session_actions';
 import CommentIndexContainer from '../comments/comment_index_container';
 import Editor from './editor';
 
@@ -104,7 +105,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteAnswer: (answer) => dispatch(deleteAnswer(answer)),
+    deleteAnswer: (answer) => {
+      dispatch(clearErrors());
+      dispatch(deleteAnswer(answer));
+    },
   };
 };
 
