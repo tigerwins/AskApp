@@ -27,9 +27,7 @@ const userReducer = (state = {}, action) => {
     case RECEIVE_ANSWER:
       nextState = merge({}, state);
       const { author, answer } = action.payload;
-      debugger
       merge(nextState, { [author.id]: author});
-      // nextState[author.id] = author;
       nextState[author.id].answerIds.push(answer.id);
       return nextState;
     case RECEIVE_COMMENT:

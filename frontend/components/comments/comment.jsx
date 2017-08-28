@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
 
 const Comment = (props) => {
@@ -12,12 +13,14 @@ const Comment = (props) => {
       <div className="comment-text">
         <div className="comment-header">
           <span className="user">{ user.name }</span>
-          <span
-            className="delete-comment action-link"
-            onClick={props.deleteComment}
-          >
-            Delete Comment
-          </span>
+          { props.currentUser.id === user.id &&
+            <span
+              className="delete-comment action-link"
+              onClick={props.deleteComment}
+              >
+              Delete Comment
+            </span>
+          }
         </div>
         <span className="timestamp comment-timestamp">{ date }</span>
         <span className="comment-body">
@@ -28,4 +31,10 @@ const Comment = (props) => {
   );
 };
 
-export default Comment;
+const mapStateToProps = ({ session }) => {
+  return {
+    currentUser: session.currentUser,
+  }
+}
+
+export default connect(mapStateToProps, null)(Comment);
