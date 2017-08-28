@@ -57,11 +57,11 @@ class CommentIndex extends React.Component {
           <div className="expand-comment-link">
             { this.state.displayComments ? (
               <span className="action-link" onClick={this.toggleComments}>
-                Hide Comments
+                Hide
               </span>
             ) : (
               <span className="action-link" onClick={this.toggleComments}>
-                All Comments
+                Show
               </span>
             )}
           </div>
