@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { connect } from 'react-redux';
-import Editor from './editor';
 import { deleteAnswer } from '../../actions/answer_actions';
+import CommentIndexContainer from '../comments/comment_index_container';
+import Editor from './editor';
 
 class AnswerIndexItem extends React.Component {
   constructor(props) {
@@ -74,6 +75,9 @@ class AnswerIndexItem extends React.Component {
                 )}
 
               <div className="comment-box">
+                <CommentIndexContainer
+                  answerId={ answer.id }
+                  expanded={ false } />
               </div>
             </div>
           </div>

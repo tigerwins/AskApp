@@ -10,6 +10,8 @@ span.comment-switch:hover {
 }
 
 div.comment-box {
+  display: flex;
+
   min-height: 27px;
   background-color: #f7f7f7;
   font-size: 13px;
@@ -28,4 +30,8 @@ div.new-comment {
   padding: 3px 5px 4px;
   background-color: #fff;
   min-height: 27px;
+}
+
+div.comment-editor {
+  display: flex;
 }

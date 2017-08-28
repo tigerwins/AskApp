@@ -53,7 +53,7 @@ class Editor extends React.Component {
 
   render() {
     return (
-      <div className="editor">
+      <div className="answer-editor">
         <div className="editor-header">
           <img className="avatar" height="40" width="40" />
           <span className="name">{this.props.currentUser.name}</span>

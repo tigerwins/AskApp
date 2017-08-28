@@ -8,17 +8,17 @@ class Answer extends React.Component {
     super(props);
 
     this.state = {
-      expanded: false,
+      // expanded: false,
       displayComments: false,
     };
 
-    this.expandAnswer = this.expandAnswer.bind(this);
+    // this.expandAnswer = this.expandAnswer.bind(this);
     this.toggleComments = this.toggleComments.bind(this);
   }
 
-  expandAnswer(e) {
-    this.setState({ expanded: true });
-  }
+  // expandAnswer(e) {
+  //   this.setState({ expanded: true });
+  // }
 
   toggleComments(e) {
     this.setState({ displayComments: !this.state.displayComments });
@@ -70,7 +70,7 @@ class Answer extends React.Component {
           { this.state.displayComments &&
             <div className="comment-box">
               <CommentIndexContainer
-                answerId={ answer }
+                answerId={ answer.id }
                 expanded={ true } />
             </div>
           }

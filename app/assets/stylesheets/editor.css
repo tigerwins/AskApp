@@ -1,5 +1,10 @@
-.editor {
+.answer-editor {
   margin-top: 8px;
+}
+
+.comment-editor {
+  min-height: 27px;
+  background-color: #fff;
 }
 
 img.avatar {
@@ -19,7 +24,7 @@ span.name {
   stroke: #999;
 }
 
-.ql-editor.ql-blank, .ql-container.ql-snow {
+.answer-editor .ql-editor.ql-blank, .answer-editor .ql-container.ql-snow {
   min-height: 100px;
   stroke: #e2e2e2;
 }
