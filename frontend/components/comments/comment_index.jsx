@@ -20,7 +20,7 @@ class CommentIndex extends React.Component {
     return Object.keys(this.props.comments).map(id => {
       return (
         <li className="comment" key={`comment-${id}`}>
-          <img width="30" height="30" />
+          <img width="27" height="27" />
           <span className="comment-text">{ comments[id].body }</span>
         </li>
       );
@@ -29,26 +29,23 @@ class CommentIndex extends React.Component {
 
   render() {
     return (
-      <div className="comment-index">
+      <div className="comment-index" onClick={this.expandComments}>
+        <img className="avatar" width="27" height="27" />
+        <CommentEditor
+          expandComments={ this.expandComments }
+          answerId={ this.props.answerId }
+          />
         { this.state.expanded ? (
           <div className="expanded-comments">
-            <CommentEditor
-              expandComments={ this.expandComments }
-              answerId={ this.props.answerId }
-              />
-
             <ul className="comment-list">
               { this.renderComments() }
             </ul>
           </div>
         ) : (
-          <div className="unexpanded-comments" onClick={this.expandComments}>
-            <CommentEditor
-              expandComments={ this.expandComments }
-              answerId={ this.props.answerId }
-              />
+          <div className="unexpanded-comments">
           </div>
         )}
+        
       </div>
     );
   }

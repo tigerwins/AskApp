@@ -19,7 +19,7 @@ class Answer extends React.Component {
   // expandAnswer(e) {
   //   this.setState({ expanded: true });
   // }
-
+  //
   toggleComments(e) {
     this.setState({ displayComments: !this.state.displayComments });
   }
@@ -61,19 +61,25 @@ class Answer extends React.Component {
             <button className="upvote">
               Upvote {/* need number of upvotes */}
             </button>
-
-            <span className="comment-switch" onClick={this.toggleComments}>
-              Comments
-            </span>
           </div>
 
-          { this.state.displayComments &&
-            <div className="comment-box">
-              <CommentIndexContainer
-                answerId={ answer.id }
-                expanded={ true } />
+          <div className="comment-box">
+            <CommentIndexContainer
+              answerId={ answer.id }
+              expanded={ this.state.displayComments } />
+
+            <div className="expand-comment-link">
+              { this.state.displayComments ? (
+                <span className="action-link" onClick={this.toggleComments}>
+                  Hide Comments
+                </span>
+              ) : (
+                <span className="action-link" onClick={this.toggleComments}>
+                  All Comments
+                </span>
+              )}
             </div>
-          }
+          </div>
         </div>
       </div>
     );

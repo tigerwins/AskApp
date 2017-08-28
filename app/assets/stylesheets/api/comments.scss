@@ -11,7 +11,6 @@ span.comment-switch:hover {
 
 div.comment-box {
   display: flex;
-
   min-height: 27px;
   background-color: #f7f7f7;
   font-size: 13px;
@@ -32,6 +31,16 @@ div.new-comment {
   min-height: 27px;
 }
 
-div.comment-editor {
+div.comment-index {
   display: flex;
+}
+
+div.expand-comment-link {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+img.avatar {
+  align-self: flex-start;
 }

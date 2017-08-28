@@ -26,24 +26,33 @@ class CommentEditor extends React.Component {
   handleSubmit(e) {
     let comment = {
       body: this.state.commentText,
-      answer_id: this.props.answerId
+      answerId: this.props.answerId
     };
 
     this.props.createComment(answer);
     this.props.expandComments();
-    // this.props.closeEditor();
+    this.setState({ commentText: "" });
   }
+
 
   render() {
     return (
       <div className="comment-editor">
-        <ReactQuill
-          theme={ null }
-          placeholder="Add a comment..."
-          value={this.state.editorHtml}
-          onChange={this.handleChange}>
-        </ReactQuill>
-        <button onClick={this.handleSubmit}>
+        <div className="editor-wrapper">
+          <ReactQuill
+            theme={ null }
+            placeholder="Add a comment..."
+            value={this.state.commentText}
+            onChange={this.handleChange}
+            width="318"
+            >
+          </ReactQuill>
+        </div>
+
+        <button
+          className="submit-btn comment-btn"
+          onClick={this.handleSubmit}
+          disabled={!this.state.commentText}>
           Comment
         </button>
       </div>
@@ -57,7 +66,7 @@ CommentEditor.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-
+    currentUser: state.session.currentUser,
   };
 };
 

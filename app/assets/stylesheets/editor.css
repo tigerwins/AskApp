@@ -2,9 +2,26 @@
   margin-top: 8px;
 }
 
-.comment-editor {
+div.comment-editor {
+  display: flex;
   min-height: 27px;
   background-color: #fff;
+  max-width: 318px;
+}
+
+div.comment-editor .ql-container, div.comment-editor .ql-editor {
+  min-height: 19px;
+}
+
+div.ql-editor {
+  background: #fff;
+  padding: 3px 5px 4px;
+  min-height: 19px;
+  width: 318px;
+}
+
+div.comment-editor div.ql-blank {
+  width: 318px;
 }
 
 img.avatar {
@@ -48,4 +65,9 @@ span.name {
   border-bottom: 1px solid #e2e2e2;
   border-left: 1px solid #e2e2e2;
   border-right: 1px solid #e2e2e2;
+}
+
+.comment-btn {
+  margin: 0 8px;
+  height: 27px;
 }
