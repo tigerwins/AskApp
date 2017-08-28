@@ -8,6 +8,7 @@ import {
   updateQuestion,
   deleteQuestion
 } from '../../actions/question_actions';
+import { clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
@@ -32,6 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     requestQuestion: (id) => dispatch(fetchQuestion(id)),
     createQuestion: question => dispatch(createQuestion(question)),
     updateQuestion: question => dispatch(updateQuestion(question)),
+    clearErrors: () => dispatch(clearErrors()),
   };
 };
 
