@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+span.comment-switch {
+  vertical-align: center;
+}
+
+span.comment-switch:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 div.comment-box {
   min-height: 27px;
   background-color: #f7f7f7;

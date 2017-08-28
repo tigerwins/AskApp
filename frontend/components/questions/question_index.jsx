@@ -14,10 +14,6 @@ class QuestionIndex extends React.Component {
     this.props.requestQuestions();
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.props.requestQuestions();
-  // }
-
   askQuestion(e) {
     this.props.toggleModal(<CreateQuestionModal />);
   }

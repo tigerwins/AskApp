@@ -31,7 +31,7 @@ class AnswerIndexItem extends React.Component {
 
   render() {
     const { author, answer, currentUser } = this.props;
-    // const { body } = author;
+    const date = new Date(Date.parse(answer.created_at)).toDateString();
 
     return (
       <div className="answer-index-item">
@@ -44,8 +44,7 @@ class AnswerIndexItem extends React.Component {
               </div>
               <div className="answer-info">
                 <span className="author">{author.name}</span>
-                {/* NEED TO CONVER  T TO DATE */}
-                <span className="timestamp">Answered on {answer.created_at}</span>
+                <span className="timestamp">Answered on { date }</span>
               </div>
             </div>
 

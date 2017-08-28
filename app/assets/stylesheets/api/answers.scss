@@ -47,10 +47,10 @@ span.timestamp {
   font-size: 13px;
 }
 
-span.timestamp:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
+// span.timestamp:hover {
+//   cursor: pointer;
+//   text-decoration: underline;
+// }
 
 div.answer-content {
   margin-bottom: 8px;
@@ -63,6 +63,8 @@ div.answer-content * {
 
 .answer-action-bar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 13px;
   padding-bottom: 16px;
   margin-bottom: -16px;
