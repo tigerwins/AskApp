@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
   def index
     @comments = Comment.where(answer_id: params[:answer_id])
-    render :index # Is this necessary?
+    render :index
   end
 
   def create
