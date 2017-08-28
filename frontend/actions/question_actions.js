@@ -3,6 +3,7 @@ import { receiveErrors } from './session_actions';
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
+export const RECEIVE_NEW_QUESTION = "RECEIVE_NEW_QUESTION";
 export const REMOVE_QUESTION = "REMOVE_QUESTION";
 
 export const receiveQuestions = payload => ({
@@ -12,6 +13,11 @@ export const receiveQuestions = payload => ({
 
 export const receiveQuestion = payload => ({
   type: RECEIVE_QUESTION,
+  payload,
+});
+
+export const receiveNewQuestion = payload => ({
+  type: RECEIVE_NEW_QUESTION,
   payload,
 });
 
@@ -35,7 +41,7 @@ export const fetchQuestion = id => dispatch => {
 
 export const createQuestion = question => dispatch => {
   return QuestionAPIUtil.createQuestion(question).then(
-    newQuestion => dispatch(receiveQuestion(newQuestion)),
+    newQuestion => dispatch(receiveNewQuestion(newQuestion)),
     errors => dispatch(receiveErrors({
       errorType: "createQuestion",
       errorList: errors.responseJSON,

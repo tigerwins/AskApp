@@ -2,6 +2,7 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_QUESTIONS,
   RECEIVE_QUESTION,
+  RECEIVE_NEW_QUESTION,
 } from '../actions/question_actions';
 import {
   RECEIVE_ANSWER,
@@ -23,13 +24,17 @@ const answerReducer = (state = {}, action) => {
         nextState[id] = action.payload.answers[id];
       });
       return nextState;
+    case RECEIVE_NEW_QUESTION:
+      Object.keys(action.payload.answers).forEach(id => {
+        nextState[id] = action.payload.answers[id];
+      });
+      return merge({}, state, nextState);
     case RECEIVE_ANSWER:
       const newAnswer = {
         [action.payload.answer.id]: action.payload.answer
       };
       return merge({}, state, newAnswer);
     case REMOVE_ANSWER:
-    debugger
       nextState = merge({}, state);
       delete nextState[action.payload.answer.id];
       return nextState;
