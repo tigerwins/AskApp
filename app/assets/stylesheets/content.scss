@@ -21,6 +21,9 @@ div.detail-page {
 
 .outer-header {
   border-bottom: 1px solid #ddd;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
 .header {
@@ -180,7 +183,8 @@ html, .content {
 
 
 div.feeds-sidebar {
-  // position: absolute;
+  position: sticky;
+  top: 150px;
   // float: left;
   // clear: left;
   // top: 83px;

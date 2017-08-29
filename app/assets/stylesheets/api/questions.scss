@@ -1,3 +1,4 @@
+
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -12,11 +13,12 @@
 }
 
 .content-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 1012px;
   margin: 0 auto 50px auto;
-  padding-top: 30px;
+  padding-top: 82px;
   padding-left: 32px;
   padding-right: 32px;
 }
