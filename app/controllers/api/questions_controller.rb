@@ -1,6 +1,19 @@
 class Api::QuestionsController < ApplicationController
   def index
-    @questions = Question.all
+    if params[:query]
+      search_results = Question.search_questions(params[:query])
+      questions = search_results.map do |question|
+        [question.id, question.body]
+      end
+      
+      render json: questions
+    elsif params[:topicId]
+      @questions = Question.joins(:topics)
+        .where("question_topics.topic_id = ?", params[:topicId])
+    else
+      @questions = Question.all
+    end
+
     render :index
   end
 

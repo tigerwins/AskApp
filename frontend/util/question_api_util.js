@@ -34,3 +34,19 @@ export const destroyQuestion = question => {
     url: `/api/questions/${question.id}`,
   });
 };
+
+export const searchQuestions = query => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/questions",
+    data: { query },
+  });
+};
+
+export const questionsByTopic = topicId => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/questions",
+    data: { topicId },
+  });
+};
