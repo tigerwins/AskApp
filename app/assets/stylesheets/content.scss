@@ -14,6 +14,7 @@ div.detail-page {
 
   display: flex;
   justify-content: center;
+  margin-top: -82px;
   padding-top: 30px;
   padding-left: 32px;
   padding-right: 32px;
@@ -24,6 +25,7 @@ div.detail-page {
   position: fixed;
   width: 100%;
   z-index: 100;
+  box-shadow: 0 3px 2px -2px rgba(200,200,200,0.2)
 }
 
 .header {
@@ -132,6 +134,7 @@ textarea.search {
   background: image-url("search-icon.png") no-repeat 8px center;
   background-size: 13px;
   vertical-align: center;
+  box-shadow: inset 0 1px 1px rgba(200,200,200,0.3)
 }
 
 textarea:focus {
