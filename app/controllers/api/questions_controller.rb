@@ -1,10 +1,8 @@
 class Api::QuestionsController < ApplicationController
   def index
     if params[:query]
-      # debugger
       search_results = Question.search_questions(params[:query])
       @questions = search_results.to_a
-      # debugger
       questions = @questions.map do |question|
         {
           id: question.id,

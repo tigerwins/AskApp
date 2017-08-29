@@ -21,16 +21,13 @@
   box-sizing: border-box;
   // height: 52px;
   z-index: 10;
-  // position: fixed;
 }
 
 .react-autosuggest__input {
-  // position: absolute;
   overflow: hidden;
   overflow-x: hidden;
   word-wrap: break-word;
   resize: none;
-  // height: 29px;
   width: 415px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
