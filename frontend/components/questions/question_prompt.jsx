@@ -1,11 +1,12 @@
 import React from 'react';
+import Avatar from 'react-avatar';
 
 const QuestionPrompt = (props) => {
   return (
     <div className="prompt index-box">
       <div className="user">
         <span className="current-user">
-          { /* <img />  need currentUser profile image here */ }
+          <Avatar className="prompt-avatar" name={ props.currentUser.name } size={25} round={true} textSizeRatio={2} />
           {props.currentUser.name}
         </span>
       </div>

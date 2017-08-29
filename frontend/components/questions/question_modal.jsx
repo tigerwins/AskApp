@@ -2,6 +2,7 @@ import React from 'react';
 import merge from 'lodash/merge';
 import ModalErrors from './modal_errors';
 import { Redirect } from 'react-router-dom';
+import Avatar from 'react-avatar';
 
 class QuestionModal extends React.Component {
   constructor(props) {
@@ -97,7 +98,7 @@ class QuestionModal extends React.Component {
                   { formType === "create" ? (
                     <div className="user-header">
                       <span className="user-icon">
-                        {/* USER PROFILE PHOTO GOES HERE*/}
+                        <Avatar name={ this.props.currentUser.name } size={25} round={true} textSizeRatio={2} />
                       </span>
                       <span className="user-asks">
                         {this.props.currentUser.name} asks
@@ -155,13 +156,6 @@ class QuestionModal extends React.Component {
       return false;
     }
   }
-  //
-  // enableKeys(e) {
-  //   e.stopPropagation();
-  //   e.preventDefault();
-  //   document.onkeydown = null;
-  //   // document.onkeydown = this.disableTab;
-  // }
 
   disableScroll() {
     if (window.addEventListener) {
