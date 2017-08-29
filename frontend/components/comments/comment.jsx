@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
+import Avatar from 'react-avatar';
 
 const Comment = (props) => {
   const date = new Date(Date.parse(props.comment.created_at)).toDateString();
@@ -8,7 +9,7 @@ const Comment = (props) => {
 
   return (
     <li className="comment">
-      <img className="avatar" width="27" height="27" />
+      <Avatar className="comment-avatar" name={ user.name } size={27} round={true} textSizeRatio={2} />
 
       <div className="comment-text">
         <div className="comment-header">
@@ -34,7 +35,7 @@ const Comment = (props) => {
 const mapStateToProps = ({ session }) => {
   return {
     currentUser: session.currentUser,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, null)(Comment);

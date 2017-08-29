@@ -11,8 +11,9 @@ const mapStateToProps = (state, { answerId }) => {
   }
 
   return {
-    comments,
+    currentUser: state.session.currentUser,
     users: state.entities.users,
+    comments,
   };
 };
 

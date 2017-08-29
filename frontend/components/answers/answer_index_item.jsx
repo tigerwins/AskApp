@@ -5,6 +5,7 @@ import { deleteAnswer } from '../../actions/answer_actions';
 import { clearErrors } from '../../actions/session_actions';
 import CommentIndexContainer from '../comments/comment_index_container';
 import Editor from './editor';
+import Avatar from 'react-avatar';
 
 class AnswerIndexItem extends React.Component {
   constructor(props) {
@@ -41,8 +42,7 @@ class AnswerIndexItem extends React.Component {
           <div className="display-answer">
             <div className="answer-header">
               <div className="avatar">
-                {/* PROFILE AVATAR GOES HERE */}
-                <img height="40" width="40" />
+                <Avatar name={ author.name } size={40} round={true} textSizeRatio={2} />
               </div>
               <div className="answer-info">
                 <span className="author">{author.name}</span>

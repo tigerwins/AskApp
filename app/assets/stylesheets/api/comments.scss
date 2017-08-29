@@ -49,8 +49,9 @@ div.expand-comment-link {
   margin-top: 4.5px;
 }
 
-img.avatar {
-  align-self: flex-start;
+.comment-avatar {
+  // align-self: flex-start;
+  margin-right: 8px;
 }
 
 div.comment-header {

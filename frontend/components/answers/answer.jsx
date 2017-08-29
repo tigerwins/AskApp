@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
 import CommentIndexContainer from '../comments/comment_index_container';
+import Avatar from 'react-avatar';
 
 class Answer extends React.Component {
   constructor(props) {
@@ -21,13 +22,13 @@ class Answer extends React.Component {
   render() {
     const { author, answer } = this.props;
     const date = new Date(Date.parse(answer.created_at)).toDateString();
+    // debugger
 
     return (
       <div className="answer">
         <div className="answer-header">
           <div className="avatar">
-            {/* PROFILE AVATAR GOES HERE */}
-            <img height="40" width="40" />
+            <Avatar name={ author.name } size={40} round={true} textSizeRatio={2} />
           </div>
           <div className="answer-info">
             <span className="author">{author.name}</span>

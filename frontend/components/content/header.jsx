@@ -76,7 +76,7 @@ class Header extends React.Component {
           </div>
 
           <div className="search-container">
-              <textarea className="search box text-box" type="text" rows="1" autoFocus="True" placeholder="Search Ask()"></textarea>
+            <textarea className="search box text-box" type="text" rows="1" autoFocus="True" placeholder="Search Ask()"></textarea>
           </div>
 
 

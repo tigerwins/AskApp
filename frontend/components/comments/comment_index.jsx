@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentEditor from './comment_editor';
 import Comment from './comment';
+import Avatar from 'react-avatar';
 
 class CommentIndex extends React.Component {
   constructor(props) {
@@ -48,7 +49,9 @@ class CommentIndex extends React.Component {
     return (
       <div className="comment-index">
         <div className="comment-action-bar">
-          <img className="avatar" width="27" height="27" />
+          <Avatar className="comment-avatar" size={27} round={true}
+            name={ this.props.currentUser.name }
+            textSizeRatio={2} />
           <CommentEditor
             expandComments={ this.expandComments }
             answerId={ this.props.answerId }

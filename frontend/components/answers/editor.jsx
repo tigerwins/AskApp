@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import merge from 'lodash/merge';
 import { connect } from 'react-redux';
 import { createAnswer, updateAnswer } from '../../actions/answer_actions';
+import Avatar from 'react-avatar';
 
 class Editor extends React.Component {
   constructor (props) {
@@ -52,11 +53,14 @@ class Editor extends React.Component {
   }
 
   render() {
+    const { currentUser } = this.props;
+
     return (
       <div className="answer-editor">
         <div className="editor-header">
-          <img className="avatar" height="40" width="40" />
-          <span className="name">{this.props.currentUser.name}</span>
+          <Avatar name={ currentUser.name } size={40} round={true}
+            textSizeRatio={2} src={window.images.default_user_image} />
+          <span className="name">{currentUser.name}</span>
         </div>
         <ReactQuill
           theme="snow"
