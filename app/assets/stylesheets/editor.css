@@ -5,8 +5,8 @@
 div.comment-editor {
   display: flex;
   min-height: 27px;
-  background-color: #fff;
-  max-width: 318px;
+  /*background-color: #fff;*/
+  /*max-width: 318px;*/
 }
 
 div.comment-editor .ql-container, div.comment-editor .ql-editor {
@@ -17,11 +17,19 @@ div.ql-editor {
   background: #fff;
   padding: 3px 5px 4px;
   min-height: 19px;
-  width: 318px;
+  /*width: 318px;*/
 }
 
 div.comment-editor div.ql-blank {
-  width: 318px;
+  /*width: 318px;*/
+}
+
+.home-page-comment-box .ql-editor {
+  width: 350px;
+}
+
+.answer-index-comment-box, .ql-editor {
+  width: 375px;
 }
 
 img.avatar {

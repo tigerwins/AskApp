@@ -76,7 +76,7 @@ class AnswerIndexItem extends React.Component {
                 )}
 
             </div>
-            <div className="comment-box">
+            <div className="comment-box answer-index-comment-box">
               <CommentIndexContainer answerId={ answer.id } />
             </div>
           </div>

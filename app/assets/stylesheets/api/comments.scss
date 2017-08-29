@@ -10,6 +10,8 @@ span.comment-switch:hover {
 }
 
 div.comment-box {
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   min-height: 27px;
   background-color: #f7f7f7;
@@ -38,6 +40,7 @@ div.comment-index {
 }
 
 div.comment-action-bar {
+  width: 100%;
   display: flex;
 }
 

@@ -58,7 +58,7 @@ class Answer extends React.Component {
             </button>
           </div>
 
-          <div className="comment-box">
+          <div className="comment-box home-page-comment-box">
             <CommentIndexContainer answerId={ answer.id } />
           </div>
         </div>
