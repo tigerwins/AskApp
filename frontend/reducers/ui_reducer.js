@@ -1,11 +1,16 @@
 import merge from 'lodash/merge';
-import { TOGGLE_MODAL } from '../actions/ui_actions';
+import {
+  TOGGLE_MODAL,
+  RECEIVE_SEARCH_RESULTS,
+  CLEAR_SEARCH,
+} from '../actions/ui_actions';
 
 const initialState = {
   modal: {
     display: false,
     component: null
   },
+  search: [],
   notifications: "",
 };
 
@@ -27,6 +32,12 @@ const uiReducer = (state = initialState, action) => {
       }
 
       return newState;
+    case RECEIVE_SEARCH_RESULTS:
+      const searchResults = { search: action.payload };
+      return merge({}, state, searchResults);
+    case CLEAR_SEARCH:
+      const clearSearch = { search: [] };
+      return merge({}, state, clearSearch);
     default:
       return state;
   }

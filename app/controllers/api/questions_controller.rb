@@ -3,9 +3,12 @@ class Api::QuestionsController < ApplicationController
     if params[:query]
       search_results = Question.search_questions(params[:query])
       questions = search_results.map do |question|
-        [question.id, question.body]
+        return {
+          id: question.id,
+          body: question.body
+        }
       end
-      
+
       render json: questions
     elsif params[:topicId]
       @questions = Question.joins(:topics)
@@ -46,6 +49,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :query, :topicId)
   end
 end
