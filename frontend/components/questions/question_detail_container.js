@@ -2,11 +2,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import QuestionDetail from './question_detail';
 import {
-  fetchQuestions,
   fetchQuestion,
   createQuestion,
   updateQuestion,
-  deleteQuestion
 } from '../../actions/question_actions';
 import { clearErrors } from '../../actions/session_actions';
 
@@ -23,13 +21,12 @@ const mapStateToProps = (state, ownProps) => {
     questionId: id,
     question: questions[id],
     asker,
-    errors: state.errors,
+    errors: state.errors.errorList,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    requestQuestions: () => dispatch(fetchQuestions()),
     requestQuestion: (id) => dispatch(fetchQuestion(id)),
     createQuestion: question => dispatch(createQuestion(question)),
     updateQuestion: question => dispatch(updateQuestion(question)),
