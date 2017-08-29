@@ -10,7 +10,20 @@
 #
 
 class Question < ApplicationRecord
+  include PgSearch
   validates :body, :asker, presence: true
+
+  pg_search_scope :search_questions,
+    against: :body,
+    ignoring: :accents,
+    using: {
+      tsearch: { any_word: true, prefix: true },
+      dmetaphone: { any_word: true, sort_only: true },
+      trigram: { threshold: 0.2 }
+    }
+
+
+
 
   belongs_to :asker,
     class_name: 'User',
