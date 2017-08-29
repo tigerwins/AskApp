@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import CreateQuestionModal from '../questions/create_question_modal_container';
+import SearchBar from '../search/search_bar';
 
 class Header extends React.Component {
   constructor(props) {
@@ -75,9 +76,10 @@ class Header extends React.Component {
             </div>
           </div>
 
-          <div className="search-container">
+          {/* <div className="search-container">
             <textarea className="search box text-box" type="text" rows="1" autoFocus="True" placeholder="Search Ask()"></textarea>
-          </div>
+          </div> */}
+          <SearchBar />
 
 
           { /* This will become the profile photo eventually */}

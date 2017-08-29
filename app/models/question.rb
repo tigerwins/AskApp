@@ -22,9 +22,6 @@ class Question < ApplicationRecord
       trigram: { threshold: 0.2 }
     }
 
-
-
-
   belongs_to :asker,
     class_name: 'User',
     primary_key: :id,

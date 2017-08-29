@@ -1,9 +1,12 @@
 class Api::QuestionsController < ApplicationController
   def index
     if params[:query]
+      # debugger
       search_results = Question.search_questions(params[:query])
-      questions = search_results.map do |question|
-        return {
+      @questions = search_results.to_a
+      # debugger
+      questions = @questions.map do |question|
+        {
           id: question.id,
           body: question.body
         }
@@ -13,11 +16,11 @@ class Api::QuestionsController < ApplicationController
     elsif params[:topicId]
       @questions = Question.joins(:topics)
         .where("question_topics.topic_id = ?", params[:topicId])
+      render :index
     else
       @questions = Question.all
+      render :index
     end
-
-    render :index
   end
 
   def create
