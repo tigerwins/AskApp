@@ -27,7 +27,8 @@ class Question extends React.Component {
 
   closeEditor(e) {
     this.setState({ displayEditor: false });
-    this.props.refreshPage();
+    // commented this out--not sure if I need it at all!
+    // this.props.refreshPage();
   }
 
   render() {
