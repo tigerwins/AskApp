@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 import ModalErrors from './modal_errors';
 import { Redirect } from 'react-router-dom';
 import Avatar from 'react-avatar';
+import Textarea from 'react-textarea-autosize';
 
 class QuestionModal extends React.Component {
   constructor(props) {
@@ -109,7 +110,7 @@ class QuestionModal extends React.Component {
                     </div>
                   )}
                   <div className="modal-text-box">
-                    <textarea
+                    <Textarea
                       width={textArea}
                       autoFocus="True"
                       className="modal-textarea text-box"
@@ -118,7 +119,7 @@ class QuestionModal extends React.Component {
                       type="text" rows="1"
                       placeholder="What is your question?"
                       value={this.state.body}>
-                    </textarea>
+                    </Textarea>
                   </div>
                   <div className="modal-space"></div>
                 </div>
