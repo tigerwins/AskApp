@@ -7,7 +7,9 @@ class Feeds extends React.Component {
 
   }
 
-  // render 
+  renderFeeds() {
+    
+  }
 
   render() {
     return (

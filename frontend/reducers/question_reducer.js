@@ -61,7 +61,7 @@ const questionReducer = (state = {}, action) => {
       return nextState;
     case REMOVE_QUESTION_TOPIC:
       nextState = merge({}, state);
-      const oldQuestionTopic = action.payload.questionTopic;
+      const oldQuestionTopic = action.payload.question_topic;
       questionId = oldQuestionTopic.question_id;
       topicId = oldQuestionTopic.topic_id;
       const topicIdx = nextState[questionId].topicIds.indexOf(topicId);

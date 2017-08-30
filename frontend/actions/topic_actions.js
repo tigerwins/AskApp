@@ -24,7 +24,7 @@ export const createQuestionTopic = questionTopic => dispatch => {
   );
 };
 
-export const deleteQuestionTopic = questionTopic => dispatch => {
+export const deleteQuestionTopic = (questionTopic) => dispatch => {
   return TopicAPIUtil.destroyQuestionTopic(questionTopic).then(
     oldQuestionTopic => dispatch(removeQuestionTopic(oldQuestionTopic))
   );

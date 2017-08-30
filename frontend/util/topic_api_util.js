@@ -6,10 +6,9 @@ export const createQuestionTopic = questionTopic => {
   });
 };
 
-export const destroyQuestionTopic = questionTopic => {
+export const destroyQuestionTopic = ({ questionId, topicId }) => {
   return $.ajax({
     method: "DELETE",
-    url: `/api/question_topics/${questionTopic.id}`,
-    data: { question_topic: questionTopic }
+    url: `/api/question_topics/${questionId}/${topicId}`,
   });
 };

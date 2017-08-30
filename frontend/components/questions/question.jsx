@@ -67,12 +67,7 @@ class Question extends React.Component {
         </div>
 
         <div className="question-topic-tags">
-          {/* <span className="topics">
-            <span className="topic">
-              Topic tags go here
-            </span>
-          </span> */}
-          <DetailTopicList topics={ this.props.topics } />
+          <DetailTopicList />
         </div>
         <div className="question-text">
           <span className="question-detail-body">

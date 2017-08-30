@@ -28,17 +28,21 @@ const topicReducer = (state = {}, action) => {
       nextState = merge({}, state);
       const questionTopic = action.payload.question_topic;
       const topicId = questionTopic.topic_id;
+
+      if (!nextState[topicId]) {
+        nextState[topicId] = action.payload.topic;
+      }
+
       const questionIds = nextState[topicId].questionIds;
 
       if (questionIds.indexOf(questionTopic.question_id) === -1) {
-        nextState[topicId] = action.payload.topic;
         nextState[topicId].questionIds.push(questionTopic.question_id);
       }
 
       return nextState;
     case REMOVE_QUESTION_TOPIC:
       nextState = merge({}, state);
-      const oldQuestionTopic = action.payload.questionTopic;
+      const oldQuestionTopic = action.payload.question_topic;
       const questionIdx = nextState[oldQuestionTopic.topic_id].questionIds.indexOf(
         oldQuestionTopic.question_id);
       nextState[oldQuestionTopic.topic_id].questionIds.splice(

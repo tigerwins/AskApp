@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:destroy]
     resources :topics, only: [:create, :show]
-    resources :question_topics, only: [:create, :destroy]
+    resources :question_topics, only: [:create]
   end
+
+  delete '/api/question_topics/:question_id/:topic_id', to: 'api/question_topics#destroy'
 end
