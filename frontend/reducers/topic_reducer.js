@@ -32,9 +32,9 @@ const topicReducer = (state = {}, action) => {
 
       if (questionIds.indexOf(questionTopic.question_id) === -1) {
         nextState[topicId] = action.payload.topic;
+        nextState[topicId].questionIds.push(questionTopic.question_id);
       }
 
-      nextState[topicId].questionIds.push(questionTopic.question_id);
       return nextState;
     case REMOVE_QUESTION_TOPIC:
       nextState = merge({}, state);
