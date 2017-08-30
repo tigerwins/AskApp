@@ -1,9 +1,12 @@
 class Api::QuestionTopicsController < ApplicationController
   def create
-    topic = Topic.find_or_create_by(name: params[:name])
+    question_id = params[:question_topic][:question_id]
+    topic_name = params[:question_topic][:name]
+
+    topic = Topic.find_or_create_by(name: topic_name)
     @question_topic = QuestionTopic.new
     @question_topic.topic = topic
-    @question_topic.question = Question.find(params[:question_id])
+    @question_topic.question = Question.find(question_id)
 
     if @question_topic.save
       render :show
@@ -21,6 +24,6 @@ class Api::QuestionTopicsController < ApplicationController
   private
 
   def question_topic_params
-    params.require(:question_topic).permit(:question_id, :name)
+    params.require(:question_topic).permit(:id, :question_id, :name)
   end
 end

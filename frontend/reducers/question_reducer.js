@@ -16,6 +16,7 @@ import {
 const questionReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState = {};
+  let questionId, topicId;
 
   switch(action.type) {
     case RECEIVE_QUESTIONS:
@@ -43,8 +44,29 @@ const questionReducer = (state = {}, action) => {
     case REMOVE_ANSWER:
       nextState = merge({}, state);
       const oldAnswer = action.payload.answer;
-      const answerIdx = nextState[oldAnswer.question_id].answerIds.indexOf(oldAnswer.id);
-      nextState[oldAnswer.question_id].answerIds.splice(answerIdx, 1);
+      questionId = oldAnswer.question_id;
+      const answerIdx = nextState[questionId].answerIds.indexOf(oldAnswer.id);
+      nextState[questionId].answerIds.splice(answerIdx, 1);
+      return nextState;
+    case RECEIVE_QUESTION_TOPIC:
+      nextState = merge({}, state);
+      const questionTopic = action.payload.question_topic;
+      questionId = questionTopic.question_id;
+      const topicIds = nextState[questionId].topicIds;
+
+      if (topicIds.indexOf(questionTopic.topic_id) === -1) {
+        nextState[questionId].topicIds.push(questionTopic.topic_id);
+      }
+
+      return nextState;
+    case REMOVE_QUESTION_TOPIC:
+      nextState = merge({}, state);
+      const oldQuestionTopic = action.payload.questionTopic;
+      questionId = oldQuestionTopic.question_id;
+      topicId = oldQuestionTopic.topic_id;
+      const topicIdx = nextState[questionId].topicIds.indexOf(topicId);
+
+      nextState[questionId].topicIds.splice(topicIdx, 1);
       return nextState;
     default:
       return state;
