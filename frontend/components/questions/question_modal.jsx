@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 import ModalErrors from './modal_errors';
 import { Redirect } from 'react-router-dom';
@@ -43,6 +44,14 @@ class QuestionModal extends React.Component {
       body: "",
       askerId: null,
     });
+
+    // Need to find out how to access the id of the newly created
+    // question so we can redirect to its show page if we're
+    // not currently on the home page
+
+    // if (this.props.location.pathname !== "/") {
+    //   this.props.history.push(`/questions/${question.id}`);
+    // }
   }
 
   toggleModal() {
@@ -178,4 +187,4 @@ class QuestionModal extends React.Component {
   }
 }
 
-export default QuestionModal;
+export default withRouter(QuestionModal);
