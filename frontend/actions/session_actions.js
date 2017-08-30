@@ -42,8 +42,8 @@ export const signup = user => dispatch => {
 // creates user model with name, email, and access token
 // if email not available, make placeholder email
 
-export const fbSignup = response => dispatch => {
-  return SessionApiUtil.signup(user).then(
+export const fbLogin = response => dispatch => {
+  return SessionApiUtil.fbLoginOrSignup(response).then(
     newUser => dispatch(receiveCurrentUser(newUser)),
     errors => dispatch(receiveErrors({
       errorType: "signup",

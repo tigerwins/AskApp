@@ -1,4 +1,3 @@
-
 export const signup = (user) => {
   return $.ajax({
     method: "POST",
@@ -7,27 +6,43 @@ export const signup = (user) => {
   });
 };
 
-export const fbSignup = (response) => {
+export const fbLoginOrSignup = (response) => {
   let accessToken = response.accessToken;
-  let fbUser;
-  FB.api('/me/', {fields: 'first_name, last_name, email'}, response => {
-    debugger
-  });
+  let uid = response.userID;
+  let userObject = { fb_token: accessToken,
+                     fb_uid: uid };
+
+//  FB.api('/me', {fields: 'last_name'}, function(response) {
+//    console.log(response);
+//  });
+  var permissions = FB.api("/me/permissions");
+  
+  var selfConsole= console;
+  FB.api('/me', // eslint-disable-line no-use-before-define
+    {fields: 'first_name, last_name, email'},
+    function(fbResponse) {
+      debugger
+      selfConsole.log('inside FB.api() callback');
+      selfConsole.log(fbResponse);
+      userObject.first_name = fbResponse.first_name || undefined;
+      userObject.last_name = fbResponse.last_name || undefined;
+      userObject.email = fbResponse.email || undefined;
+    }
+  );
+
+  debugger
 
   return $.ajax({
     method: "POST",
     url: "/api/users",
-    data: user
+    data: { user: userObject },
   });
 };
 
-export const login = (user) => {
+export const fbLogin = (user) => {
   let accessToken = FB.getAuthResponse().accessToken;
-  let userObject = { fb_token: accessToken };
   FB.api('/me/', {fields: 'first_name, last_name, email'}, response => {
-    userObject.firstName = response.first_name || undefined;
-    userObject.lastName = response.last_name || undefined;
-    userObject.email = response.email || undefined;
+
   });
 
   if (userObject.email === undefined) {
@@ -49,6 +64,14 @@ export const login = (user) => {
       );
     }
   );
+};
+
+export const login = (user) => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/session",
+    data: { user },
+  });
 };
 
 export const logout = () => {

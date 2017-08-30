@@ -40,12 +40,13 @@ class SignupForm extends React.Component {
 
   fbLogin(e) {
     let self = this;
-    debugger
+    // debugger
 
     FB.getLoginStatus((response) => { // eslint-disable-line no-use-before-define
       if (response.status === 'connected') {
 
-        self.props.login(response);
+        // fbResponse is keyed on response
+        self.props.fbSignup(response.authResponse);
         // window.location.replace("http://localhost:3000/api/users/show");
       }
       else {

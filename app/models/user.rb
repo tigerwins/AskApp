@@ -2,17 +2,20 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  fname           :string           not null
-#  lname           :string           not null
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  provider        :string
-#  uid             :string
-#  image           :text
+#  id               :integer          not null, primary key
+#  fname            :string           not null
+#  lname            :string           not null
+#  email            :string           not null
+#  password_digest  :string           not null
+#  session_token    :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  provider         :string
+#  uid              :string
+#  image            :text
+#  fb_access_token  :string
+#  fb_refresh_token :string
+#  fb_uid           :string
 #
 
 class User < ApplicationRecord
@@ -34,6 +37,18 @@ class User < ApplicationRecord
   has_many :comments
 
   attr_reader :password
+
+  # expects first name, last name, email, accesstoken  and userID
+  def self.fb_entry(user_hash)
+    uid = user_hash[uid]
+    User.find_or_create_by(fb_uid: uid)
+    @user.email = user_hash[email]
+    @user.fname = user_hash[first_name]
+    @user.lname = user_hash[last_name]
+    @user.fb_access_token = user_hash[fb_token]
+
+    return @user
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

@@ -1,23 +1,29 @@
 class Api::SessionsController < ApplicationController
   def create
-    user = User.find_by(email: params[:user][:email])
+    user_exists = !!User.find_by(email: params[:user][:email])
+    login_type = "email"
 
-    @user = User.find_by_credentials(
+    debugger
+    if params[:user][:fb_uid]
+      @user = User.find_by(fb_uid: params[:user][:fb_uid])
+      login_type = "facebook"
+    else
+      @user = User.find_by_credentials(
       params[:user][:email],
       params[:user][:password]
-    )
-
-    if !@user
-      @user = User.find_by(accessToken: params[:user][:accessToken])
+      )
     end
 
-    if !user
-      render json: ["No account found for this email. Retry, or"], status: 404
+    if user_exists && !@user
+      render json: ["Incorrect password"],
+        status: 401
     elsif @user
       login(@user)
       render "/api/users/show"
     else
-      render json: ["Incorrect password"], status: 401
+      msg = login_type
+      render json: ["No account found for this #{msg}. Retry, or"],
+        status: 401
     end
   end
 

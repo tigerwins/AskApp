@@ -3,7 +3,7 @@ import React from 'react';
 class Answer extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    // debugger
 
     this.state = {
       expanded: false

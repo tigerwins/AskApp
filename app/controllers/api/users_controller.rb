@@ -5,7 +5,11 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    if user_params.keys.include?(:fb_uid)
+      @user = User.fb_entry(user_params)
+    else
+      @user = User.new(user_params)
+    end
 
     if @user.save
       login(@user)
@@ -23,6 +27,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email, :password, :fb_token)
+    params.require(:user).permit(:fname, :lname, :email, :password, :fb_token, :fb_uid)
   end
 end

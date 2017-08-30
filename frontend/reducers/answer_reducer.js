@@ -29,7 +29,7 @@ const answerReducer = (state = {}, action) => {
       };
       return merge({}, state, newAnswer);
     case REMOVE_ANSWER:
-    debugger
+    // debugger
       nextState = merge({}, state);
       delete nextState[action.payload.answer.id];
       return nextState;
