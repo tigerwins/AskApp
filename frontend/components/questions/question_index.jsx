@@ -7,16 +7,11 @@ class QuestionIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.askQuestion = this.askQuestion.bind(this);
     this.requestQuestions = this.requestQuestions.bind(this);
   }
 
   componentDidMount() {
     this.props.requestQuestions();
-  }
-
-  askQuestion(e) {
-    this.props.toggleModal(<CreateQuestionModal />);
   }
 
   requestQuestions() {
@@ -35,12 +30,7 @@ class QuestionIndex extends React.Component {
     ));
 
     return (
-      <div className="question-index-container index-container">
-        <QuestionPrompt
-          currentUser={ this.props.currentUser }
-          askQuestion={ this.askQuestion }
-        />
-
+      <div className="">
         <ul className="question-feed">
           { questionList.reverse() }
         </ul>

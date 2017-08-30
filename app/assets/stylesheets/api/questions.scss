@@ -25,6 +25,8 @@
 
 .prompt-avatar {
   margin-right: 4px;
+  // margin-top: -2px;
+  // align
 }
 
 div.prompt.index-box {
@@ -37,14 +39,16 @@ div.prompt.index-box {
 }
 
 div.user {
+  display: flex;
+  align-items: center;
   color: #999;
   margin-bottom: 4px;
   line-height: 18.2px;
 }
 
-div.current-user:hover {
-  text-decoration: underline;
-  cursor: pointer;
+div.current-user {
+  display: flex;
+  align-items: center;
 }
 
 div.prompt-text {
