@@ -16,7 +16,11 @@ class Api::QuestionTopicsController < ApplicationController
   end
 
   def destroy
-    @question_topic = QuestionTopic.find(params[:id])
+    @question_topic = QuestionTopic.find_by(
+      topic_id: question_topic_params[:topic_id],
+      question_id: question_topic_params[:question_id],
+    )
+
     @question_topic.destroy
     render :show
   end
@@ -24,6 +28,6 @@ class Api::QuestionTopicsController < ApplicationController
   private
 
   def question_topic_params
-    params.require(:question_topic).permit(:id, :question_id, :name)
+    params.require(:question_topic).permit(:topic_id, :question_id, :name)
   end
 end

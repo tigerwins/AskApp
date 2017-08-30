@@ -8,8 +8,9 @@ all_topics = @question.topics
 json.topics({})
 json.topics do
   all_topics.each do |topic|
-    json.partial! "/api/topics/topic", topic: topic
-    json.questionIds { json.array! topic.questions.map(&:id) }
+    json.set! topic.id do
+      json.partial! "/api/topics/topic", topic: topic
+    end
   end
 end
 
