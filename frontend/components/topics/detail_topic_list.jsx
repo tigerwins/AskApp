@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import {
   createQuestionTopic,
   deleteQuestionTopic
 } from '../../actions/topic_actions';
 import { clearErrors } from '../../actions/session_actions';
-import Textarea from 'react-textarea-autosize';
+import AutosizeInput from 'react-input-autosize';
 
 class DetailTopicList extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class DetailTopicList extends React.Component {
   }
 
   closeTag(e) {
-    this.setState({ newTag: false });
+    this.setState({ newTag: false, tagText: "" });
   }
 
   handleKeyDown(e) {
@@ -69,9 +69,9 @@ class DetailTopicList extends React.Component {
     const topicList = Object.keys(this.props.topics).map(id => {
       return (
         <li className="topic" key={`topic-${id}`} data-topic-id={id}>
-          <span>
+          <Link to={`/topics/${id}`}>
             { this.props.topics[id].name }
-          </span>
+          </Link>
           <div onClick={ this.destroyTag }>
             <span className="close-x">
               <svg className="close-x-svg" viewBox="0 0 10 10" height="10" width="10">
@@ -95,22 +95,22 @@ class DetailTopicList extends React.Component {
         { !this.state.newTag ? (
           <li className="topic">
             <span className="new-topic" onClick={this.openTag}>
-              <svg width="15" height="15" stroke="#808393">
+              <svg className="pen" width="15" height="15" stroke="#808393">
                 <image width="15" height="15" xlinkHref={window.images.pen_svg} />
               </svg>
+              Add a Topic
             </span>
           </li>
         ) : (
           <li className="new-topic-box">
-            <Textarea
+            <AutosizeInput
               className="new-topic-editor text-box"
+              name="new-topic-input"
               autoFocus="True"
+              value={this.state.tagText}
               onKeyDown={this.handleKeyDown}
               onChange={this.handleChange}
-              onBlur={this.closeTag}
-              type="text" rows="1"
-              value={this.state.tagText}>
-            </Textarea>
+              onBlur={this.closeTag} />
           </li>
         )}
       </ul>

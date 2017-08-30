@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Answer from '../answers/answer';
 import Editor from '../answers/editor';
+import IndexTopicList from '../topics/index_topic_list';
 
 class Question extends React.Component {
   constructor(props) {
@@ -9,7 +10,6 @@ class Question extends React.Component {
 
     this.state = {
       displayEditor: false,
-      // hasAnswer: Boolean(props.question),
     };
 
     this.answerQuestion = this.answerQuestion.bind(this);
@@ -30,17 +30,13 @@ class Question extends React.Component {
     this.props.refreshPage();
   }
 
-
   render() {
-    const { question } = this.props;
+    const { question, answer } = this.props;
     const date = new Date(Date.parse(question.created_at)).toDateString();
     return (
       <div className="question-index-item">
         <div className="question-topic-tags">
-          <ul className="topics">
-            { /* question header for topic tag(s) */ }
-            Topic tags go here
-          </ul>
+          <IndexTopicList question={question} answer={Boolean(answer)}/>
         </div>
         <div className="question-text">
           <div className="question-body-text">
@@ -53,7 +49,7 @@ class Question extends React.Component {
         </div>
         { this.props.answer ? (
           <div className="answer">
-            <Answer answer={this.props.answer}/>
+            <Answer answer={answer}/>
           </div>
         ) : (
           <div className="empty-question-footer">
