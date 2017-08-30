@@ -8,6 +8,10 @@ import {
   RECEIVE_ANSWER,
   REMOVE_ANSWER,
 } from '../actions/answer_actions';
+import {
+  RECEIVE_QUESTION_TOPIC,
+  REMOVE_QUESTION_TOPIC,
+} from '../actions/topic_actions';
 
 const questionReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -37,7 +41,7 @@ const questionReducer = (state = {}, action) => {
 
       return nextState;
     case REMOVE_ANSWER:
-    nextState = merge({}, state);
+      nextState = merge({}, state);
       const oldAnswer = action.payload.answer;
       const answerIdx = nextState[oldAnswer.question_id].answerIds.indexOf(oldAnswer.id);
       nextState[oldAnswer.question_id].answerIds.splice(answerIdx, 1);
