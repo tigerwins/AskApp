@@ -87,7 +87,6 @@ class DetailTopicList extends React.Component {
   }
 
   render() {
-
     return (
       <ul className="topic-list">
         { this.renderTopics() }
