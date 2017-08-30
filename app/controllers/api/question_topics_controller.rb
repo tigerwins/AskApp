@@ -1,7 +1,7 @@
 class Api::QuestionTopicsController < ApplicationController
   def create
     question_id = params[:question_topic][:question_id]
-    topic_name = params[:question_topic][:name]
+    topic_name = params[:question_topic][:name].split.map { |i| i.capitalize }.join(' ')
 
     topic = Topic.find_or_create_by(name: topic_name)
     @question_topic = QuestionTopic.new
@@ -11,14 +11,14 @@ class Api::QuestionTopicsController < ApplicationController
     if @question_topic.save
       render :show
     else
-      render json: @question_topic.errors.full_messages, status: 422
+      render json: ["Question already has this topic"], status: 422
     end
   end
 
   def destroy
     @question_topic = QuestionTopic.find_by(
-      topic_id: question_topic_params[:topic_id],
-      question_id: question_topic_params[:question_id],
+      question_id: params[:question_id],
+      topic_id: params[:topic_id]
     )
 
     @question_topic.destroy
@@ -28,6 +28,6 @@ class Api::QuestionTopicsController < ApplicationController
   private
 
   def question_topic_params
-    params.require(:question_topic).permit(:topic_id, :question_id, :name)
+    params.require(:question_topic).permit(:question_id, :name)
   end
 end
