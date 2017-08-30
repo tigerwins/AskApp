@@ -1,10 +1,10 @@
 json.question do
   json.partial! "/api/questions/question", question: @question
   json.answerIds { json.array! @question.answers.map(&:id) }
-  json.topicIds { json.array! question.topics.map(&:id) }
+  json.topicIds { json.array! @question.topics.map(&:id) }
 end
 
-all_topics = @question.map(&:topics)
+all_topics = @question.topics
 json.topics({})
 json.topics do
   all_topics.each do |topic|
