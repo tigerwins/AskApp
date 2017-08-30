@@ -13,6 +13,8 @@
   left: 0;
   background-color: rgba(0,0,0,0.65);
   overflow: hidden;
+  animation: fadeIn 100ms ease-out 0s 1 normal forwards;
+  -webkit-animation: fadeIn 100ms ease-out 0s 1 normal forwards;
 }
 
 div.modal-backdrop > * {

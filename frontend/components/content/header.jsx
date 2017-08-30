@@ -19,9 +19,9 @@ class Header extends React.Component {
   }
 
   render() {
-
     return (
-      <nav className="header">
+      <div className="header">
+        <div className="header-left header-border"></div>
         <div className="header-contents">
           <Link className="logo-link" to="/">
             <h2 className="logo">Ask(<span className="logo-space"> </span>)</h2>
@@ -76,11 +76,7 @@ class Header extends React.Component {
             </div>
           </div>
 
-          {/* <div className="search-container">
-            <textarea className="search box text-box" type="text" rows="1" autoFocus="True" placeholder="Search Ask()"></textarea>
-          </div> */}
           <SearchBar />
-
 
           { /* This will become the profile photo eventually */}
           <div className="user-img">
@@ -96,7 +92,8 @@ class Header extends React.Component {
           </div>
 
         </div>
-      </nav>
+        <div className="header-right header-border"></div>
+      </div>
     );
   }
 }

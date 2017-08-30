@@ -22,7 +22,6 @@ class QuestionModal extends React.Component {
 
     this.preventDefault = this.preventDefault.bind(this);
     this.preventDefaultForScrollKeys = this.preventDefaultForScrollKeys.bind(this);
-    // this.enableKeys = this.enableKeys.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
   }
