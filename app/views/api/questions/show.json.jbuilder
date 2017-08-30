@@ -1,6 +1,16 @@
 json.question do
   json.partial! "/api/questions/question", question: @question
   json.answerIds { json.array! @question.answers.map(&:id) }
+  json.topicIds { json.array! question.topics.map(&:id) }
+end
+
+all_topics = @question.map(&:topics)
+json.topics({})
+json.topics do
+  all_topics.each do |topic|
+    json.partial! "/api/topics/topic", topic: topic
+    json.questionIds { json.array! topic.questions.map(&:id) }
+  end
 end
 
 json.users({})
