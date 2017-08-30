@@ -61,9 +61,3 @@ export const updateQuestion = question => dispatch => {
     }))
   );
 };
-
-export const deleteQuestion = question => dispatch => {
-  return QuestionAPIUtil.destroyQuestion(question).then(
-    oldQuestion => dispatch(removeQuestion(oldQuestion))
-  );
-};
