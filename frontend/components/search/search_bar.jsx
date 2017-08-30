@@ -24,7 +24,6 @@ class SearchBar extends React.Component {
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
 
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.searchQuestions = searchQuestions.bind(this);
@@ -80,15 +79,18 @@ class SearchBar extends React.Component {
 
   handleChange(e, { newValue }) {
     const self = this;
-    this.setState({ query: newValue }, () => this.searchQuestions(this.state.query).then(
-      searchResults => {
-        if (Object.prototype.toString.call(searchResults) === '[object Array]') {
-          self.setState({ searchResults: searchResults });
-        } else {
-          self.setState({ searchResults: [] });
-        }
-      })
-    );
+
+    if (newValue.length - this.state.query.length < 2) {
+      this.setState({ query: newValue }, () => this.searchQuestions(this.state.query).then(
+        searchResults => {
+          if (Object.prototype.toString.call(searchResults) === '[object Array]') {
+            self.setState({ searchResults: searchResults });
+          } else {
+            self.setState({ searchResults: [] });
+          }
+        })
+      );
+    }
   }
 
   handleFocus(e) {
@@ -110,12 +112,14 @@ class SearchBar extends React.Component {
     return (
       <Autosuggest
         suggestions={ searchResults }
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        onSuggestionSelected={this.onSuggestionSelected}
-        getSuggestionValue={this.getSuggestionValue}
-        renderSuggestion={this.renderSuggestion}
-        inputProps={inputProps}
+        onSuggestionsFetchRequested={ this.onSuggestionsFetchRequested }
+        onSuggestionsClearRequested={ this.onSuggestionsClearRequested }
+        onSuggestionSelected={ this.onSuggestionSelected }
+        onSuggestionHighlighted={ this.onSuggestionHighlighted }
+        focusInputOnSuggestionClick={ false }
+        getSuggestionValue={ this.getSuggestionValue }
+        renderSuggestion={ this.renderSuggestion }
+        inputProps={ inputProps }
       />
     );
   }
