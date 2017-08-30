@@ -73,7 +73,7 @@ class DetailTopicList extends React.Component {
             { this.props.topics[id].name }
           </Link>
           <div onClick={ this.destroyTag }>
-            <span className="close-x">
+            <span className="close-x topic-x">
               <svg className="close-x-svg" viewBox="0 0 10 10" height="10" width="10">
                 <path className="close-x" d="M 2.5,2.5 L 7.5,7.5 M 7.5,2.5 L 2.5,7.5" />
               </svg>
