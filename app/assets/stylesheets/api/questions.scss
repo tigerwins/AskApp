@@ -1,8 +1,3 @@
-
-// Place all the styles related to the Questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .index-box {
   border: 1px solid #efefef;
   background-color: #fff;
@@ -25,8 +20,6 @@
 
 .prompt-avatar {
   margin-right: 4px;
-  // margin-top: -2px;
-  // align
 }
 
 div.prompt.index-box {
@@ -35,7 +28,6 @@ div.prompt.index-box {
   margin-bottom: 8px;
   padding: 16px 18px 0 18px;
   height: 62px;
-  // margin-top: 16px;
 }
 
 div.user {
@@ -193,8 +185,6 @@ div.question-topic-tags {
 
 ul.topics {
   box-sizing: border-box;
-  // height: 23px;
-  // padding: 4px 8px;
   margin: 0 4px 4px 0;
   color: #999;
   font-size: 13px;
@@ -209,7 +199,6 @@ div.answer-question-index-container {
   box-shadow: 1px 1px 0 #f7f7f7;
   margin-bottom: 16px;
   width: 602px;
-  // padding-left: 12px;
   margin-left: 42px;
   margin-right: auto;
 }

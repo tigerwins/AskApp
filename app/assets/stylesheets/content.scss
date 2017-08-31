@@ -44,7 +44,6 @@ div.header {
   box-sizing: border-box;
   opacity: 100%;
   background-color: #fff;
-  // padding: 0 32px;
   margin: 0 auto;
   width: 1076px;
 }
@@ -58,15 +57,11 @@ div.header-contents {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  // margin: 0 auto;
   padding: 0 32px;
-  // width: 1017px;
 }
 
 .header-border {
-  // display: inline-block;
   min-width: 32px;
-  // height: 50px;
   margin: 0 auto;
 }
 
@@ -119,7 +114,6 @@ div.header-contents > a:hover {
 
 a.nav-item.active-nav {
   color: #b92b27;
-  // --icon_color: #b92b27;
   border-color: #b92b27;
   opacity: 1;
 }
@@ -132,36 +126,6 @@ a.active-nav:hover {
   background-color: #fff;
   text-decoration: none;
 }
-
-// div.search-container {
-//   padding: 12px 8px 11px 0;
-//   line-height: 1.4;
-//   box-sizing: border-box;
-//   height: 52px;
-// }
-//
-// textarea.search {
-//   overflow-x: hidden;
-//   resize: none;
-//   overflow: hidden;
-//   word-wrap: break-word;
-//   height: 29px;
-//   width: 415px;
-//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-//   font-size: 15px;
-//   line-height: 1.4;
-//   font-weight: 400;
-//   box-sizing: border-box;
-//   padding: 3px 8px 3px 26px;
-//   background: image-url("search-icon.png") no-repeat 8px center;
-//   background-size: 13px;
-//   vertical-align: center;
-//   box-shadow: inset 0 1px 1px rgba(200,200,200,0.3)
-// }
-//
-// textarea:focus {
-//   outline: none;
-// }
 
 div.ask-question {
   display: flex;
@@ -177,7 +141,6 @@ div.ask-question {
 }
 
 button.question-btn {
-  // font-size: 12px;
   color: #fff;
   margin-left: 8px;
   border-radius: 3px;
@@ -200,8 +163,6 @@ button.question-btn:active {
 }
 
 body, .content {
-  // background-color: #fff;
-  // background: #fafafa;
 }
 
 .ask-app {
@@ -211,7 +172,6 @@ body, .content {
 .content {
   height: 100%;
   padding-bottom: 50px;
-  // background-color: #fff;
 }
 
 // Might need to add to topics.scss when I get there
@@ -293,10 +253,6 @@ label {
 
   &:after {
     content: "";
-    // position: absolute;
-    // display: block;
-    // top: 50%;
-    // right: 5px;
     width: 0;
     height: 0;
     transition:border-bottom .1s, border-top .1s .1s;
@@ -304,8 +260,6 @@ label {
 }
 
 input:checked ~ label:after {
-  // border-top: 0 solid rgba(255,255,255,.5);
-  // border-bottom: 4px solid rgba(255,255,255,.5);
   transition: border-top .1s, border-bottom .1s .1s;
 }
 
@@ -326,8 +280,7 @@ ul.menu {
   max-height: 0;
   overflow: hidden;
   list-style-type: none;
-  // box-shadow: 0 1px 3px rgba(200,200,200,0.7);
-  // box-shadow: 0 0 1px rgba(0,0,0,.3);
+  box-shadow: 0 1px 3px rgba(200,200,200,0.7);
   transition: max-height 0.5s ease-out;
   position: absolute;
 }
@@ -347,7 +300,6 @@ ul.menu li a {
   padding: 8px 16px;
   color: #2b6dad;
   text-decoration: none;
-  // box-shadow: 0 -1px rgba(0,0,0,.5) inset;
   transition: background .3s;
   white-space: nowrap;
 }
