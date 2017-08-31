@@ -22,7 +22,7 @@ const questionReducer = (state = {}, action) => {
     case RECEIVE_QUESTIONS:
       return action.payload.questions;
     case RECEIVE_QUESTION:
-      return nextState;
+      return { [action.payload.question.id]: action.payload.question };
     case RECEIVE_NEW_QUESTION:
       const newQuestion = {
         [action.payload.question.id]: action.payload.question
