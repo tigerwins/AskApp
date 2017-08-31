@@ -10,12 +10,17 @@ class QuestionDetail extends React.Component {
 
   componentDidMount() {
     this.props.requestQuestion(this.props.questionId);
+    document.body.classList.toggle('white-background', true);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.requestQuestion(nextProps.questionId);
     }
+  }
+
+  componentWillUnmount() {
+    document.body.classList.remove('white-background');
   }
 
   render() {
