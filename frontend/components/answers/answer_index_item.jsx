@@ -6,6 +6,11 @@ import { clearErrors } from '../../actions/session_actions';
 import CommentIndexContainer from '../comments/comment_index_container';
 import Editor from './editor';
 import Avatar from 'react-avatar';
+import { allAnswers } from '../../reducers/selectors';
+import {
+  createUpvote,
+  deleteUpvote
+} from '../../actions/upvote_actions';
 
 class AnswerIndexItem extends React.Component {
   constructor(props) {
@@ -18,6 +23,7 @@ class AnswerIndexItem extends React.Component {
     this.editAnswer = this.editAnswer.bind(this);
     this.deleteAnswer = this.deleteAnswer.bind(this);
     this.closeEditor = this.closeEditor.bind(this);
+    this.handleUpvote = this.handleUpvote.bind(this);
   }
 
   editAnswer(e) {
@@ -32,8 +38,22 @@ class AnswerIndexItem extends React.Component {
     this.setState({ displayEditor: false });
   }
 
+  handleUpvote(e) {
+    e.preventDefault();
+    const { currentUser, answer } = this.props;
+    let upvote;
+
+    if (currentUser.upvotedAnswers.includes(answer.id)) {
+      upvote = { userId: currentUser.id, answerId: answer.id };
+      this.props.deleteUpvote(upvote);
+    } else {
+      upvote = { answer_id: this.props.answer.id };
+      this.props.createUpvote(upvote);
+    }
+  }
+
   render() {
-    const { author, answer, currentUser } = this.props;
+    const { author, answer, currentUser, upvoteCss } = this.props;
     const date = new Date(Date.parse(answer.created_at)).toDateString();
 
     return (
@@ -57,9 +77,19 @@ class AnswerIndexItem extends React.Component {
 
                 { author.id === currentUser.id ? (
                   <div className="answer-action-bar">
-                    <button className="upvote">
-                      Upvote {/* need number of upvotes */}
-                    </button>
+                    <span
+                      onClick={this.handleUpvote}
+                      className={`${upvoteCss} upvote`}
+                    >
+                    { upvoteCss === "not-upvoted" ? (
+                      <span className="upvote-text">Upvote</span>
+                    ) : (
+                      <span className="upvote-text">Upvoted</span>
+                    )}
+                    <span className="upvote-count">
+                      { this.props.answer.num_upvotes }
+                    </span>
+                  </span>
                     <span className="edit action-link" onClick={this.editAnswer}>
                       Edit Answer
                     </span>
@@ -69,9 +99,19 @@ class AnswerIndexItem extends React.Component {
                   </div>
                 ) : (
                   <div className="answer-action-bar">
-                    <button className="upvote">
-                      Upvote {/* need number of upvotes */}
-                    </button>
+                    <span
+                      onClick={this.handleUpvote}
+                      className={`${upvoteCss} upvote`}
+                    >
+                    { upvoteCss === "not-upvoted" ? (
+                      <span className="upvote-text">Upvote</span>
+                    ) : (
+                      <span className="upvote-text">Upvoted</span>
+                    )}
+                    <span className="upvote-count">
+                      { this.props.answer.num_upvotes }
+                    </span>
+                  </span>
                   </div>
                 )}
 
@@ -97,9 +137,16 @@ class AnswerIndexItem extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const { users } = state.entities;
+  const { currentUser } = state.session;
+  const answers = allAnswers(state, ownProps.question.id);
+  const upvoteCss = currentUser.upvotedAnswers.includes(ownProps.answer.id) ? "upvoted" : "not-upvoted";
+
   return {
     currentUser: state.session.currentUser,
+    upvoteCss,
+
   };
 };
 
@@ -109,6 +156,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(clearErrors());
       dispatch(deleteAnswer(answer));
     },
+    createUpvote: (upvote) => dispatch(createUpvote(upvote)),
+    deleteUpvote: (upvote) => dispatch(deleteUpvote(upvote)),
   };
 };
 

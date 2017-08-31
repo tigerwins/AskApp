@@ -2,14 +2,73 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.upvote {
+span.upvote {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: 0 1px 1px 0 rgb(255,255,255);
+  font-weight: 500;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 3px 7px 4px 7px;
+  margin-right: 12px;
+  transition: .1s;
+  text-decoration: none;
+}
 
+span.upvoted > span.upvote-text {
+  padding-right: 6px;
+  border-right: 1px solid #ddd;
+}
+
+span.not-upvoted > span.upvote-text {
+  padding-right: 6px;
+  border-right: 1px solid #bbcadc;
+}
+
+span.upvoted > * {
+  color: #999;
 }
 
 .upvoted {
+  border: 1px solid #ddd;
+  transition: opacity ease-in-out 100ms,color ease-in-out 100ms,background-color ease-in-out 100ms,border-color ease-in-out 100ms;
+  box-shadow: none;
+  background: #f6f6f6;
 
+  &:hover {
+    border: 1px solid #919191;
+    color: #919191;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+span.not-upvoted > * {
+  color: #2b6dad;
 }
 
 .not-upvoted {
+  color: #2b6dad;
+  background-color: #f1f8fb;
+  border: 1px solid #bbcadc;
 
+  &:hover {
+    border: 1px solid #2865a1;
+    color: #2865a1;
+  }
+
+  &:active {
+    opacity: 0.6;
+    box-shadow: none;
+  }
+}
+
+span.upvote-count {
+  font-weight: bold;
+  margin-right: 0;
+  padding-left: 6px;
 }

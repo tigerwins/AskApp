@@ -40,7 +40,7 @@ class Answer extends React.Component {
   }
 
   render() {
-    const { author, answer, currentUser } = this.props;
+    const { author, answer, currentUser, upvoteCss } = this.props;
     const date = new Date(Date.parse(answer.created_at)).toDateString();
 
     return (
@@ -72,15 +72,19 @@ class Answer extends React.Component {
 
         <div className="answer-footer">
           <div className="answer-action-bar">
-            <button
+            <span
               onClick={this.handleUpvote}
-              className={`${this.props.upvoteCss} upvote`}
+              className={`${upvoteCss} upvote`}
             >
-            <span className="upvote-text">Upvote</span>
+            { upvoteCss === "not-upvoted" ? (
+              <span className="upvote-text">Upvote</span>
+            ) : (
+              <span className="upvote-text">Upvoted</span>
+            )}
             <span className="upvote-count">
               { this.props.answer.num_upvotes }
             </span>
-            </button>
+          </span>
           </div>
 
           <div className="comment-box home-page-comment-box">

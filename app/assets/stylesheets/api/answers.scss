@@ -61,32 +61,8 @@ div.answer-content * {
   margin-bottom: -16px;
 }
 
-button.upvote {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 78px;
-  height: 27px;
-  box-sizing: border-box;
-  box-shadow: 0 1px 1px 0 rgb(255,255,255);
-  font-weight: 500;
-  border-radius: 3px;
-  cursor: pointer;
-  padding: 3px 7px 4px 7px;
-  margin-right: 12px;
-  color: #2b6dad;
-  background-color: #f1f8fb;
-  border: 1px solid #bbcadc;
-  transition: .1s;
-}
-
-button.upvote:hover {
-  border: 1px solid #2865a1;
-  color: #2865a1;
-}
-
 .answer-action-bar * {
-  margin-right: 12px;
+  // margin-right: 12px;
 }
 
 .action-link {
