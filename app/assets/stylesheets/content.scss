@@ -283,7 +283,6 @@ input#menu-check {
 input:checked ~ ul.menu{
   max-height: 300px;
   transition: max-height 0.4s;
-  // -webkit-animation: fadein 2s;
   animation: fadein 0.4s;
 }
 
