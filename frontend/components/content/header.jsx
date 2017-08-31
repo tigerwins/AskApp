@@ -86,12 +86,14 @@ class Header extends React.Component {
               <Avatar className="header-avatar" name={ this.props.currentUser.name } size={26} round={true}
               textSizeRatio={2} />
             </label>
+
             <ul className="menu">
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact Me</a></li>
-              <li><a href="#" onClick={this.handleLogout}>
+              <li><span><a target="_blank" href="https://github.com/tigerwins/AskApp/">Github</a></span></li>
+              <li><span><a target="_blank" href="https://www.linkedin.com/in/jonathanzliu/">LinkedIn</a></span></li>
+              <li><span><a target="_blank" href="mailto:jonathan.liu137@gmail.com">Contact Me</a></span></li>
+              <li><span><a href="#" className="action-link logout" onClick={this.handleLogout}>
                 Logout
-              </a></li>
+              </a></span></li>
             </ul>
           </div>
 

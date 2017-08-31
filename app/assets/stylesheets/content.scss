@@ -274,13 +274,8 @@ div.feed-list > a:hover {
 }
 
 div.header-menu {
-  // position: fixed;
-  // top: 0;
-  // width: 100%;
   margin: 0;
   padding: 0;
-  // display: flex;
-  // flex-direction: column-reverse;
 }
 
 div.header-menu > * {
@@ -289,12 +284,8 @@ div.header-menu > * {
 }
 
 label {
-  // box-sizing: border-box;
   width: 42px;
   height: 52px;
-  padding: 0;
-  // position: relative;
-  // display: block;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -312,15 +303,10 @@ label {
   }
 }
 
-// label:hover,
-// input:checked ~ label {
-//   background: rgba(0,0,0,0.3)
-// }
-
 input:checked ~ label:after {
-  border-top:0 solid rgba(255,255,255,.5);
-  border-bottom:4px solid rgba(255,255,255,.5);
-  transition:border-top .1s, border-bottom .1s .1s;
+  // border-top: 0 solid rgba(255,255,255,.5);
+  // border-bottom: 4px solid rgba(255,255,255,.5);
+  transition: border-top .1s, border-bottom .1s .1s;
 }
 
 input#menu-check {
@@ -333,27 +319,38 @@ input:checked ~ ul.menu{
 }
 
 ul.menu {
+  line-height: 1.25;
+  border-radius: 3px;
+  margin-top: 10px;
   z-index: 50;
   max-height: 0;
-  padding: 0;
   overflow: hidden;
   list-style-type: none;
-  box-shadow: 0 0 1px rgba(0,0,0,.3);
+  // box-shadow: 0 1px 3px rgba(200,200,200,0.7);
+  // box-shadow: 0 0 1px rgba(0,0,0,.3);
   transition: max-height 0.5s ease-out;
   position: absolute;
 }
 
-ul.menu li a {
-  // display: block;
-  padding: 12px;
-  color: #2b6dad;
-  text-decoration: none;
-  box-shadow: 0 -1px rgba(0,0,0,.5) inset;
-  transition :background .3s;
-  white-space: nowrap;
+ul.menu li {
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
 
+ul.menu .logout {
+  border-bottom: 1px solid #ccc;
+}
 
+ul.menu li a {
+  display: block;
+  padding: 8px 16px;
+  color: #2b6dad;
+  text-decoration: none;
+  // box-shadow: 0 -1px rgba(0,0,0,.5) inset;
+  transition: background .3s;
+  white-space: nowrap;
+}
 
 ul.menu li a:hover{
   background: #dfeffa;
