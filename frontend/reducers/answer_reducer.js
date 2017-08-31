@@ -63,7 +63,6 @@ const answerReducer = (state = {}, action) => {
       return nextState;
     case RECEIVE_UPVOTE:
       nextState = merge({}, state);
-      // const userId = action.payload.upvote.user_id;
       const upvoteAnswerId = action.payload.answer_id;
       nextState[upvoteAnswerId].num_upvotes += 1;
       return nextState;

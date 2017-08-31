@@ -1,14 +1,8 @@
 import * as UpvoteAPIUtil from '../util/upvote_api_util';
 import { receiveErrors } from './session_actions';
 
-// export const RECEIVE_UPVOTES = "RECEIVE_UPVOTES";
 export const RECEIVE_UPVOTE = "RECEIVE_UPVOTE";
 export const REMOVE_UPVOTE = "REMOVE_UPVOTE";
-
-// export const receiveUpvotes = payload => ({
-//   type: RECEIVE_UPVOTES,
-//   payload,
-// });
 
 export const receiveUpvote = payload => ({
   type: RECEIVE_UPVOTE,

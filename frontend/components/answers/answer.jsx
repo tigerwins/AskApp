@@ -13,31 +13,12 @@ class Answer extends React.Component {
   constructor(props) {
     super(props);
 
-    const { currentUser, answer } = props;
-    const upvoteCss = currentUser.upvotedAnswers.includes(answer.id) ? "upvoted" : "not-upvoted";
-
-    this.state = {
-      expandedAnswer: false,
-      numUpvotes: props.answer.num_upvotes,
-      upvoteCss: upvoteCss,
-    };
+    // this.state = {
+    //   expandedAnswer: false,
+    // };
 
     // this.expandAnswer = this.expandAnswer.bind(this);
     this.handleUpvote = this.handleUpvote.bind(this);
-    this.toggleUpvoteButton = this.toggleUpvoteButton.bind(this);
-  }
-
-  componentDidMount() {
-    // debugger
-    // const { currentUser, answer } = this.props;
-    // const upvoteCss = currentUser.upvotedAnswers.includes(answer.id) ? "upvoted" : "not-upvoted";
-    //
-    // this.setState({ upvoteCss });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    debugger
-    this.toggleUpvoteButton();
   }
 
   // expandAnswer(e) {
@@ -52,24 +33,10 @@ class Answer extends React.Component {
     if (currentUser.upvotedAnswers.includes(answer.id)) {
       upvote = { userId: currentUser.id, answerId: answer.id };
       this.props.deleteUpvote(upvote);
-      // .then(() => { this.toggleUpvoteButton();
-      // });
     } else {
       upvote = { answer_id: this.props.answer.id };
       this.props.createUpvote(upvote);
-      // .then(this.toggleUpvoteButton());
     }
-
-    // this.toggleUpvoteButton();
-  }
-
-  toggleUpvoteButton() {
-    // debugger
-    const { answer } = this.props;
-    const upvoteCss = this.state.upvoteCss === "not-upvoted" ? "upvoted" : "not-upvoted";
-    // debugger
-    this.setState({ upvoteCss: upvoteCss, numUpvotes: answer.num_upvotes });
-    // debugger
   }
 
   render() {
@@ -107,11 +74,11 @@ class Answer extends React.Component {
           <div className="answer-action-bar">
             <button
               onClick={this.handleUpvote}
-              className={`${this.state.upvoteCss} upvote`}
+              className={`${this.props.upvoteCss} upvote`}
             >
             <span className="upvote-text">Upvote</span>
             <span className="upvote-count">
-              { this.state.numUpvotes }
+              { this.props.answer.num_upvotes }
             </span>
             </button>
           </div>
@@ -127,13 +94,16 @@ class Answer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const { users } = state.entities;
+  const { currentUser } = state.session;
   const answers = allAnswers(state, ownProps.questionId);
   const answer = answers[answers.length - 1];
-  // const answer = state.entities.answers[ownProps.answerId];
+  const upvoteCss = currentUser.upvotedAnswers.includes(answer.id) ? "upvoted" : "not-upvoted";
+
   return {
-    currentUser: state.session.currentUser,
+    currentUser,
     answer,
     author: users[answer.author_id],
+    upvoteCss,
   };
 };
 
