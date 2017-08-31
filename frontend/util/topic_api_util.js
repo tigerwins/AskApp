@@ -1,3 +1,10 @@
+export const fetchTopics = () => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/topics",
+  });
+};
+
 export const createQuestionTopic = questionTopic => {
   return $.ajax({
     method: "POST",

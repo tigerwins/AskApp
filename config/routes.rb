@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
 
     resources :comments, only: [:destroy]
-    resources :topics, only: [:create, :show]
+    resources :topics, only: [:index, :create, :show]
     resources :question_topics, only: [:create]
   end
 

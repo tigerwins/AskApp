@@ -1,17 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
+// import * as TopicAPIUtil from '../../util/topic_api_util';
 
 class Feeds extends React.Component {
   constructor(props) {
     super(props);
+    this.topics = [];
+  }
 
+  componentDidMount() {
+    // debugger
+    // TopicAPIUtil.fetchTopics().then(topics => {
+      // this.topics = topics;
+    // });
   }
 
   renderFeeds() {
-    
+
   }
 
   render() {
+    // debugger
     return (
       <div className="feeds-sidebar">
         <div className="feeds-header">
@@ -51,4 +61,16 @@ class Feeds extends React.Component {
   }
 }
 
-export default withRouter(Feeds);
+const mapStateToProps = (state) => {
+  return {
+
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Feeds));
