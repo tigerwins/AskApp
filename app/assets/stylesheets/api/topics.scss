@@ -1,3 +1,22 @@
+div.topic-show-header {
+  color: #999;
+  display: block;
+  margin-bottom: 8px;
+  padding: 16px 18px;
+  border: 1px solid #efefef;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0 #f7f7f7
+}
+
+div.topic-show-header > h2 {
+  font-size: 23px;
+  font-weight: bold;
+  font-family: 'q_serif', Georgia, Times, "Times New Roman", serif;
+  line-height: 1.3;
+  color: #262626;
+}
+
 ul.topic-list {
   display: flex;
   flex-wrap: wrap;
@@ -84,4 +103,116 @@ div.index-topic {
 
 span.bullet {
   margin: 0 5px;
+}
+
+
+div.question-topic-tags {
+  margin-bottom: 4px;
+}
+
+ul.topics {
+  box-sizing: border-box;
+  margin: 0 4px 4px 0;
+  color: #999;
+  font-size: 13px;
+}
+
+li.topic {
+}
+
+div.answer-question-index-container {
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0 #f7f7f7;
+  margin-bottom: 16px;
+  width: 602px;
+  margin-left: 42px;
+  margin-right: auto;
+}
+
+div.answer-question-index-container li.index-box {
+  margin: 0;
+  border-radius: 0;
+  border-top: 1px solid #efefef;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+div.new-questions-for-you {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  padding: 12px 18px 8px 18px;
+}
+
+img.star {
+  background-color: #b92b27;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+span.new-questions-title {
+  line-height: 1.4;
+  float: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
+div.feeds-sidebar {
+  position: sticky;
+  top: 82px;
+  width: 142px;
+  margin-bottom: 32px;
+  font-size: 13px;
+  max-height: 400px;
+}
+
+div.feeds-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 8px;
+}
+
+div.feeds-header > h4 {
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 21px;
+  text-size-adjust: 100%;
+}
+
+div.feeds-header > span.edit {
+  font-weight: 400;
+  color: #999;
+}
+
+div.feed-list {
+  list-style: none;
+  color: #666;
+}
+
+div.feed-list div.feed {
+  width: 142px;
+  padding: 4px 5px;
+  margin-left: -5px;
+  margin-bottom: 4px;
+}
+
+div.feed-list > a:hover {
+  text-decoration: none;
+  color: #2b6dad;
+  cursor: pointer;
+}
+
+.selected-feed > div.feed {
+  background-color: #ececec;
+  border-radius: 3px;
+  cursor: pointer;
 }

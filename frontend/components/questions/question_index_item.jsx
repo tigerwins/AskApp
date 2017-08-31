@@ -50,7 +50,7 @@ class Question extends React.Component {
         </div>
         { this.props.answer ? (
           <div className="answer">
-            <Answer answer={answer}/>
+            <Answer questionId={question.id}/>
           </div>
         ) : (
           <div className="empty-question-footer">

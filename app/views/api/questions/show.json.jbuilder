@@ -1,33 +1,29 @@
 json.question do
   json.partial! "/api/questions/question", question: @question
-  json.answerIds { json.array! @question.answers.map(&:id) }
-  json.topicIds { json.array! @question.topics.map(&:id) }
 end
 
-all_topics = @question.topics
+question_topics = @question.topics
+
 json.topics({})
 json.topics do
-  all_topics.each do |topic|
+  question_topics.each do |topic|
     json.set! topic.id do
       json.partial! "/api/topics/topic", topic: topic
     end
   end
 end
 
+asker = @question.asker
+answer_authors = @question.answers.map(&:author)
+question_comments = @question.answers.map(&:comments).flatten
+answer_commenters = question_comments.map(&:user).flatten
+all_users = [asker] + answer_authors + answer_commenters
+
 json.users({})
 json.users do
-  asker = @question.asker
-  answer_authors = @question.answers.map(&:author)
-  all_comments = @question.answers.map(&:comments).flatten
-  answer_commenters = all_comments.map(&:user).flatten
-  all_users = [asker] + answer_authors + answer_commenters
-
   all_users.each do |user|
     json.set! user.id do
-      json.extract! user, :id, :name
-      json.questionIds { json.array! user.questions.map(&:id) }
-      json.answerIds { json.array! user.answers.map(&:id) }
-      json.commentIds { json.array! user.comments.map(&:id) }
+      json.partial! "/api/users/user", user: user
     end
   end
 end
@@ -37,17 +33,28 @@ json.answers do
   @question.answers.each do |answer|
     json.set! answer.id do
       json.partial! "/api/answers/answer", answer: answer
-      json.commentIds { json.array! answer.comments.map(&:id) }
     end
   end
 end
 
+upvotes = @question.answers.map(&:upvotes).flatten
+
+json.upvotes({})
+json.upvotes do
+  upvotes.each do |upvote|
+    json.set! upvote.id do
+      json.partial! "/api/upvotes/upvote", upvote: upvote
+    end
+  end
+end
+
+question_comments = @question.answers.map(&:comments).flatten
+
 json.comments({})
 json.comments do
-  all_comments = @question.answers.map(&:comments).flatten
-  all_comments.each do |comment|
+  question_comments.each do |comment|
     json.set! comment.id do
-      json.extract! comment, :id, :body, :user_id, :created_at
+      json.partial! "/api/comments/comment", comment: comment
     end
   end
 end

@@ -7,34 +7,34 @@ import {
   RECEIVE_ANSWER,
   REMOVE_ANSWER,
 } from '../actions/answer_actions';
-import { RECEIVE_COMMENT } from '../actions/comment_actions';
+import {
+  RECEIVE_COMMENT,
+  REMOVE_COMMENT,
+} from '../actions/comment_actions';
 
 const userReducer = (state = {}, action) => {
   Object.freeze(state);
-  let nextState = {};
+  let nextState = merge({}, state);
 
   switch(action.type) {
     case RECEIVE_QUESTIONS:
-      Object.keys(action.payload.users).forEach(id => {
-        nextState[id] = action.payload.users[id];
-      });
-      return nextState;
+      return action.payload.users;
     case RECEIVE_QUESTION:
-      Object.keys(action.payload.users).forEach(id => {
-        nextState[id] = action.payload.users[id];
-      });
-      return nextState;
+      return action.payload.users;
     case RECEIVE_ANSWER:
-      nextState = merge({}, state);
       const { author, answer } = action.payload;
       merge(nextState, { [author.id]: author});
       nextState[author.id].answerIds.push(answer.id);
       return nextState;
     case RECEIVE_COMMENT:
-      nextState = merge({}, state);
-      nextState[action.payload.comment.user_id].commentIds.push(action.payload.comment.id);
+      const newComment = action.payload.comment;
+      nextState[newComment.user_id].commentIds.push(newComment.id);
       return nextState;
-
+    case REMOVE_COMMENT:
+      const { comment } = action.payload;
+      const commentIdx = nextState[comment.user_id].commentIds.indexOf(comment.id);
+      nextState[comment.user_id].commentIds.splice(commentIdx, 1);
+      return nextState;
     default:
       return state;
   }

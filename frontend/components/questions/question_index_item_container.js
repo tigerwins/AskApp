@@ -12,7 +12,7 @@ const mapStateToProps = (state, { question }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    
   };
 };
 
