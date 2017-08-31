@@ -8,6 +8,7 @@ json.questions do
 end
 
 all_topics = @questions.map(&:topics).flatten.uniq
+all_topics += [@topic] if @topic
 json.topics({})
 json.topics do
   all_topics.each do |topic|
@@ -56,6 +57,7 @@ askers = @questions.map(&:asker)
 authors = newest_answers.map(&:author)
 commenters = first_answer_comments.map(&:user)
 all_users = (askers + authors + commenters).flatten
+# + [current_user]
 
 json.users({})
 json.users do
