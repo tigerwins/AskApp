@@ -56,15 +56,11 @@ div.header-contents {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  // margin: 0 auto;
   padding: 0 32px;
-  // width: 1017px;
 }
 
 .header-border {
-  // display: inline-block;
   min-width: 32px;
-  // height: 50px;
   margin: 0 auto;
 }
 
@@ -117,7 +113,6 @@ div.header-contents > a:hover {
 
 a.nav-item.active-nav {
   color: #b92b27;
-  // --icon_color: #b92b27;
   border-color: #b92b27;
   opacity: 1;
 }
@@ -181,65 +176,6 @@ body, .content {
   // background-color: #fff;
 }
 
-// Might need to add to topics.scss when I get there
-
-div.feeds-sidebar {
-  position: sticky;
-  top: 150px;
-  top: 83px;
-  width: 142px;
-  margin-bottom: 32px;
-  font-size: 13px;
-  max-height: 400px;
-}
-
-div.feeds-header {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e2e2e2;
-  margin-bottom: 8px;
-}
-
-div.feeds-header > h4 {
-  color: #333;
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: 21px;
-  text-size-adjust: 100%;
-}
-
-div.feeds-header > span.edit {
-  font-weight: 400;
-  color: #999;
-}
-
-div.feed-list {
-  list-style: none;
-  color: #666;
-}
-
-div.feed-list div.feed {
-  width: 142px;
-  // height: 18px;
-  padding: 4px 5px;
-  margin-left: -5px;
-  margin-bottom: 4px;
-}
-
-div.feed-list > a:hover {
-  text-decoration: none;
-  color: #2b6dad;
-  cursor: pointer;
-}
-
-.selected-feed > div.feed {
-  background-color: #ececec;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
 div.header-menu {
   margin: 0;
   padding: 0;
@@ -247,7 +183,6 @@ div.header-menu {
 
 div.header-menu > * {
   list-style-type: none;
-  // position: relative;
 }
 
 label {
@@ -260,10 +195,6 @@ label {
 
   &:after {
     content: "";
-    // position: absolute;
-    // display: block;
-    // top: 50%;
-    // right: 5px;
     width: 0;
     height: 0;
     transition:border-bottom .1s, border-top .1s .1s;
@@ -271,8 +202,6 @@ label {
 }
 
 input:checked ~ label:after {
-  // border-top: 0 solid rgba(255,255,255,.5);
-  // border-bottom: 4px solid rgba(255,255,255,.5);
   transition: border-top .1s, border-bottom .1s .1s;
 }
 
@@ -300,7 +229,6 @@ ul.menu {
   overflow: hidden;
   list-style-type: none;
   box-shadow: 0 1px 1px rgba(200,200,200,0.7);
-  // box-shadow: 0 0 1px rgba(0,0,0,.3);
   transition: max-height 0.4s ease-out;
   animation: fadeout 0.4s;
   position: absolute;
@@ -326,7 +254,6 @@ ul.menu li a {
   padding: 8px 16px;
   color: #2b6dad;
   text-decoration: none;
-  // box-shadow: 0 -1px rgba(0,0,0,.5) inset;
   transition: background .3s;
   white-space: nowrap;
 }
