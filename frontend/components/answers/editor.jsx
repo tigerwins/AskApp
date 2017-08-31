@@ -58,8 +58,8 @@ class Editor extends React.Component {
     return (
       <div className="answer-editor">
         <div className="editor-header">
-          <Avatar name={ currentUser.name } size={40} round={true}
-            textSizeRatio={2} src={window.images.default_user_image} />
+          <Avatar className="editor-avatar" name={ currentUser.name } size={40} round={true}
+            textSizeRatio={2} />
           <span className="name">{currentUser.name}</span>
         </div>
         <ReactQuill

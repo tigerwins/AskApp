@@ -6,12 +6,13 @@ import { toggleModal } from '../../actions/ui_actions';
 import { clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const { users, questions } = state.entities;
-  const id = ownProps.match.params.id;
+  const { users, questions, topics } = state.entities;
+  // const id = ownProps.match.params.id;
 
   return {
     currentUser: state.session.currentUser,
-    questionId: id,
+    questionId: ownProps.match.params.id,
+    topics,
     errors: state.errors.errorList,
   };
 };

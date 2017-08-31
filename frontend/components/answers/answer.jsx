@@ -22,7 +22,6 @@ class Answer extends React.Component {
   render() {
     const { author, answer } = this.props;
     const date = new Date(Date.parse(answer.created_at)).toDateString();
-    // debugger
 
     return (
       <div className="answer">

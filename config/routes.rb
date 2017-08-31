@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     end
 
     resources :comments, only: [:destroy]
-    # resources :topics, only: [:index, :create, :show]
-
-    # what's the best way to deal with many-to-many relationships?
+    resources :topics, only: [:index, :create, :show]
+    resources :question_topics, only: [:create]
   end
 
+  delete '/api/question_topics/:question_id/:topic_id', to: 'api/question_topics#destroy'
 end

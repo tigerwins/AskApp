@@ -13,6 +13,8 @@
   left: 0;
   background-color: rgba(0,0,0,0.65);
   overflow: hidden;
+  animation: fadeIn 100ms ease-out 0s 1 normal forwards;
+  -webkit-animation: fadeIn 100ms ease-out 0s 1 normal forwards;
 }
 
 div.modal-backdrop > * {
@@ -95,7 +97,13 @@ textarea.modal-textarea {
   font-weight: bold;
   font-size: 18px;
   line-height: 1.3;
+  outline: none;
+
 }
+/*
+textarea.modal-textarea:hover {
+  outline: none;
+}*/
 
 div.modal-space {
   border-top: 1px solid #e2e2e2;
@@ -136,4 +144,8 @@ div.modal-title {
   font-size: 19px;
   font-weight: bold;
   color: #333;
+}
+
+span.user-icon {
+  margin-right: 5px;
 }

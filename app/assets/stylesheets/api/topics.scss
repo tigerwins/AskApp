@@ -1,3 +1,92 @@
 // Place all the styles related to the Api::Topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
+}
+
+li.topic {
+  float: left;
+  position: relative;
+  font-size: 13px;
+  font-weight: 500;
+  // line-height: 1.2em;
+  padding: 4px 8px;
+  margin-right: 4px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #808393;
+  background: #f4f4fa;
+  list-style: none;
+
+  &:hover {
+    background: #ededf7;
+    text-decoration: none;
+  }
+}
+
+li.topic > a:hover {
+  text-decoration: none;
+}
+
+span.new-topic {
+  display: flex;
+  align-items: center;
+}
+
+.new-topic-editor > input {
+  height: 20px;
+  min-width: 50px;
+}
+
+.topic-x {
+  margin-left: 3px;
+}
+
+
+.pen {
+  margin-top: -4px;
+}
+
+div.index-topics {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
+  color: #999;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+div.header-question-status {
+}
+
+div.header-topic {
+  display: flex;
+}
+
+div.index-topic {
+  float: left;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+span.bullet {
+  margin: 0 5px;
+}

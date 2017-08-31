@@ -10,7 +10,7 @@
 #
 
 class QuestionTopic < ApplicationRecord
-  validates :question_id, :topic_id, presence: :true
+  validates :question, :topic, presence: :true
   validates :question_id, uniqueness: { scope: [:topic_id] }
 
   belongs_to :question

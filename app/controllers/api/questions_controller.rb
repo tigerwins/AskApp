@@ -12,8 +12,10 @@ class Api::QuestionsController < ApplicationController
 
       render json: questions
     elsif params[:topicId]
-      @questions = Question.joins(:topics)
-        .where("question_topics.topic_id = ?", params[:topicId])
+      @questions = Question.joins(:topics).where(
+        "question_topics.topic_id = ?", params[:topicId]
+      )
+
       render :index
     else
       @questions = Question.all

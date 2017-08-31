@@ -18,6 +18,7 @@ div.detail-page {
   padding-top: 30px;
   padding-left: 32px;
   padding-right: 32px;
+  height: inherit;
 }
 
 .outer-header {
@@ -25,10 +26,16 @@ div.detail-page {
   position: fixed;
   width: 100%;
   z-index: 100;
-  box-shadow: 0 3px 2px -2px rgba(200,200,200,0.2)
+  box-shadow: 0 3px 2px -2px rgba(200,200,200,0.2);
+  background: #fff;
+
+  top: 0;
+  left: 0;
+  min-height: 50px
 }
 
-.header {
+div.header {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +44,9 @@ div.detail-page {
   box-sizing: border-box;
   opacity: 100%;
   background-color: #fff;
+  // padding: 0 32px;
+  margin: 0 auto;
+  width: 1076px;
 }
 
 .header > * {
@@ -48,8 +58,16 @@ div.header-contents {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  margin: 0 auto;
+  // margin: 0 auto;
+  padding: 0 32px;
+  // width: 1017px;
+}
 
+.header-border {
+  // display: inline-block;
+  min-width: 32px;
+  // height: 50px;
+  margin: 0 auto;
 }
 
 div.header-nav {
@@ -67,6 +85,10 @@ div.header-nav {
   border-bottom: 2px solid transparent;
   padding: 0 14px;
   box-sizing: border-box;
+}
+
+.nav-item {
+  cursor: pointer;
 }
 
 .nav-item:hover {
@@ -111,35 +133,35 @@ a.active-nav:hover {
   text-decoration: none;
 }
 
-div.search-container {
-  padding: 12px 8px 11px 0;
-  line-height: 1.4;
-  box-sizing: border-box;
-  height: 52px;
-}
-
-textarea.search {
-  overflow-x: hidden;
-  resize: none;
-  overflow: hidden;
-  word-wrap: break-word;
-  height: 29px;
-  width: 415px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.4;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding: 3px 8px 3px 26px;
-  background: image-url("search-icon.png") no-repeat 8px center;
-  background-size: 13px;
-  vertical-align: center;
-  box-shadow: inset 0 1px 1px rgba(200,200,200,0.3)
-}
-
-textarea:focus {
-  outline: none;
-}
+// div.search-container {
+//   padding: 12px 8px 11px 0;
+//   line-height: 1.4;
+//   box-sizing: border-box;
+//   height: 52px;
+// }
+//
+// textarea.search {
+//   overflow-x: hidden;
+//   resize: none;
+//   overflow: hidden;
+//   word-wrap: break-word;
+//   height: 29px;
+//   width: 415px;
+//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//   font-size: 15px;
+//   line-height: 1.4;
+//   font-weight: 400;
+//   box-sizing: border-box;
+//   padding: 3px 8px 3px 26px;
+//   background: image-url("search-icon.png") no-repeat 8px center;
+//   background-size: 13px;
+//   vertical-align: center;
+//   box-shadow: inset 0 1px 1px rgba(200,200,200,0.3)
+// }
+//
+// textarea:focus {
+//   outline: none;
+// }
 
 div.ask-question {
   display: flex;
@@ -177,23 +199,31 @@ button.question-btn:active {
   opacity: .7;
 }
 
-html, .content {
-  // background-color: #f9f9f9;
+body, .content {
+  // background-color: #fff;
+  // background: #fafafa;
+}
+
+.ask-app {
+  background: #fafafa;
+}
+
+.content {
+  height: 100%;
+  padding-bottom: 50px;
+  // background-color: #fff;
 }
 
 // Might need to add to topics.scss when I get there
 
-
-
 div.feeds-sidebar {
   position: sticky;
   top: 150px;
-  // float: left;
-  // clear: left;
-  // top: 83px;
+  top: 83px;
   width: 142px;
   margin-bottom: 32px;
   font-size: 13px;
+  max-height: 400px;
 }
 
 div.feeds-header {
@@ -225,7 +255,7 @@ div.feed-list {
 
 div.feed-list div.feed {
   width: 142px;
-  height: 18px;
+  // height: 18px;
   padding: 4px 5px;
   margin-left: -5px;
   margin-bottom: 4px;
@@ -237,14 +267,92 @@ div.feed-list > a:hover {
   cursor: pointer;
 }
 
-div.feed-list > .selected-feed {
+.selected-feed > div.feed {
   background-color: #ececec;
-  border-radius: 3;
-  cursor: default;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
+div.header-menu {
+  margin: 0;
+  padding: 0;
+}
 
+div.header-menu > * {
+  list-style-type: none;
+  // position: relative;
+}
 
+label {
+  width: 42px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 
+  &:after {
+    content: "";
+    // position: absolute;
+    // display: block;
+    // top: 50%;
+    // right: 5px;
+    width: 0;
+    height: 0;
+    transition:border-bottom .1s, border-top .1s .1s;
+  }
+}
 
-// end
+input:checked ~ label:after {
+  // border-top: 0 solid rgba(255,255,255,.5);
+  // border-bottom: 4px solid rgba(255,255,255,.5);
+  transition: border-top .1s, border-bottom .1s .1s;
+}
+
+input#menu-check {
+  display: none;
+}
+
+input:checked ~ ul.menu{
+  max-height: 300px;
+  transition: max-height 0.5s ease-in;
+}
+
+ul.menu {
+  line-height: 1.25;
+  border-radius: 3px;
+  margin-top: 10px;
+  z-index: 50;
+  max-height: 0;
+  overflow: hidden;
+  list-style-type: none;
+  // box-shadow: 0 1px 3px rgba(200,200,200,0.7);
+  // box-shadow: 0 0 1px rgba(0,0,0,.3);
+  transition: max-height 0.5s ease-out;
+  position: absolute;
+}
+
+ul.menu li {
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+ul.menu .logout {
+  border-bottom: 1px solid #ccc;
+}
+
+ul.menu li a {
+  display: block;
+  padding: 8px 16px;
+  color: #2b6dad;
+  text-decoration: none;
+  // box-shadow: 0 -1px rgba(0,0,0,.5) inset;
+  transition: background .3s;
+  white-space: nowrap;
+}
+
+ul.menu li a:hover{
+  background: #dfeffa;
+  text-decoration: none;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import CreateQuestionModal from '../questions/create_question_modal_container';
 import SearchBar from '../search/search_bar';
+import Avatar from 'react-avatar';
 
 class Header extends React.Component {
   constructor(props) {
@@ -19,9 +20,9 @@ class Header extends React.Component {
   }
 
   render() {
-
     return (
-      <nav className="header">
+      <div className="header">
+        <div className="header-left header-border"></div>
         <div className="header-contents">
           <Link className="logo-link" to="/">
             <h2 className="logo">Ask(<span className="logo-space"> </span>)</h2>
@@ -76,18 +77,31 @@ class Header extends React.Component {
             </div>
           </div>
 
-          {/* <div className="search-container">
-            <textarea className="search box text-box" type="text" rows="1" autoFocus="True" placeholder="Search Ask()"></textarea>
-          </div> */}
           <SearchBar />
 
-
           { /* This will become the profile photo eventually */}
-          <div className="user-img">
-            <button className="logout-btn" onClick={this.handleLogout}>
-              Logout
-            </button>
+          <div className="header-menu nav-item">
+            <input id="menu-check" type="checkbox" name="menu" />
+            <label htmlFor="menu-check">
+              <Avatar className="header-avatar" name={ this.props.currentUser.name } size={26} round={true}
+              textSizeRatio={2} />
+            </label>
+
+            <ul className="menu">
+              <li><span><a target="_blank" href="https://github.com/tigerwins/AskApp/">Github</a></span></li>
+              <li><span><a target="_blank" href="https://www.linkedin.com/in/jonathanzliu/">LinkedIn</a></span></li>
+              <li><span><a target="_blank" href="mailto:jonathan.liu137@gmail.com">Contact Me</a></span></li>
+              <li><span><a href="#" className="action-link logout" onClick={this.handleLogout}>
+                Logout
+              </a></span></li>
+            </ul>
           </div>
+
+
+
+          {/* <button className="logout-btn" onClick={this.handleLogout}>
+            Logout
+          </button> */}
 
           <div className="ask-question">
             <button className="question-btn" onClick={this.askQuestion}>
@@ -96,7 +110,8 @@ class Header extends React.Component {
           </div>
 
         </div>
-      </nav>
+        <div className="header-right header-border"></div>
+      </div>
     );
   }
 }

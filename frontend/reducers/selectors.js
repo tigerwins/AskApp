@@ -9,3 +9,10 @@ export const allAnswers = ({ entities }, questionId) => {
   const answerIds = question.answerIds;
   return answerIds.map(id => answers[id]);
 };
+
+export const unansweredQuestions = (state) => {
+  const questionArray = allQuestions(state);
+  return questionArray.filter(question => {
+    return question.answerIds.length === 0;
+  });
+};

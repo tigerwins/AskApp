@@ -36,6 +36,16 @@ export const fetchQuestions = () => dispatch => {
   );
 };
 
+export const fetchQuestionsByTopic = (topicId) => dispatch => {
+  return QuestionAPIUtil.questionsByTopic(topicId).then(
+    questions => dispatch(receiveQuestions(questions)),
+    errors => dispatch(receiveErrors({
+      errorType: "fetchQuestionsByTopic",
+      errorList: errors.responseJSON,
+    }))
+  );
+};
+
 export const fetchQuestion = id => dispatch => {
   return QuestionAPIUtil.fetchQuestion(id).then(
     question => dispatch(receiveQuestion(question))
@@ -59,11 +69,5 @@ export const updateQuestion = question => dispatch => {
       errorType: "updateQuestion",
       errorList: errors.responseJSON,
     }))
-  );
-};
-
-export const deleteQuestion = question => dispatch => {
-  return QuestionAPIUtil.destroyQuestion(question).then(
-    oldQuestion => dispatch(removeQuestion(oldQuestion))
   );
 };

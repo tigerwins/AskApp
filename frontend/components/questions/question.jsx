@@ -2,6 +2,7 @@ import React from 'react';
 import EditQuestionModal from '../questions/edit_question_modal_container';
 import ReactQuill from 'react-quill';
 import Editor from '../answers/editor';
+import DetailTopicList from '../topics/detail_topic_list';
 
 class Question extends React.Component {
   constructor(props) {
@@ -66,12 +67,7 @@ class Question extends React.Component {
         </div>
 
         <div className="question-topic-tags">
-          <span className="topics">
-            { /* question header for topic tag(s) */ }
-            <span className="topic">
-              Topic tags go here
-            </span>
-          </span>
+          <DetailTopicList />
         </div>
         <div className="question-text">
           <span className="question-detail-body">

@@ -1,4 +1,4 @@
-import TopicShow from './topic_show';
+import QuestionIndex from '../questions/question_index';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchQuestionsByTopic } from '../../actions/question_actions';
@@ -19,5 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(TopicShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(QuestionIndex));
