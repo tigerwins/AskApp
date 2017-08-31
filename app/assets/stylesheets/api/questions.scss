@@ -202,3 +202,45 @@ ul.topics {
 
 li.topic {
 }
+
+div.answer-question-index-container {
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0 #f7f7f7;
+  margin-bottom: 16px;
+  width: 602px;
+  // padding-left: 12px;
+  margin-left: 42px;
+  margin-right: auto;
+}
+
+div.answer-question-index-container li.index-box {
+  margin: 0;
+  border-radius: 0;
+  border-top: 1px solid #efefef;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+div.new-questions-for-you {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  padding: 12px 18px 8px 18px;
+}
+
+img.star {
+  background-color: #b92b27;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+span.new-questions-title {
+  line-height: 1.4;
+  float: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+}

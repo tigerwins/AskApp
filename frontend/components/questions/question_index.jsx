@@ -5,17 +5,7 @@ import QuestionIndexItemContainer from './question_index_item_container';
 class QuestionIndex extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.requestQuestions = this.requestQuestions.bind(this);
   }
-  //
-  // componentDidMount() {
-  //   this.props.requestQuestions();
-  // }
-  //
-  // requestQuestions() {
-  //   this.props.requestQuestions();
-  // }
 
   render() {
     const { questions } = this.props;
