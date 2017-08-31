@@ -6,7 +6,7 @@ class Api::UpvotesController < ApplicationController
     if @upvote.save
       render :show
     else
-      render json: @upvote.errors.full_messages, status: 422
+      render json: ["You have already upvoted this question"], status: 422
     end
   end
 
