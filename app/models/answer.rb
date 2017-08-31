@@ -22,4 +22,12 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   has_many :comments, dependent: :destroy
+  has_many :upvotes, dependent: :destroy
+  has_many :upvoters,
+    through: :upvotes,
+    source: :user
+
+  def num_upvotes
+    self.upvotes.size
+  end
 end

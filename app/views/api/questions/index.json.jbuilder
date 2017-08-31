@@ -3,8 +3,6 @@ json.questions do
   @questions.each do |question|
     json.set! question.id do
       json.partial! 'question', question: question
-      json.answerIds { json.array! question.answers.map(&:id) }
-      json.topicIds { json.array! question.topics.map(&:id) }
     end
   end
 end
@@ -29,7 +27,17 @@ json.answers do
   newest_answers.each do |answer|
     json.set! answer.id do
       json.partial! "/api/answers/answer", answer: answer
-      json.commentIds { json.array! answer.comments.map(&:id) }
+    end
+  end
+end
+
+upvotes = newest_answers.map(&:upvotes).flatten
+
+json.upvotes({})
+json.upvotes do
+  upvotes.each do |upvote|
+    json.set! upvotes.id do
+      
     end
   end
 end
@@ -54,9 +62,6 @@ json.users do
   all_users.each do |user|
     json.set! user.id do
       json.partial! "/api/users/user", user: user
-      json.questionIds { json.array! user.questions.map(&:id) }
-      json.answerIds { json.array! user.answers.map(&:id) }
-      json.commentIds { json.array! user.comments.map(&:id) }
     end
   end
 end

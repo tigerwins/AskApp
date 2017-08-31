@@ -35,6 +35,10 @@ class User < ApplicationRecord
     foreign_key: :author_id
 
   has_many :comments
+  has_many :upvotes
+  has_many :upvoted_answers,
+    through: :upvotes,
+    source: :answer
 
   attr_reader :password
 
