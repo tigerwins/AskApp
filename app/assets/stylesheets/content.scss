@@ -165,6 +165,15 @@ button.question-btn:active {
   padding-bottom: 50px;
 }
 
+.ask-app {
+  background: #fafafa;
+}
+
+.content {
+  height: 100%;
+  padding-bottom: 50px;
+}
+
 div.header-menu {
   margin: 0;
   padding: 0;
@@ -217,9 +226,11 @@ ul.menu {
   max-height: 0;
   overflow: hidden;
   list-style-type: none;
+
   box-shadow: 0 1px 1px rgba(200,200,200,0.7);
   transition: max-height 0.4s ease-out;
   animation: fadeout 0.4s;
+
   position: absolute;
 }
 
