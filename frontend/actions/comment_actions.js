@@ -4,11 +4,6 @@ import { receiveErrors } from './session_actions';
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 
-export const receiveComments = payload => ({
-  type: RECEIVE_COMMENTS,
-  payload,
-});
-
 export const receiveComment = payload => ({
   type: RECEIVE_COMMENT,
   payload,

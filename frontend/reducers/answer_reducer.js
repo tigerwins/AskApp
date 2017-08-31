@@ -23,16 +23,8 @@ const answerReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_QUESTIONS:
-      // Object.keys(action.payload.answers).forEach(id => {
-      //   nextState[id] = action.payload.answers[id];
-      // });
-      // return nextState;
       return action.payload.answers;
     case RECEIVE_QUESTION:
-      // Object.keys(action.payload.answers).forEach(id => {
-      //   nextState[id] = action.payload.answers[id];
-      // });
-      // return nextState;
       return action.payload.answers;
     case RECEIVE_NEW_QUESTION:
       Object.keys(action.payload.answers).forEach(id => {
