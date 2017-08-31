@@ -18,6 +18,7 @@ div.detail-page {
   padding-top: 30px;
   padding-left: 32px;
   padding-right: 32px;
+  height: inherit;
 }
 
 .outer-header {
@@ -195,7 +196,11 @@ button.question-btn:active {
 }
 
 html, .content {
-  // background-color: #f9f9f9;
+  background-color: #fff;
+}
+
+.content {
+  // background-color: #fff;
 }
 
 // Might need to add to topics.scss when I get there
