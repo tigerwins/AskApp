@@ -1,16 +1,15 @@
+body.white-background {
+  background: #fff;
+}
+
 .box {
   border: 1px solid #e2e2e2;
   border-radius: 4px;
 }
 
 div.detail-page {
-  // left: 0;
-  // right: 0;
-  // top: 52px;
-  // bottom: 0;
   z-index: -1;
   background-color: #fff;
-
   display: flex;
   justify-content: center;
   margin-top: -30px;
@@ -161,19 +160,9 @@ button.question-btn:active {
   opacity: .7;
 }
 
-body, .content {
-  // background-color: #fff;
-  // background: #fafafa;
-}
-
-.ask-app {
-  background: #fafafa;
-}
-
 .content {
   height: 100%;
   padding-bottom: 50px;
-  // background-color: #fff;
 }
 
 div.header-menu {
