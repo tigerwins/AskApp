@@ -12,12 +12,12 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const topicId = ownProps.match.params.id;
+  // const topicId = ownProps.match.params.id;
 
   return {
-    requestQuestions: () => dispatch(fetchQuestionsByTopic(topicId)),
+    requestQuestions: (topicId) => dispatch(fetchQuestionsByTopic(topicId)),
   };
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopicShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TopicShow));

@@ -8,12 +8,14 @@ class TopicShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestQuestions();
+    // const topicId = this.props.match.params.id;
+    this.props.requestQuestions(this.props.match.params.id);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
-      this.props.requestQuestions();
+      // debugger
+      this.props.requestQuestions(nextProps.match.params.id);
     }
   }
 
