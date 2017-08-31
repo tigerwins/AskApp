@@ -2,17 +2,20 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  fname           :string           not null
-#  lname           :string           not null
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  provider        :string
-#  uid             :string
-#  image           :text
+#  id               :integer          not null, primary key
+#  fname            :string           not null
+#  lname            :string           not null
+#  email            :string           not null
+#  password_digest  :string           not null
+#  session_token    :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  provider         :string
+#  uid              :string
+#  image            :text
+#  fb_access_token  :string
+#  fb_refresh_token :string
+#  fb_uid           :string
 #
 
 class User < ApplicationRecord
@@ -30,7 +33,7 @@ class User < ApplicationRecord
     class_name: 'Answer',
     primary_key: :id,
     foreign_key: :author_id
-    
+
   has_many :comments
 
   attr_reader :password
