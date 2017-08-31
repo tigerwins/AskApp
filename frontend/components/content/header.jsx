@@ -79,7 +79,6 @@ class Header extends React.Component {
 
           <SearchBar />
 
-          { /* This will become the profile photo eventually */}
           <div className="header-menu nav-item">
             <input id="menu-check" type="checkbox" name="menu" />
             <label htmlFor="menu-check">
@@ -96,12 +95,6 @@ class Header extends React.Component {
               </a></span></li>
             </ul>
           </div>
-
-
-
-          {/* <button className="logout-btn" onClick={this.handleLogout}>
-            Logout
-          </button> */}
 
           <div className="ask-question">
             <button className="question-btn" onClick={this.askQuestion}>
