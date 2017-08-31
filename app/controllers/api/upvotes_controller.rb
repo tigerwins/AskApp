@@ -15,6 +15,9 @@ class Api::UpvotesController < ApplicationController
       user_id: params[:user_id],
       answer_id: params[:answer_id]
     )
+
+    @upvote.destroy
+    render :show
   end
 
   private
