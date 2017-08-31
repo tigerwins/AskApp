@@ -21,12 +21,10 @@ const sessionReducer = (state = nullUser, action) => {
       const currentUser = action.currentUser;
       return merge({}, nullUser, { currentUser });
     case RECEIVE_UPVOTE:
-      // const userId = action.payload.user_id;
       const answerId = action.payload.answer_id;
       nextState.currentUser.upvotedAnswers.push(answerId);
       return nextState;
     case REMOVE_UPVOTE:
-      // const oldUserId = action.payload.user_id;
       const oldAnswerId = action.payload.answer_id;
       const upvoteIdx = nextState.currentUser.upvotedAnswers.indexOf(oldAnswerId);
       nextState.currentUser.upvotedAnswers.splice(upvoteIdx, 1);
