@@ -36,8 +36,8 @@ upvotes = newest_answers.map(&:upvotes).flatten
 json.upvotes({})
 json.upvotes do
   upvotes.each do |upvote|
-    json.set! upvotes.id do
-      
+    json.set! upvote.id do
+      json.partial! "/api/upvotes/upvote", upvote: upvote
     end
   end
 end
