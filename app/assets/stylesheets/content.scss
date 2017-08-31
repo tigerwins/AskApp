@@ -1,16 +1,15 @@
+body.white-background {
+  background: #fff;
+}
+
 .box {
   border: 1px solid #e2e2e2;
   border-radius: 4px;
 }
 
 div.detail-page {
-  // left: 0;
-  // right: 0;
-  // top: 52px;
-  // bottom: 0;
   z-index: -1;
   background-color: #fff;
-
   display: flex;
   justify-content: center;
   margin-top: -30px;
@@ -161,75 +160,9 @@ button.question-btn:active {
   opacity: .7;
 }
 
-body, .content {
-}
-
-.ask-app {
-  background: #fafafa;
-}
-
 .content {
   height: 100%;
   padding-bottom: 50px;
-}
-
-// Might need to add to topics.scss when I get there
-
-div.feeds-sidebar {
-  position: sticky;
-  top: 150px;
-  top: 83px;
-  width: 142px;
-  margin-bottom: 32px;
-  font-size: 13px;
-  max-height: 400px;
-}
-
-div.feeds-header {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e2e2e2;
-  margin-bottom: 8px;
-}
-
-div.feeds-header > h4 {
-  color: #333;
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: 21px;
-  text-size-adjust: 100%;
-}
-
-div.feeds-header > span.edit {
-  font-weight: 400;
-  color: #999;
-}
-
-div.feed-list {
-  list-style: none;
-  color: #666;
-}
-
-div.feed-list div.feed {
-  width: 142px;
-  // height: 18px;
-  padding: 4px 5px;
-  margin-left: -5px;
-  margin-bottom: 4px;
-}
-
-div.feed-list > a:hover {
-  text-decoration: none;
-  color: #2b6dad;
-  cursor: pointer;
-}
-
-.selected-feed > div.feed {
-  background-color: #ececec;
-  border-radius: 3px;
-  cursor: pointer;
 }
 
 div.header-menu {
@@ -239,7 +172,6 @@ div.header-menu {
 
 div.header-menu > * {
   list-style-type: none;
-  // position: relative;
 }
 
 label {
@@ -268,7 +200,13 @@ input#menu-check {
 
 input:checked ~ ul.menu{
   max-height: 300px;
-  transition: max-height 0.5s ease-in;
+  transition: max-height 0.4s;
+  animation: fadein 0.4s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 ul.menu {
@@ -279,9 +217,15 @@ ul.menu {
   max-height: 0;
   overflow: hidden;
   list-style-type: none;
-  box-shadow: 0 1px 3px rgba(200,200,200,0.7);
-  transition: max-height 0.5s ease-out;
+  box-shadow: 0 1px 1px rgba(200,200,200,0.7);
+  transition: max-height 0.4s ease-out;
+  animation: fadeout 0.4s;
   position: absolute;
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
 ul.menu li {

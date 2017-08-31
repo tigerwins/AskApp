@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829162919) do
+ActiveRecord::Schema.define(version: 20170831134120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,17 +65,30 @@ ActiveRecord::Schema.define(version: 20170829162919) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "upvotes", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "answer_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_upvotes_on_answer_id", using: :btree
+    t.index ["user_id", "answer_id"], name: "index_upvotes_on_user_id_and_answer_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_upvotes_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "fname",           null: false
-    t.string   "lname",           null: false
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "fname",            null: false
+    t.string   "lname",            null: false
+    t.string   "email",            null: false
+    t.string   "password_digest",  null: false
+    t.string   "session_token",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "provider"
     t.string   "uid"
     t.text     "image"
+    t.string   "fb_access_token"
+    t.string   "fb_refresh_token"
+    t.string   "fb_uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
   end

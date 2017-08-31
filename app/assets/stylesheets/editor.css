@@ -85,3 +85,7 @@ span.name {
   margin: 0 8px;
   height: 27px;
 }
+
+div.editor-footer > button.submit-btn {
+  margin-right: 12px;
+}

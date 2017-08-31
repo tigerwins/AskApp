@@ -12,6 +12,10 @@ import {
   RECEIVE_COMMENT,
   REMOVE_COMMENT,
 } from '../actions/comment_actions';
+import {
+  RECEIVE_UPVOTE,
+  REMOVE_UPVOTE,
+} from '../actions/upvote_actions';
 
 const answerReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -19,15 +23,9 @@ const answerReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_QUESTIONS:
-      Object.keys(action.payload.answers).forEach(id => {
-        nextState[id] = action.payload.answers[id];
-      });
-      return nextState;
+      return action.payload.answers;
     case RECEIVE_QUESTION:
-      Object.keys(action.payload.answers).forEach(id => {
-        nextState[id] = action.payload.answers[id];
-      });
-      return nextState;
+      return action.payload.answers;
     case RECEIVE_NEW_QUESTION:
       Object.keys(action.payload.answers).forEach(id => {
         nextState[id] = action.payload.answers[id];
@@ -44,13 +42,26 @@ const answerReducer = (state = {}, action) => {
       return nextState;
     case RECEIVE_COMMENT:
       nextState = merge({}, state);
-      nextState[action.payload.comment.answer_id].commentIds.push(action.payload.comment.id);
+      const answerId = action.payload.comment.answer_id;
+      const commentId = action.payload.comment.id;
+      nextState[answerId].commentIds.push(commentId);
       return nextState;
     case REMOVE_COMMENT:
       nextState = merge({}, state);
       const { comment } = action.payload;
-      const commentIdx = nextState[comment.answer_id].commentIds.indexOf(comment.id);
-      nextState[comment.answer_id].commentIds.splice(commentIdx, 1);
+      const oldAnswerId = action.payload.comment.answer_id;
+      const commentIdx = nextState[oldAnswerId].commentIds.indexOf(comment.id);
+      nextState[oldAnswerId].commentIds.splice(commentIdx, 1);
+      return nextState;
+    case RECEIVE_UPVOTE:
+      nextState = merge({}, state);
+      const upvoteAnswerId = action.payload.answer_id;
+      nextState[upvoteAnswerId].num_upvotes += 1;
+      return nextState;
+    case REMOVE_UPVOTE:
+      nextState = merge({}, state);
+      const oldUpvoteAnswerId = action.payload.answer_id;
+      nextState[oldUpvoteAnswerId].num_upvotes -= 1;
       return nextState;
     default:
       return state;

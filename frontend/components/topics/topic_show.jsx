@@ -22,6 +22,11 @@ class TopicShow extends React.Component {
       <div className="topic-show-container content-wrapper">
         <Feeds />
         <div className="question-index-container">
+          <div className="topic-show-header">
+            { this.props.topic &&
+              <h2>{ this.props.topic.name }</h2>
+            }
+          </div>
           <TopicQuestionIndex />
         </div>
       </div>

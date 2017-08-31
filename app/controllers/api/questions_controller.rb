@@ -15,6 +15,7 @@ class Api::QuestionsController < ApplicationController
       @questions = Question.joins(:topics).where(
         "question_topics.topic_id = ?", params[:topicId]
       )
+      @topic = Topic.find(params[:topicId])
 
       render :index
     else

@@ -7,6 +7,10 @@ class QuestionIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const { questions } = this.props;
     const questionList = questions.map(question => (

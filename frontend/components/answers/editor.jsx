@@ -53,7 +53,7 @@ class Editor extends React.Component {
   }
 
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, closeEditor } = this.props;
 
     return (
       <div className="answer-editor">
@@ -77,6 +77,9 @@ class Editor extends React.Component {
           >
             Submit
           </button>
+          <span className="action-link" onClick={closeEditor}>
+            Cancel
+          </span>
         </div>
 
       </div>

@@ -24,7 +24,9 @@ const commentReducer = (state = {}, action) => {
       });
       return nextState;
     case RECEIVE_COMMENT:
-      const newComment = { [action.payload.comment.id]: action.payload.comment };
+      const newComment = {
+        [action.payload.comment.id]: action.payload.comment 
+      };
       return merge({}, state, newComment);
     case REMOVE_COMMENT:
       nextState = merge({}, state);
