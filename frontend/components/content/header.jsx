@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import CreateQuestionModal from '../questions/create_question_modal_container';
 import SearchBar from '../search/search_bar';
+import Avatar from 'react-avatar';
 
 class Header extends React.Component {
   constructor(props) {
@@ -79,11 +80,26 @@ class Header extends React.Component {
           <SearchBar />
 
           { /* This will become the profile photo eventually */}
-          <div className="user-img">
-            <button className="logout-btn" onClick={this.handleLogout}>
-              Logout
-            </button>
+          <div className="header-menu nav-item">
+            <input id="menu-check" type="checkbox" name="menu" />
+            <label htmlFor="menu-check">
+              <Avatar className="header-avatar" name={ this.props.currentUser.name } size={26} round={true}
+              textSizeRatio={2} />
+            </label>
+            <ul className="menu">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact Me</a></li>
+              <li><a href="#" onClick={this.handleLogout}>
+                Logout
+              </a></li>
+            </ul>
           </div>
+
+
+
+          {/* <button className="logout-btn" onClick={this.handleLogout}>
+            Logout
+          </button> */}
 
           <div className="ask-question">
             <button className="question-btn" onClick={this.askQuestion}>

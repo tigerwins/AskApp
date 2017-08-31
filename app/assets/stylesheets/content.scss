@@ -87,6 +87,10 @@ div.header-nav {
   box-sizing: border-box;
 }
 
+.nav-item {
+  cursor: pointer;
+}
+
 .nav-item:hover {
   text-decoration: none;
   background-color: #f5f5f5;
@@ -267,4 +271,91 @@ div.feed-list > a:hover {
   background-color: #ececec;
   border-radius: 3px;
   cursor: pointer;
+}
+
+div.header-menu {
+  // position: fixed;
+  // top: 0;
+  // width: 100%;
+  margin: 0;
+  padding: 0;
+  // display: flex;
+  // flex-direction: column-reverse;
+}
+
+div.header-menu > * {
+  list-style-type: none;
+  // position: relative;
+}
+
+label {
+  // box-sizing: border-box;
+  width: 42px;
+  height: 52px;
+  padding: 0;
+  // position: relative;
+  // display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    // position: absolute;
+    // display: block;
+    // top: 50%;
+    // right: 5px;
+    width: 0;
+    height: 0;
+    transition:border-bottom .1s, border-top .1s .1s;
+  }
+}
+
+// label:hover,
+// input:checked ~ label {
+//   background: rgba(0,0,0,0.3)
+// }
+
+input:checked ~ label:after {
+  border-top:0 solid rgba(255,255,255,.5);
+  border-bottom:4px solid rgba(255,255,255,.5);
+  transition:border-top .1s, border-bottom .1s .1s;
+}
+
+input#menu-check {
+  display: none;
+}
+
+input:checked ~ ul.menu{
+  max-height: 300px;
+  transition: max-height 0.5s ease-in;
+}
+
+ul.menu {
+  z-index: 50;
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style-type: none;
+  box-shadow: 0 0 1px rgba(0,0,0,.3);
+  transition: max-height 0.5s ease-out;
+  position: absolute;
+}
+
+ul.menu li a {
+  // display: block;
+  padding: 12px;
+  color: #2b6dad;
+  text-decoration: none;
+  box-shadow: 0 -1px rgba(0,0,0,.5) inset;
+  transition :background .3s;
+  white-space: nowrap;
+}
+
+
+
+ul.menu li a:hover{
+  background: #dfeffa;
+  text-decoration: none;
 }
