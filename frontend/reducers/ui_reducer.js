@@ -4,6 +4,7 @@ import {
   RECEIVE_SEARCH_RESULTS,
   CLEAR_SEARCH,
 } from '../actions/ui_actions';
+// import { RECEIVE_FEED_TOPICS } from '../actions/topic_actions';
 
 const initialState = {
   modal: {
@@ -12,6 +13,7 @@ const initialState = {
   },
   search: [],
   notifications: "",
+  feeds: []
 };
 
 const uiReducer = (state = initialState, action) => {
@@ -38,6 +40,9 @@ const uiReducer = (state = initialState, action) => {
     case CLEAR_SEARCH:
       const clearSearch = { search: [] };
       return merge({}, state, clearSearch);
+    // case RECEIVE_FEED_TOPICS:
+    //   const feedTopics = { feeds: action.payload.topics };
+    //   return merge({}, state, feedTopics);
     default:
       return state;
   }

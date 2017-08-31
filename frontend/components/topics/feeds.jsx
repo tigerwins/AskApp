@@ -1,19 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
-// import * as TopicAPIUtil from '../../util/topic_api_util';
 
 class Feeds extends React.Component {
   constructor(props) {
     super(props);
-    this.topics = [];
   }
 
   componentDidMount() {
-    // debugger
-    // TopicAPIUtil.fetchTopics().then(topics => {
-      // this.topics = topics;
-    // });
+    // this.props.retrieveFeedTopics();
   }
 
   renderFeeds() {
@@ -21,7 +16,6 @@ class Feeds extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <div className="feeds-sidebar">
         <div className="feeds-header">
@@ -42,7 +36,7 @@ class Feeds extends React.Component {
           </NavLink>
           <NavLink exact={true} to="/topics/1" activeClassName="selected-feed">
             <div className="feed">
-              Food
+              Technology
             </div>
           </NavLink>
           <NavLink exact={true} to="/topics/2" activeClassName="selected-feed">
@@ -52,7 +46,17 @@ class Feeds extends React.Component {
           </NavLink>
           <NavLink exact={true} to="/topics/3" activeClassName="selected-feed">
             <div className="feed">
+              Money
+            </div>
+          </NavLink>
+          <NavLink exact={true} to="/topics/4" activeClassName="selected-feed">
+            <div className="feed">
               History
+            </div>
+          </NavLink>
+          <NavLink exact={true} to="/topics/5" activeClassName="selected-feed">
+            <div className="feed">
+              Hypothetical Scenarios
             </div>
           </NavLink>
         </div>
@@ -61,16 +65,18 @@ class Feeds extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+export default Feeds;
 
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-
-  };
-};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Feeds));
+// const mapStateToProps = (state) => {
+//   return {
+//
+//   };
+// };
+//
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//
+//   };
+// };
+//
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Feeds));

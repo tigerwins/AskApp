@@ -195,11 +195,18 @@ button.question-btn:active {
   opacity: .7;
 }
 
-html, .content {
-  background-color: #fff;
+body, .content {
+  // background-color: #fff;
+  // background: #fafafa;
+}
+
+.ask-app {
+  background: #fafafa;
 }
 
 .content {
+  height: 100%;
+  padding-bottom: 50px;
   // background-color: #fff;
 }
 
@@ -244,7 +251,7 @@ div.feed-list {
 
 div.feed-list div.feed {
   width: 142px;
-  height: 18px;
+  // height: 18px;
   padding: 4px 5px;
   margin-left: -5px;
   margin-bottom: 4px;
@@ -256,14 +263,8 @@ div.feed-list > a:hover {
   cursor: pointer;
 }
 
-div.feed-list > .selected-feed {
+.selected-feed > div.feed {
   background-color: #ececec;
-  border-radius: 3;
-  cursor: default;
+  border-radius: 3px;
+  cursor: pointer;
 }
-
-
-
-
-
-// end

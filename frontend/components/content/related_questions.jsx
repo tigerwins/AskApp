@@ -5,7 +5,7 @@ const RelatedQuestions = (props) => {
 
   return (
     <div className="related-questions-box">
-      
+
     </div>
   );
 };

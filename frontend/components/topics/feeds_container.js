@@ -1,18 +1,11 @@
 import Feeds from './feeds';
 import { connect } from 'react-redux';
-import * as TopicAPIUtil from '../../util/topic_api_util';
+// import { fetchFeedTopics } from '../../util/topic_api_util';
 
-const mapStateToProps = (state) => {
-  let topicArray = [];
-  TopicAPIUtil.fetchTopics().then(topics => {
-    topicArray = topics;
-  });
-
-  debugger
-
+const mapDispatchToProps = (dispatch) => {
   return {
-
+    // retrieveFeedTopics: () => dispatch(fetchFeedTopics())
   };
 };
 
-export default connect(mapStateToProps, null)(Feeds);
+export default connect(mapDispatchToProps, null)(Feeds);

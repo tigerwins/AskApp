@@ -5,8 +5,6 @@
 div.comment-editor {
   display: flex;
   min-height: 27px;
-  /*background-color: #fff;*/
-  /*max-width: 318px;*/
 }
 
 div.comment-editor .ql-container, div.comment-editor .ql-editor {
@@ -41,6 +39,10 @@ img.avatar {
   margin-right: 8px;
   width: 27px;
   height: 27px;
+}
+
+.editor-avatar {
+  margin-right: 8px;
 }
 
 span.name {
