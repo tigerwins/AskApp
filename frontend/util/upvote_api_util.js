@@ -1,7 +1,3 @@
-export const fetchUpvotes = () => {
-
-};
-
 export const createUpvote = upvote => {
   return $.ajax({
     method: "POST",

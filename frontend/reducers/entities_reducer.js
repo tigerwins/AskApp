@@ -4,6 +4,7 @@ import questionReducer from './question_reducer';
 import answerReducer from './answer_reducer';
 import commentReducer from './comment_reducer';
 import topicReducer from './topic_reducer';
+// import upvoteReducer from './upvote_reducer';
 
 const entitiesReducer = combineReducers({
   users: userReducer,
@@ -11,6 +12,7 @@ const entitiesReducer = combineReducers({
   answers: answerReducer,
   comments: commentReducer,
   topics: topicReducer,
+  // upvotes: upvoteReducer,
 });
 
 export default entitiesReducer;
