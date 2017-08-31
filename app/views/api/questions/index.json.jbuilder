@@ -57,7 +57,6 @@ askers = @questions.map(&:asker)
 authors = newest_answers.map(&:author)
 commenters = first_answer_comments.map(&:user)
 all_users = (askers + authors + commenters).flatten
-# + [current_user]
 
 json.users({})
 json.users do

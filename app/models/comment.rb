@@ -27,7 +27,4 @@ class Comment < ApplicationRecord
   #   primary_key: :id,
   #   foreign_key: :parent_comment_id,
   #   optional: true
-
-  # ^^^^^should probably delete this for now
-
 end
