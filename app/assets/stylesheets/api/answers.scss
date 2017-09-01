@@ -46,8 +46,15 @@ div.answer-content {
 }
 
 div.answer-content * {
-  color: #333;
   font-size: 15px;
+}
+
+div.answer-content a {
+  color: #2b6dad;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .answer-action-bar {
