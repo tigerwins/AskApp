@@ -75,8 +75,6 @@ class SearchBar extends React.Component {
     this.props.history.push(`/questions/${suggestion.id}`);
   }
 
-  // ^ REACT-AUTOSUGGEST
-
   handleChange(e, { newValue }) {
     const self = this;
 

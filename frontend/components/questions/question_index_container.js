@@ -6,7 +6,6 @@ import { fetchQuestions } from '../../actions/question_actions';
 const mapStateToProps = (state) => {
   return {
     questions: allQuestions(state),
-    // errors: state.errors,
   };
 };
 

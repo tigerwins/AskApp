@@ -7,7 +7,6 @@ import { clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const { users, questions, topics } = state.entities;
-  // const id = ownProps.match.params.id;
 
   return {
     currentUser: state.session.currentUser,

@@ -18,7 +18,6 @@ class Question extends React.Component {
 
   componentDidMount() {
     // fetch answer with the most upvotes?
-    // until upvotes are implemented, fetch the first answer w/ selector
   }
 
   answerQuestion(e) {
@@ -27,8 +26,6 @@ class Question extends React.Component {
 
   closeEditor(e) {
     this.setState({ displayEditor: false });
-    // commented this out--not sure if I need it at all!
-    // this.props.refreshPage();
   }
 
   render() {

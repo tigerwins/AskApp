@@ -157,7 +157,7 @@ class QuestionModal extends React.Component {
 
   preventDefaultForScrollKeys(e) {
     const keys = {33: 1, 34: 1, 35: 1, 36: 1};
-    // 37: 1, 38: 1, 39: 1, 40: 1
+
     if (e.keyCode === 27) {
       this.toggleModal();
     } else if (keys[e.keyCode]) {

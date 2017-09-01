@@ -66,17 +66,3 @@ class Feeds extends React.Component {
 }
 
 export default Feeds;
-
-// const mapStateToProps = (state) => {
-//   return {
-//
-//   };
-// };
-//
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//
-//   };
-// };
-//
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Feeds));

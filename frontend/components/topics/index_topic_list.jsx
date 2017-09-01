@@ -48,9 +48,7 @@ class IndexTopicList extends React.Component {
 const mapStateToProps = ({ entities }, ownProps) => {
   const questionId = ownProps.question.id;
   const topicIds = entities.questions[questionId].topicIds;
-  // const topicKeys = Object.keys(entities.topics);
   const lastTopic = entities.topics[topicIds[topicIds.length - 1]];
-
 
   return {
     lastTopic,
