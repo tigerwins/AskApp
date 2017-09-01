@@ -31,7 +31,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '*']
   },
-  plugings: plugins,
+  plugins: plugins,
   module: {
     loaders: [
       {
