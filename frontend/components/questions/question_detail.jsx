@@ -11,11 +11,13 @@ class QuestionDetail extends React.Component {
   componentDidMount() {
     this.props.requestQuestion(this.props.questionId);
     document.body.classList.toggle('white-background', true);
+    window.scrollTo(0, 0);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.requestQuestion(nextProps.questionId);
+      window.scrollTo(0, 0);
     }
   }
 

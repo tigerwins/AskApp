@@ -9,11 +9,13 @@ class TopicShow extends React.Component {
 
   componentDidMount() {
     this.props.requestQuestions(this.props.match.params.id);
+    window.scrollTo(0, 0);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.requestQuestions(nextProps.match.params.id);
+      window.scrollTo(0, 0);
     }
   }
 

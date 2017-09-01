@@ -17,6 +17,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.requestQuestions();
+    window.scrollTo(0, 0);
   }
 
   askQuestion(e) {

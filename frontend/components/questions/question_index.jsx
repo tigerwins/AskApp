@@ -8,7 +8,13 @@ class QuestionIndex extends React.Component {
   }
 
   componentDidMount () {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // if (this.props.match.params.id !== nextProps.match.params.id) {
+    //   window.scrollTo(0, 0);
+    // }
   }
 
   render() {
