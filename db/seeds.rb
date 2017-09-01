@@ -32,8 +32,8 @@ user4 = User.create!(
   password: "qwerty123"
 )
 demo_user = User.create!(
-  fname: "Godot",
-  lname: "wasHere",
+  fname: "Demo",
+  lname: "User",
   email: "demo_user@me.com",
   password: "hiddenPassword"
 )
