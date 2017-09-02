@@ -14,25 +14,39 @@ The app conditionally renders the entry/login page or the home page at the root 
 
 ### Questions
 
-Questions are the backbone feature of Ask(). They are stored with `id`, `body`, and `asker_id` columns. After login, the app makes a `GET` request the  to fetch all data for the `QuestionIndex` home page component, which itself consists of `QuestionIndexItem` and `Answer` components. All the relevant data regarding all entities used on the page are returned in an index jbuilder response, effectively bundling all required AJAX requests into one and minimizing the number of asynchronous `GET` requests necessary to render the page. The same is done for a `QuestionDetail` page that shows a `Question` and an `AnswerIndex` showing all answers for that particularly question.
+Questions are the backbone feature of Ask(). They are stored with `id`, `body`, and `asker_id` columns. After login, the app makes a `GET` request the  to fetch all data for the `QuestionIndex` home page component, which itself consists of `QuestionIndexItem` and `Answer` components. All the relevant data regarding all entities used on the page are returned in an index jbuilder response, bundling all AJAX requests into one and minimizing the number of asynchronous actions necessary to render the page. The same is done for a `QuestionDetail` page that shows a `Question` and an `AnswerIndex` showing all answers for that particularly question.
+
+![image of Home][home]
+
+[home]: https://github.com/tigerwins/AskApp/docs/screen-clippings/home.png "Home"
+
+The UI was made to match Quora's design for a clean, minimalistic style.
 
 Question writing is handled in a modal that is opened up through the Ask Question button in the header or the `QuestionPrompt` component on the home page. Questions can also be edited on their individual show pages, accessed by clicking on a question title in a `QuestionIndex`. Mouse and key bindings prevent typical mousewheel scrolling while the modal is open and allows the user to exit the modal by pressing `Esc` or clicking outside the box.
 
+![image of QuestionModal][modal]
+
+[modal]: https://github.com/tigerwins/AskApp/docs/screen-clippings/modal.png "Question Modal"
+
 ### Answers and Comments
 
-All answers to questions can be viewed on a question's show page. Rich text editing is handled by the `react-quill` component, which can be customized for various styles and formats. Answers are stored with `id`, `body`, `author_id`, and `question_id` columns.
+All answers to questions can be viewed on a question's show page. Rich text editing is handled by `react-quill`, which is implemented in the `Editor` component, customized differently to handle both answering and commenting.
+
+Answers are stored with `id`, `body`, `author_id`, and `question_id` columns, and comments are stored with `id`, `body`, `user_id`, and `answer_id`.
 
 ### Question Search
 
-The search function combines the `pg_search` gem and the `react-autosuggest` component. `pg_search` uses PostgreSQL to make a trigram search against the questions table's `body` field with a given query string.
+The search function uses the `pg_search` gem, which PostgreSQL's full text search to make a trigram search against the questions table's `body` field with a given query string. Ask() uses `react-autosuggest` on the frontend in order to display the options that `pg_search` has returned from the backend.
+
+![image of SearchBar and auto-suggestions][search]
+
+[search]: https://github.com/tigerwins/AskApp/docs/screen-clippings/search.png
 
 ### Topics
 
-Each question can be given topic tags at the top of each question's individual show page. The `Enter` key has been bound to submit whatever has been entered into the "Add New Topic" input area.
+Each question can be given topic tags at the top of each question's individual show page. Topics are stored in a table with `id` and `name` columns and are combined with the answers through a join table `question_topics` that has an `id`, `topic_id`, and `answer_id`.
 
-Topics are stored in a table with `id` and `name` columns and are combined with the answers through a join table `question_topics` that has an `id`, `topic_id`, and `answer_id`.
-
-The `QuestionTopicsConstroller` in the backend handles dynamic instantiation of topics whenever a user inputs a new topic for a question using Rails'
+The `QuestionTopicsConstroller` in the backend handles dynamic instantiation of topics (using Rails' `find_or_create_by` method) and subsequent linking with a question whenever a user inputs a new topic tag.
 
 ## Development
 
@@ -50,7 +64,7 @@ After both `webpack` and `rails server` are up and running, you should be able t
 
 ## Future Features
 
-There are several other features that I would like to add on to the app. Below I outline a few paths to pursue.
+There are several other features that I would like to add on to the app. Below I outline a few paths to pursue:
 
 ### Omniauth with Facebook and Google
 
