@@ -16,12 +16,12 @@ The app conditionally renders the entry/login page or the home page at the root 
 
 Questions are the backbone feature of Ask(). They are stored with `id`, `body`, and `asker_id` columns. After login, the app makes a `GET` request the  to fetch all data for the `QuestionIndex` home page component All the relevant data regarding all entities used on the page are returned in an index jbuilder response, bundling all AJAX requests into one and minimizing the number of asynchronous actions necessary to render the page. The same is done for a `QuestionDetail` page that shows a `Question` and an `AnswerIndex` showing all answers for that particularly question.
 
-![image of Home](/screen-clippings/home.png)
+![image of Home](screen-clippings/home.png)
 The UI was made to match Quora's design for a clean, minimalistic style.
 
 Question writing is handled in a modal that is opened up through the Ask Question button in the header or the `QuestionPrompt` component on the home page. Questions can also be edited on their individual show pages, accessed by clicking on a question title in a `QuestionIndex`. Mouse and key bindings prevent typical mousewheel scrolling while the modal is open and allows the user to exit the modal by pressing `Esc` or clicking outside the box.
 
-![image of QuestionModal](/screen-clippings/modal.png)
+![image of QuestionModal](screen-clippings/modal.png)
 
 ### Answers and Comments
 
@@ -33,7 +33,7 @@ Answers are stored with `id`, `body`, `author_id`, and `question_id` columns, an
 
 The search function uses the `pg_search` gem, which PostgreSQL's full text search to make a trigram search against the questions table's `body` field with a given query string. Ask() uses `react-autosuggest` on the frontend in order to display the options that `pg_search` has returned from the backend.
 
-![image of SearchBar and auto-suggestions](/screen-clippings/search.png)
+![image of SearchBar and auto-suggestions](screen-clippings/search.png)
 
 ### Topics
 
