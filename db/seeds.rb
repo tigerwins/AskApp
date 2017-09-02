@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 User.destroy_all
 user1 = User.create!(
   fname: "John",
@@ -23,7 +15,7 @@ user3 = User.create!(
   fname: "Adam",
   lname: "D'Angelo",
   email: "dangelo@mail.com",
-  password: "QuoraCEO"
+  password: "quoraguy"
 )
 user4 = User.create!(
   fname: "Michael",
@@ -73,3 +65,23 @@ q7 = Question.create!(
   body: "I'm just about to start college this fall. Can you give me some advice to avoid the common pitfalls of undergrad?",
   asker_id: user4.id
 )
+
+Answer.destroy_all
+a1 = Answer.create!(body: "What do you mean? African or European swallow? The European swallow has an average cruising airspeed velocity of roughly 24 miles per hour (or 11 meters per second).", question_id: q3.id, author_id: user4.id)
+
+a2 = Answer.create!(body: "You should obviously attend App Academy; it is rated the #1 coding bootcamp, and the deferred tuition means you don't have to pay until you get a job! We have motivated and inspiring teachers, and our program currently has a 98% job placement rate and an average NYC starting salary of 89k. Sounds like a pretty good deal to me!", question_id: q6.id, author_id: tommy.id)
+
+Topic.destroy_all
+t1 = Topic.create!(id: 1, name: "Technology")
+t2 = Topic.create!(id: 2, name: "Science")
+t3 = Topic.create!(id: 3, name: "Money")
+t4 = Topic.create!(id: 4, name: "History")
+t5 = Topic.create!(id: 5, name: "Hypothetical Scenarios")
+t6 = Topic.create!(id: 6, name: "Career Advice")
+
+QuestionTopic.destroy_all
+qt1 = QuestionTopic.create!(topic_id: t1.id, question_id: q6.id)
+qt2 = QuestionTopic.create!(topic_id: t6.id, question_id: q6.id)
+qt3 = QuestionTopic.create!(topic_id: t3.id, question_id: q1.id)
+qt4 = QuestionTopic.create!(topic_id: t5.id, question_id: q3.id)
+qt5 = QuestionTopic.create!(topic_id: t4.id, question_id: q4.id)
