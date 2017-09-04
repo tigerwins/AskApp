@@ -5,6 +5,8 @@ export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
 export const RECEIVE_NEW_QUESTION = "RECEIVE_NEW_QUESTION";
 export const REMOVE_QUESTION = "REMOVE_QUESTION";
+export const START_LOADING_QUESTIONS = "START_LOADING_QUESTIONS";
+export const START_LOADING_QUESTION = "START_LOADING_QUESTION";
 
 export const receiveQuestions = payload => ({
   type: RECEIVE_QUESTIONS,
@@ -25,6 +27,16 @@ export const removeQuestion = payload => ({
   type: REMOVE_QUESTION,
   payload,
 });
+
+export const startLoadingQuestions = () => ({
+  type: START_LOADING_QUESTIONS
+});
+
+export const startLoadingQuestion = () => ({
+  type: START_LOADING_QUESTION
+});
+
+
 
 export const fetchQuestions = () => dispatch => {
   return QuestionAPIUtil.fetchQuestions().then(

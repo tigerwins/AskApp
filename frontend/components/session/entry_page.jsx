@@ -63,7 +63,7 @@ class EntryPage extends React.Component {
           </div>
 
           <div className="footer-border">
-            Coded by Jonathan Liu. Inspired by <a href="https://www.quora.com" target="_blank">Quora</a>.
+            Inspired by <a href="https://www.quora.com" target="_blank">Quora</a>.
           </div>
           <nav className="entry-footer">
             <ul className="personal-info">
