@@ -20,7 +20,6 @@ class Feeds extends React.Component {
       <div className="feeds-sidebar">
         <div className="feeds-header">
           <h4>Feeds</h4>
-          <span className="edit">Edit</span>
         </div>
 
         <div className="feed-list">
