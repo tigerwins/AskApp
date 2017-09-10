@@ -88,7 +88,7 @@ class SignupForm extends React.Component {
             <span className="signup-link show-form" onClick={this.props.toggleSignup}>
               Continue With Email
             </span>.
-            Signing up typically indicates that you have read and agree to the <span className="tos-pp">Terms of Service</span> and <span className="tos-pp">Privacy Policy</span>, but let's not kid ourselves.
+            Signing up typically indicates that you have read and agree to the Terms of Service and Privacy Policy.
           </span>
         </div>
       );
@@ -151,7 +151,7 @@ class SignupForm extends React.Component {
             />
         </div>
         <span>
-          By clicking "Sign Up" you indicate that you have read and agree to the <span className="tos-pp">Terms of Service</span> and <span className="tos-pp">Privacy Policy</span>.
+          Clicking "Sign Up" typically indicates that you have read and agree to the Terms of Service and Privacy Policy, but let's not kid ourselves.
         </span>
 
         <div className="signup-form-btns">
