@@ -87,6 +87,10 @@ div.header-nav {
 div.nav-item {
   cursor: auto;
 }
+ 
+// div.notification-blank {
+//   width: 132px;
+// }
 
 .nav-item:hover {
   text-decoration: none;
@@ -100,6 +104,10 @@ div.nav-item {
   margin-right: 4px;
   margin-bottom: -6px;
   background-size: contain;
+}
+
+a.logo-link {
+  margin-right: auto;
 }
 
 h2.logo {
@@ -177,7 +185,7 @@ div.header-menu > * {
   list-style-type: none;
 }
 
-label {
+.header label {
   width: 42px;
   height: 52px;
   display: flex;

@@ -28,6 +28,7 @@ class Header extends React.Component {
             <h2 className="logo">Ask(<span className="logo-space"> </span>)</h2>
           </Link>
           <div className="header-nav">
+            {/*<div className="notification-blank"></div>*/}
             <NavLink className="nav-item" exact={true} to="/"
               activeClassName="active-nav"
               activeStyle={{ color: "#b92b27", iconColor: "#b92b27", borderColor: "#b92b27", opacity: "1" }}
@@ -61,7 +62,7 @@ class Header extends React.Component {
               <span className="nav-item-text">Answer</span>
             </NavLink>
 
-            <div className="nav-item">
+            {/* <div className="nav-item">
               <span className="nav-item-icon">
                 <svg width="24px" height="24px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
                   <g id="notif" stroke="var(--icon_color, #555)" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -74,7 +75,7 @@ class Header extends React.Component {
               <span className="nav-item-text">
                 Notifications
               </span>
-            </div>
+            </div> */}
           </div>
 
           <SearchBar />
@@ -87,9 +88,9 @@ class Header extends React.Component {
             </label>
 
             <ul className="menu">
-              <li><span><a target="_blank" href="https://github.com/tigerwins/AskApp/">Github</a></span></li>
+              {/* <li><span><a target="_blank" href="https://github.com/tigerwins/AskApp/">Github</a></span></li>
               <li><span><a target="_blank" href="https://www.linkedin.com/in/jonathanzliu/">LinkedIn</a></span></li>
-              <li><span><a target="_blank" href="mailto:jonathan.liu137@gmail.com">Contact Me</a></span></li>
+              <li><span><a target="_blank" href="mailto:jonathan.liu137@gmail.com">Contact Me</a></span></li> */}
               <li><span><a href="#" className="action-link logout" onClick={this.handleLogout}>
                 Logout
               </a></span></li>
