@@ -2,7 +2,7 @@
 
 [Ask() live][heroku]
 
-[heroku]: https://the-ask-app.herokuapp.com
+[heroku]: http://www.the-ask-app.com
 
 Ask() is a full-stack web application inspired by Quora that allows users to ask and answer questions. The stack consists of Ruby on Rails (backend), PostgreSQL (database), and React.js and Redux (frontend).
 
