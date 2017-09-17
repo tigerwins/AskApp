@@ -44,6 +44,7 @@ class Api::QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
+    @current_user = current_user
 
     if @question.update(question_params)
       render :show
