@@ -88,9 +88,6 @@ class Header extends React.Component {
             </label>
 
             <ul className="menu">
-              {/* <li><span><a target="_blank" href="https://github.com/tigerwins/AskApp/">Github</a></span></li>
-              <li><span><a target="_blank" href="https://www.linkedin.com/in/jonathanzliu/">LinkedIn</a></span></li>
-              <li><span><a target="_blank" href="mailto:jonathan.liu137@gmail.com">Contact Me</a></span></li> */}
               <li><span><a href="#" className="action-link logout" onClick={this.handleLogout}>
                 Logout
               </a></span></li>
