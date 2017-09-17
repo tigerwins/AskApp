@@ -38,17 +38,17 @@ class Answer extends React.Component {
       <div className="answer">
         <div className="answer-header">
           <div className="avatar">
-            <Avatar name={ author.name } size={40} round={true} textSizeRatio={2} />
+            <Avatar name={author.name} size={40} round={true} textSizeRatio={2} />
           </div>
           <div className="answer-info">
             <span className="author">{author.name}</span>
-            <span className="timestamp">Answered on { date }</span>
+            <span className="timestamp">Answered on {date}</span>
           </div>
         </div>
 
         <div className="answer-content">
           <div className="answer-body-full">
-            { ReactHtmlParser(answer.body) }
+            {ReactHtmlParser(answer.body)}
           </div>
         </div>
 
@@ -64,13 +64,13 @@ class Answer extends React.Component {
               <span className="upvote-text">Upvoted</span>
             )}
             <span className="upvote-count">
-              { this.props.answer.num_upvotes }
+              {this.props.answer.num_upvotes}
             </span>
           </span>
           </div>
 
           <div className="comment-box home-page-comment-box">
-            <CommentIndexContainer answerId={ answer.id } />
+            <CommentIndexContainer answerId={answer.id} />
           </div>
         </div>
       </div>

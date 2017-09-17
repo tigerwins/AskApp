@@ -30,8 +30,8 @@ class Home extends React.Component {
         <Feeds />
         <div className="question-index-container index-container">
           <QuestionPrompt
-            currentUser={ this.props.currentUser }
-            askQuestion={ this.askQuestion }
+            currentUser={this.props.currentUser}
+            askQuestion={this.askQuestion}
           />
           <QuestionIndexContainer />
         </div>

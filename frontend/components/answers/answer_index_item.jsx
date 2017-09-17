@@ -62,16 +62,16 @@ class AnswerIndexItem extends React.Component {
           <div className="display-answer">
             <div className="answer-header">
               <div className="avatar">
-                <Avatar name={ author.name } size={40} round={true} textSizeRatio={2} />
+                <Avatar name={author.name} size={40} round={true} textSizeRatio={2} />
               </div>
               <div className="answer-info">
                 <span className="author">{author.name}</span>
-                <span className="timestamp">Answered on { date }</span>
+                <span className="timestamp">Answered on {date}</span>
               </div>
             </div>
 
             <div className="answer-content">
-              { ReactHtmlParser(answer.body) }
+              {ReactHtmlParser(answer.body)}
             </div>
             <div className="answer-footer">
 
@@ -87,7 +87,7 @@ class AnswerIndexItem extends React.Component {
                       <span className="upvote-text">Upvoted</span>
                     )}
                     <span className="upvote-count">
-                      { this.props.answer.num_upvotes }
+                      {this.props.answer.num_upvotes}
                     </span>
                   </span>
                     <span className="edit action-link" onClick={this.editAnswer}>
@@ -109,7 +109,7 @@ class AnswerIndexItem extends React.Component {
                       <span className="upvote-text">Upvoted</span>
                     )}
                     <span className="upvote-count">
-                      { this.props.answer.num_upvotes }
+                      {this.props.answer.num_upvotes}
                     </span>
                   </span>
                   </div>
@@ -117,17 +117,17 @@ class AnswerIndexItem extends React.Component {
 
             </div>
             <div className="comment-box answer-index-comment-box">
-              <CommentIndexContainer answerId={ answer.id } />
+              <CommentIndexContainer answerId={answer.id} />
             </div>
           </div>
         ) : (
           <div className="display-editor">
             <Editor
-              currentUser={ currentUser }
-              question={ this.props.question }
-              closeEditor={ this.closeEditor }
-              textHtml={ answer.body }
-              answer={ answer }
+              currentUser={currentUser}
+              question={this.props.question}
+              closeEditor={this.closeEditor}
+              textHtml={answer.body}
+              answer={answer}
               actionType="edit"
             />
           </div>

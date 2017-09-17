@@ -94,7 +94,7 @@ class QuestionModal extends React.Component {
                   { formType === "create" ? (
                     <div className="user-header">
                       <span className="user-icon">
-                        <Avatar name={ this.props.currentUser.name } size={25} round={true} textSizeRatio={2} />
+                        <Avatar name={this.props.currentUser.name} size={25} round={true} textSizeRatio={2} />
                       </span>
                       <span className="user-asks">
                         {this.props.currentUser.name} asks

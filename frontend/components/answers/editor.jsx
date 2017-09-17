@@ -58,7 +58,7 @@ class Editor extends React.Component {
     return (
       <div className="answer-editor">
         <div className="editor-header">
-          <Avatar className="editor-avatar" name={ currentUser.name } size={40} round={true}
+          <Avatar className="editor-avatar" name={currentUser.name} size={40} round={true}
             textSizeRatio={2} />
           <span className="name">{currentUser.name}</span>
         </div>

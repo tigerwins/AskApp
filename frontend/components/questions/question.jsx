@@ -98,9 +98,9 @@ class Question extends React.Component {
 
         { this.state.displayEditor &&
           <Editor
-            currentUser={ this.props.currentUser }
-            question={ this.props.question }
-            closeEditor={ this.closeEditor }
+            currentUser={this.props.currentUser}
+            question={this.props.question}
+            closeEditor={this.closeEditor}
             actionType="create" />
         }
       </div>

@@ -22,7 +22,7 @@ class IndexTopicList extends React.Component {
             data-topic-id={lastTopic.id}
           >
             <Link to={`/topics/${lastTopic.id}`}>
-              { lastTopic.name }
+              {lastTopic.name}
             </Link>
           </div>
         </div>
@@ -38,7 +38,7 @@ class IndexTopicList extends React.Component {
         ) : (
           <div className="header-question-status">Question asked</div>
         )}
-        { this.renderLastTopic() }
+        {this.renderLastTopic()}
       </div>
     );
   }

@@ -11,14 +11,14 @@ class QuestionIndex extends React.Component {
     const { questions } = this.props;
     const questionList = questions.map(question => (
       <li className="index-box" key={question.id}>
-        <QuestionIndexItemContainer question={ question } />
+        <QuestionIndexItemContainer question={question} />
       </li>
     ));
 
     return (
       <div className="">
         <ul className="question-feed">
-          { questionList.reverse() }
+          {questionList.reverse()}
         </ul>
       </div>
     );

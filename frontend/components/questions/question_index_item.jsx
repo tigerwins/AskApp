@@ -48,7 +48,7 @@ class Question extends React.Component {
         ) : (
           <div className="empty-question-footer">
             <span className="timestamp question-timestamp">
-              Asked on { date }
+              Asked on {date}
             </span>
 
             <div className="empty-question-action-bar">
@@ -64,9 +64,9 @@ class Question extends React.Component {
 
             { this.state.displayEditor &&
               <Editor
-                currentUser={ this.props.currentUser }
-                question={ question }
-                closeEditor={ this.closeEditor }
+                currentUser={this.props.currentUser}
+                question={question}
+                closeEditor={this.closeEditor}
                 actionType="create" />
             }
 

@@ -104,15 +104,15 @@ class SearchBar extends React.Component {
 
     return (
       <Autosuggest
-        suggestions={ searchResults }
-        onSuggestionsFetchRequested={ this.onSuggestionsFetchRequested }
-        onSuggestionsClearRequested={ this.onSuggestionsClearRequested }
-        onSuggestionSelected={ this.onSuggestionSelected }
-        onSuggestionHighlighted={ this.onSuggestionHighlighted }
-        focusInputOnSuggestionClick={ false }
-        getSuggestionValue={ this.getSuggestionValue }
-        renderSuggestion={ this.renderSuggestion }
-        inputProps={ inputProps }
+        suggestions={searchResults}
+        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        onSuggestionSelected={this.onSuggestionSelected}
+        onSuggestionHighlighted={this.onSuggestionHighlighted}
+        focusInputOnSuggestionClick={false}
+        getSuggestionValue={this.getSuggestionValue}
+        renderSuggestion={this.renderSuggestion}
+        inputProps={inputProps}
       />
     );
   }

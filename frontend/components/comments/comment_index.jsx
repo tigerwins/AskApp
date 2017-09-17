@@ -50,11 +50,11 @@ class CommentIndex extends React.Component {
       <div className="comment-index">
         <div className="comment-action-bar">
           <Avatar className="comment-avatar" size={27} round={true}
-            name={ this.props.currentUser.name }
+            name={this.props.currentUser.name}
             textSizeRatio={2} />
           <CommentEditor
-            expandComments={ this.expandComments }
-            answerId={ this.props.answerId }
+            expandComments={this.expandComments}
+            answerId={this.props.answerId}
             />
 
           <div className="expand-comment-link">
@@ -74,7 +74,7 @@ class CommentIndex extends React.Component {
           { this.state.displayComments ? (
             <div className="expanded-comments">
               <ul className="comment-list">
-                { this.renderComments() }
+                {this.renderComments()}
               </ul>
             </div>
           ) : (

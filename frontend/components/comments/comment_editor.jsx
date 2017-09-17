@@ -39,7 +39,7 @@ class CommentEditor extends React.Component {
       <div className="comment-editor">
         <div className="editor-wrapper">
           <ReactQuill
-            theme={ null }
+            theme={null}
             placeholder="Add a comment..."
             value={this.state.commentText}
             onChange={this.handleChange}

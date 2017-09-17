@@ -83,7 +83,7 @@ class Header extends React.Component {
           <div className="header-menu nav-item">
             <input id="menu-check" type="checkbox" name="menu" />
             <label htmlFor="menu-check">
-              <Avatar className="header-avatar" name={ this.props.currentUser.name } size={26} round={true}
+              <Avatar className="header-avatar" name={this.props.currentUser.name} size={26} round={true}
               textSizeRatio={2} />
             </label>
 

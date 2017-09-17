@@ -9,11 +9,11 @@ const Comment = (props) => {
 
   return (
     <li className="comment">
-      <Avatar className="comment-avatar" name={ user.name } size={27} round={true} textSizeRatio={2} />
+      <Avatar className="comment-avatar" name={user.name} size={27} round={true} textSizeRatio={2} />
 
       <div className="comment-text">
         <div className="comment-header">
-          <span className="user">{ user.name }</span>
+          <span className="user">{user.name}</span>
           { props.currentUser.id === user.id &&
             <span
               className="delete-comment action-link"
@@ -23,9 +23,9 @@ const Comment = (props) => {
             </span>
           }
         </div>
-        <span className="timestamp comment-timestamp">{ date }</span>
+        <span className="timestamp comment-timestamp">{date}</span>
         <span className="comment-body">
-          { ReactHtmlParser(comment.body) }
+          {ReactHtmlParser(comment.body)}
         </span>
       </div>
     </li>

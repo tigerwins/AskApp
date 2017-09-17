@@ -6,7 +6,7 @@ const QuestionPrompt = (props) => {
     <div className="prompt index-box">
       <div className="user">
         <div className="current-user">
-          <Avatar className="prompt-avatar" name={ props.currentUser.name } size={18} round={true} textSizeRatio={2} />
+          <Avatar className="prompt-avatar" name={props.currentUser.name} size={18} round={true} textSizeRatio={2} />
           <span className="user-name">{props.currentUser.name}</span>
         </div>
       </div>

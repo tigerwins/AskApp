@@ -12,9 +12,9 @@ class AnswerIndex extends React.Component {
       return (
         <li key={`answer-${id}`}>
           <AnswerIndexItem
-            answer={ answers[id] }
-            author={ users[answers[id].author_id] }
-            question={ question }
+            answer={answers[id]}
+            author={users[answers[id].author_id]}
+            question={question}
           />
         </li>
       );
@@ -26,7 +26,7 @@ class AnswerIndex extends React.Component {
           {Object.keys(answers).length} Answers
         </div>
         <ul className="answer-index">
-          { answerList.reverse() }
+          {answerList.reverse()}
         </ul>
       </div>
     );
