@@ -24,7 +24,6 @@ class SearchBar extends React.Component {
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.searchQuestions = searchQuestions.bind(this);
   }
@@ -89,10 +88,6 @@ class SearchBar extends React.Component {
         })
       );
     }
-  }
-
-  handleFocus(e) {
-
   }
 
   handleBlur(e) {

@@ -16,10 +16,6 @@ class Question extends React.Component {
     this.closeEditor = this.closeEditor.bind(this);
   }
 
-  componentDidMount() {
-    // fetch answer with the most upvotes?
-  }
-
   answerQuestion(e) {
     this.setState({ displayEditor: true });
   }

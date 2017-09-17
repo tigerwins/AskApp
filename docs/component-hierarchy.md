@@ -37,7 +37,6 @@
 **QuestionDetailContainer**
  - Question
  - AnswerIndex
- - RelatedQuestions
 
 **AnswerContainer**
  - Answer

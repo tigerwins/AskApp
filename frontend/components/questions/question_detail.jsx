@@ -1,7 +1,6 @@
 import React from 'react';
 import QuestionContainer from './question_container';
 import AnswerIndexContainer from '../answers/answer_index_container';
-import RelatedQuestions from '../content/related_questions';
 
 class QuestionDetail extends React.Component {
   constructor(props) {
@@ -37,7 +36,6 @@ class QuestionDetail extends React.Component {
               />
             <AnswerIndexContainer question={question} />
           </div>
-          <RelatedQuestions question={question} />
         </div>
       </div>
     );

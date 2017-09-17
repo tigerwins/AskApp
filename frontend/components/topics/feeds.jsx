@@ -7,14 +7,6 @@ class Feeds extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    // this.props.retrieveFeedTopics();
-  }
-
-  renderFeeds() {
-
-  }
-
   render() {
     return (
       <div className="feeds-sidebar">

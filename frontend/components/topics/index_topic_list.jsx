@@ -19,13 +19,12 @@ class IndexTopicList extends React.Component {
           <div
             className="index-topic"
             key={`topic-${lastTopic.id}`}
-            data-topic-id={lastTopic.id}>
-
+            data-topic-id={lastTopic.id}
+          >
             <Link to={`/topics/${lastTopic.id}`}>
               { lastTopic.name }
             </Link>
           </div>
-
         </div>
       );
     }

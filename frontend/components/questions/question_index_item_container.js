@@ -10,10 +10,4 @@ const mapStateToProps = (state, { question }) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionIndexItem);
+export default connect(mapStateToProps, null)(QuestionIndexItem);
