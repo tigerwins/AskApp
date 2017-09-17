@@ -17,7 +17,7 @@ asker = @question.asker
 answer_authors = @question.answers.map(&:author)
 question_comments = @question.answers.map(&:comments).flatten
 answer_commenters = question_comments.map(&:user).flatten
-all_users = [asker] + answer_authors + answer_commenters
+all_users = [@current_user, asker] + answer_authors + answer_commenters
 
 json.users({})
 json.users do

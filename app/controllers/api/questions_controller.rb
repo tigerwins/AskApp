@@ -1,5 +1,6 @@
 class Api::QuestionsController < ApplicationController
   def index
+    @current_user = current_user
     if params[:query]
       search_results = Question.search_questions(params[:query])
       @questions = search_results.to_a
@@ -36,6 +37,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @question = Question.find(params[:id])
     render :show
   end
