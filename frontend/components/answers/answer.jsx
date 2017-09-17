@@ -13,17 +13,8 @@ class Answer extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   expandedAnswer: false,
-    // };
-
-    // this.expandAnswer = this.expandAnswer.bind(this);
     this.handleUpvote = this.handleUpvote.bind(this);
   }
-
-  // expandAnswer(e) {
-  //   this.setState({ expanded: true });
-  // }
 
   handleUpvote(e) {
     e.preventDefault();
@@ -56,18 +47,9 @@ class Answer extends React.Component {
         </div>
 
         <div className="answer-content">
-        {/*  { this.state.expanded || short ? ( */}
-            <div className="answer-body-full">
-              { ReactHtmlParser(answer.body) }
-            </div>
-        {/*  ) : (
-            <div className="answer-body-preview" onClick={this.expandAnswer}>
-              <p className="answer-body">
-                { ReactHtmlParser(preview) }
-
-              </p>
-            </div>
-          )} */}
+          <div className="answer-body-full">
+            { ReactHtmlParser(answer.body) }
+          </div>
         </div>
 
         <div className="answer-footer">

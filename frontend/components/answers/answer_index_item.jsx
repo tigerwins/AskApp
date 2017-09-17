@@ -146,7 +146,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
     upvoteCss,
-
   };
 };
 
