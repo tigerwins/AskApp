@@ -10,7 +10,7 @@ import QuestionDetailContainer from './questions/question_detail_container';
 import NewQuestionsContainer from './questions/new_questions_container';
 import TopicShowContainer from './topics/topic_show_container';
 
-const App = ({ currentUser, modal}) => {
+const App = ({ currentUser, modal }) => {
   return (
     <div className="ask-app">
       { currentUser ? (
